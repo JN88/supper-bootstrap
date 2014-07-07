@@ -6937,6 +6937,54 @@ button.close {
 .f-0-ipt {
   font-size: 0px !important;
 }
+.w500 {
+  width: 500px;
+}
+.w500-ipt {
+  width: 500px !important;
+}
+.w450 {
+  width: 450px;
+}
+.w450-ipt {
+  width: 450px !important;
+}
+.w400 {
+  width: 400px;
+}
+.w400-ipt {
+  width: 400px !important;
+}
+.w350 {
+  width: 350px;
+}
+.w350-ipt {
+  width: 350px !important;
+}
+.w300 {
+  width: 300px;
+}
+.w300-ipt {
+  width: 300px !important;
+}
+.w250 {
+  width: 250px;
+}
+.w250-ipt {
+  width: 250px !important;
+}
+.w200 {
+  width: 200px;
+}
+.w200-ipt {
+  width: 200px !important;
+}
+.w150 {
+  width: 150px;
+}
+.w150-ipt {
+  width: 150px !important;
+}
 .w100 {
   width: 100px;
 }
@@ -7062,5 +7110,44 @@ button.close {
 }
 .w0-ipt {
   width: 0px !important;
+}
+.inline {
+  display: inline;
+}
+.inline-ipt {
+  display: inline !important;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline-block-ipt {
+  display: inline-block !important;
+}
+.block {
+  display: block;
+}
+.block-ipt {
+  display: block !important;
+}
+.clear {
+  clear: both;
+}
+.pos-relative {
+  position: relative;
+}
+.pos-relative-ipt {
+  position: relative !important;
+}
+.pos-static {
+  position: static;
+}
+.pos-static-ipt {
+  position: static !important;
+}
+.pos-absolute {
+  position: absolute;
+}
+.pos-absolute-ipt {
+  position: absolute !important;
 }
 /*# sourceMappingURL=style.css.map */

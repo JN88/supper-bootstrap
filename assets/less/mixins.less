@@ -9,57 +9,57 @@
 
 // TODO: Define Style Margin-Padding
 //---------------------------------------
-.marginAndPadding(@index, @countDown: 5, @min-size: 0)
+.marginAndPadding(@index, @countDown: 5, @min-size: 0, @ruler: px)
 {
 
 	// LOOP
 	.style_margin_padding (@index) when (@index >= @min-size) {
 
 	// Padding
-	.pd@{index} {padding: ~"@{index}px";}
-	.pdT@{index} {padding-top: ~"@{index}px";}
-	.pdR@{index} {padding-right: ~"@{index}px";}
-	.pdB@{index} {padding-bottom: ~"@{index}px";}
-	.pdL@{index} {padding-left: ~"@{index}px";}
+	.pd@{index} {padding: ~"@{index}@{ruler}";}
+	.pdT@{index} {padding-top: ~"@{index}@{ruler}";}
+	.pdR@{index} {padding-right: ~"@{index}@{ruler}";}
+	.pdB@{index} {padding-bottom: ~"@{index}@{ruler}";}
+	.pdL@{index} {padding-left: ~"@{index}@{ruler}";}
 
 	// Padding Important
-	.pd@{index}-ipt {padding: ~"@{index}px!important";}
-	.pdT@{index}-ipt {padding-top: ~"@{index}px!important";}
-	.pdR@{index}-ipt {padding-right: ~"@{index}px!important";}
-	.pdB@{index}-ipt {padding-bottom: ~"@{index}px!important";}
-	.pdL@{index}-ipt {padding-left: ~"@{index}px!important";}
+	.pd@{index}-ipt {padding: ~"@{index}@{ruler}!important";}
+	.pdT@{index}-ipt {padding-top: ~"@{index}@{ruler}!important";}
+	.pdR@{index}-ipt {padding-right: ~"@{index}@{ruler}!important";}
+	.pdB@{index}-ipt {padding-bottom: ~"@{index}@{ruler}!important";}
+	.pdL@{index}-ipt {padding-left: ~"@{index}@{ruler}!important";}
 
 	// Padding Horizatial
-	.pd-0-@{index} {padding: 0 ~"@{index}px";}
-	.pd-0-@{index}-ipt {padding: 0 ~"@{index}px!important";}
+	.pd-0-@{index} {padding: 0 ~"@{index}@{ruler}";}
+	.pd-0-@{index}-ipt {padding: 0 ~"@{index}@{ruler}!important";}
 
 
 	// Padding Vertical
-	.pd-@{index}-0 {padding: ~"@{index}px" 0;}
-	.pd-@{index}-0-ipt {padding: ~"@{index}px" 0!important;}
+	.pd-@{index}-0 {padding: ~"@{index}@{ruler}" 0;}
+	.pd-@{index}-0-ipt {padding: ~"@{index}@{ruler}" 0!important;}
 
 	//-----------------------------------------------------------------
 	// Margin
-	.mg@{index} {margin: ~"@{index}px";}
-	.mgT@{index} {margin-top: ~"@{index}px";}
-	.mgR@{index} {margin-right: ~"@{index}px";}
-	.mgB@{index} {margin-bottom: ~"@{index}px";}
-	.mgL@{index} {margin-left: ~"@{index}px";}
+	.mg@{index} {margin: ~"@{index}@{ruler}";}
+	.mgT@{index} {margin-top: ~"@{index}@{ruler}";}
+	.mgR@{index} {margin-right: ~"@{index}@{ruler}";}
+	.mgB@{index} {margin-bottom: ~"@{index}@{ruler}";}
+	.mgL@{index} {margin-left: ~"@{index}@{ruler}";}
 	// Margin Important
-	.mg@{index}-ipt {margin: ~"@{index}px!important";}
-	.mgT@{index}-ipt {margin-top: ~"@{index}px!important";}
-	.mgR@{index}-ipt {margin-right: ~"@{index}px!important";}
-	.mgB@{index}-ipt {margin-bottom: ~"@{index}px!important";}
-	.mgL@{index}-ipt {margin-left: ~"@{index}px!important";}
+	.mg@{index}-ipt {margin: ~"@{index}@{ruler}!important";}
+	.mgT@{index}-ipt {margin-top: ~"@{index}@{ruler}!important";}
+	.mgR@{index}-ipt {margin-right: ~"@{index}@{ruler}!important";}
+	.mgB@{index}-ipt {margin-bottom: ~"@{index}@{ruler}!important";}
+	.mgL@{index}-ipt {margin-left: ~"@{index}@{ruler}!important";}
 
 	// margin Horizatial
-	.mg-0-@{index} {margin: 0 ~"@{index}px";}
-	.mg-0-@{index}-ipt {margin: 0 ~"@{index}px!important";}
+	.mg-0-@{index} {margin: 0 ~"@{index}@{ruler}";}
+	.mg-0-@{index}-ipt {margin: 0 ~"@{index}@{ruler}!important";}
 
 	// margin Vertical
 
-	.mg-@{index}-0 {margin: ~"@{index}px" 0;}
-	.mg-@{index}-0-ipt {margin: ~"@{index}px" 0!important;}
+	.mg-@{index}-0 {margin: ~"@{index}@{ruler}" 0;}
+	.mg-@{index}-0-ipt {margin: ~"@{index}@{ruler}" 0!important;}
 
 	// next iteration
 	.style_margin_padding(@index - @countDown);
@@ -73,16 +73,16 @@
 
 // TODO: Utilities Class Font Size
 //---------------------------------------
-.fontSizeLoop(@maxFontSize, @countDown: 1, @min-size: 0) {
+.fontSizeLoop(@maxFontSize, @countDown: 1, @min-size: 0, @ruler: px) {
     .loopSize (@index) when (@index >= @min-size) {
         .f-@{index} {
             // your resulting css
-            font-size: ~"@{index}px";
+            font-size: ~"@{index}@{ruler}";
         }
 
         .f-@{index}-ipt {
             // your resulting css
-            font-size: ~"@{index}px"!important;
+            font-size: ~"@{index}@{ruler}"!important;
         }
 
         // next iteration
@@ -96,16 +96,16 @@
 
 // TODO: Loop Width Size
 //---------------------------------------
-.widthSizeLoop(@maxFontSize, @countDown: 1, @min-size: 0) {
+.widthSizeLoop(@maxFontSize, @countDown: 1, @min-size: 0, @ruler: px) {
     .loopSize (@index) when (@index >= @min-size) {
         .w@{index} {
             // your resulting css
-            width: ~"@{index}px";
+            width: ~"@{index}@{ruler}";
         }
 
         .w@{index}-ipt {
             // your resulting css
-            width: ~"@{index}px"!important;
+            width: ~"@{index}@{ruler}"!important;
         }
 
         // next iteration
@@ -160,7 +160,7 @@
 }
 
 // TODO: Link Color
-.linkColor(@color: @textColor, @colorHover: @linkColorHover){
+.linkColor(@color: @linkColor, @colorHover: @linkColorHover){
     color: @color;
     &:hover {
         color: @colorHover;
