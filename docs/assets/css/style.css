@@ -5896,7 +5896,19 @@ button.close {
 .panel-body:before,
 .panel-body:after,
 .modal-footer:before,
-.modal-footer:after {
+.modal-footer:after,
+.liquid-layout.fixedFluidOverflow:before,
+.liquid-layout.fixedFluidOverflow:after,
+.liquid-layout.fluidFixedOverflow:before,
+.liquid-layout.fluidFixedOverflow:after,
+.liquid-layout.fixedFluidFixedOverflow:before,
+.liquid-layout.fixedFluidFixedOverflow:after,
+.liquid-layout.fixedFluidDynamic:before,
+.liquid-layout.fixedFluidDynamic:after,
+.liquid-layout.fluidFixedDynamic:before,
+.liquid-layout.fluidFixedDynamic:after,
+.liquid-layout.fixedFluidFixedDynamic:before,
+.liquid-layout.fixedFluidFixedDynamic:after {
   content: " ";
   display: table;
 }
@@ -5914,7 +5926,13 @@ button.close {
 .navbar-collapse:after,
 .pager:after,
 .panel-body:after,
-.modal-footer:after {
+.modal-footer:after,
+.liquid-layout.fixedFluidOverflow:after,
+.liquid-layout.fluidFixedOverflow:after,
+.liquid-layout.fixedFluidFixedOverflow:after,
+.liquid-layout.fixedFluidDynamic:after,
+.liquid-layout.fluidFixedDynamic:after,
+.liquid-layout.fixedFluidFixedDynamic:after {
   clear: both;
 }
 .center-block {
@@ -6163,6 +6181,91 @@ button.close {
     display: none !important;
   }
 }
+/*--------------------------------------------------------------------------------*/
+.liquid-layout.fixedFluidOverflow .fixed-colum {
+  float: left;
+  width: 200px;
+  margin-right: 20px;
+}
+.liquid-layout.fixedFluidOverflow .fixed-colum + .fluid-colum {
+  overflow: hidden;
+}
+.liquid-layout.fixedFluidOverflow .fixed-colum.hidden + .fluid-colum,
+.liquid-layout.fixedFluidOverflow .fixed-colum.hide + .fluid-colum {
+  overflow: visible;
+}
+.liquid-layout.fluidFixedOverflow .fixed-colum {
+  float: right;
+  width: 200px;
+  margin-left: 20px;
+}
+.liquid-layout.fluidFixedOverflow .fixed-colum + .fluid-colum {
+  overflow: hidden;
+}
+.liquid-layout.fluidFixedOverflow .fixed-colum.hidden + .fluid-colum,
+.liquid-layout.fluidFixedOverflow .fixed-colum.hide + .fluid-colum {
+  overflow: visible;
+}
+.liquid-layout.fixedFluidFixedOverflow .fixed-left-colum {
+  float: left;
+  width: 200px;
+  margin-right: 20px;
+}
+.liquid-layout.fixedFluidFixedOverflow .fixed-right-colum {
+  float: right;
+  width: 200px;
+  margin-left: 20px;
+}
+.liquid-layout.fixedFluidFixedOverflow .fluid-colum {
+  overflow: hidden;
+}
+.liquid-layout.fixedFluidFixedOverflow .fixed-left-colum.hide + .fixed-right-colum.hide + .fluid-colum,
+.liquid-layout.fixedFluidFixedOverflow .fixed-left-colum.hidden + .fixed-right-colum.hidden + .fluid-colum {
+  overflow: visible;
+}
+.liquid-layout.fixedFluidDynamic .fluid-colum {
+  float: left;
+  width: 100%;
+}
+.liquid-layout.fixedFluidDynamic .fluid-colum > .inner {
+  margin-left: 220px;
+}
+.liquid-layout.fixedFluidDynamic .fixed-colum {
+  float: left;
+  width: 200px;
+  margin-left: -100%;
+}
+.liquid-layout.fluidFixedDynamic .fluid-colum {
+  float: left;
+  width: 100%;
+}
+.liquid-layout.fluidFixedDynamic .fluid-colum > .inner {
+  margin-right: 220px;
+}
+.liquid-layout.fluidFixedDynamic .fixed-colum {
+  float: right;
+  width: 200px;
+  margin-left: -200px;
+}
+.liquid-layout.fixedFluidFixedDynamic .fluid-colum {
+  float: left;
+  width: 100%;
+}
+.liquid-layout.fixedFluidFixedDynamic .fluid-colum > .inner {
+  margin-left: 220px;
+  margin-right: 220px;
+}
+.liquid-layout.fixedFluidFixedDynamic .fixed-left-colum {
+  float: left;
+  margin-left: -100%;
+  width: 200px;
+}
+.liquid-layout.fixedFluidFixedDynamic .fixed-right-colum {
+  float: right;
+  width: 200px;
+  margin-left: -200px;
+}
+/*--------------------------------------------------------------------------------*/
 .pd30 {
   padding: 30px;
 }
@@ -7150,4 +7253,3 @@ button.close {
 .pos-absolute-ipt {
   position: absolute !important;
 }
-/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,28 @@
+// DOCS STYLE
+@import "../../../assets/less/bootstrap/bootstrap.less";				// My Variable
+@import "../../../assets/less/variables.less";							// My Variable
+@import "../../../assets/less/mixins.less";								// My Mixins
+
+/*--------------------------------------------------------------------------------*/
+.liquid-layout {
+	&.fixedFluidOverflow {
+		#liquid-layout > .fixedFluidOverflow(200px, 20px);
+	}
+	&.fluidFixedOverflow {
+		#liquid-layout > .fluidFixedOverflow(200px, 20px);
+	}
+	&.fixedFluidFixedOverflow {
+		#liquid-layout > .fixedFluidFixedOverflow(200px, 20px, 200px, 20px);
+	}
+	&.fixedFluidDynamic {
+		#liquid-layout > .fixedFluidDynamic(200px, 20px);
+	}
+	&.fluidFixedDynamic {
+		#liquid-layout > .fluidFixedDynamic(200px, 20px);
+	}
+	&.fixedFluidFixedDynamic {
+		#liquid-layout > .fixedFluidFixedDynamic(200px, 20px, 200px, 20px);
+	}
+}
+/*--------------------------------------------------------------------------------*/
+@import "../../../assets/less/utilities.less";							// Main style

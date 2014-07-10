@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Layouts</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/docs.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.min.js"></script>
+      <script src="../assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-precomposed.png">
+    <link rel="icon" href="../assets/ico/favicon.ico">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="page-header">Liquid Layout Use Overflow: hidden;</h1>
+        <p>Sử dụng thuộc tính <code>overflow: hidden;</code> để xây dựng <b>Liquid Layout</b> là cách dùng đơn giản và phổ biến nhất.</p>
+        <div class="bs-callout bs-callout-danger">
+            <h4>Nhược điểm</h4>
+            <ul>
+                <li>Chỉ sử dụng được trong phạm vi nhỏ bên trong có ít các thành phần</li>
+                <li>Bên trong thẻ có class <code>.fluid-colum</code> không nên sử dụng các thẻ có được gắn thuộc tính <code>position: absolute;</code> vì ta đã sử dụng thuộc tính <code>overflow: hidden;</code> cho <code>.fluid-colum</code> do vậy có thể dẫn đến lỗi không hiển thị được hết nội dung.</li>
+            </ul>
+        </div>
+        <h3>Fixed-Fluid Layout</h3>
+        <div class="bs-example">
+            <div class="liquid-layout fixedFluidOverflow">
+                <div class="fixed-colum">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="fluid-colum">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="highlight">
+<pre>
+    <code class="html">
+&lt;div class="liquid-layout fixedFluidOverflow"&gt;
+    &lt;div class="fixed-colum"&gt;
+        &lt;p&gt;In non risus quis libero convallis&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="fluid-colum"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+</pre>
+        </div> -->
+        <div class="well">
+            Có thể dủ dụng mixin sau để khởi tạo <b>Fixed-Fluid</b> Layout <code>#liquid-layout > .fixedFluidOverflow(200px, 20px);</code>
+        </div>
+        <h3>Fluid-Fixed Layout</h3>
+        <div class="bs-example">
+            <div class="liquid-layout fluidFixedOverflow">
+                <div class="fixed-colum">
+                    <div class="clear">
+                        Fermentum tellus sit amet, molestie ipsum. Duis tristique tellus vitae volutpat scelerisque. Donec dictum tortor leo, a aliquam massa scelerisque eget.
+                    </div>
+                </div>
+                <div class="fluid-colum">
+                    <div class="clear">
+                        Fermentum tellus sit amet, molestie ipsum. Duis tristique tellus vitae volutpat scelerisque. Donec dictum tortor leo, a aliquam massa scelerisque eget.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="well">
+            Có thể dủ dụng mixin sau để khởi tạo <b>Fluid-Fixed</b> Layout <code>#liquid-layout > .fluidFixedOverflow(200px, 20px);</code>
+        </div>
+        <h3>Fixed-Fluid-Fixed Layout</h3>
+        <div class="bs-example">
+            <div class="liquid-layout fixedFluidFixedOverflow">
+                <div class="fixed-left-colum">
+                    <div class="clear">
+                        Fermentum tellus sit amet, molestie ipsum. Duis tristique tellus vitae volutpat scelerisque. Donec dictum tortor leo, a aliquam massa scelerisque eget.
+                    </div>
+                </div>
+                <div class="fixed-right-colum">
+                    <div class="clear">
+                        Fermentum tellus sit amet, molestie ipsum. Duis tristique tellus vitae volutpat scelerisque. Donec dictum tortor leo, a aliquam massa scelerisque eget.
+                    </div>
+                </div>
+                <div class="fluid-colum">
+                    <div class="clear">
+                        Fermentum tellus sit amet, molestie ipsum. Duis tristique tellus vitae volutpat scelerisque. Donec dictum tortor leo, a aliquam massa scelerisque eget.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="well">
+            Có thể dủ dụng mixin sau để khởi tạo <b>Fixed-Fluid-Fixed</b> Layout <code>#liquid-layout > .fixedFluidFixedOverflow(200px, 20px, 200px, 20px);</code>
+        </div>
+        <div class="bs-callout bs-callout-warning">
+            <h4>Tiện ích</h4>
+            <ul>
+                <li>Bạn sử dụng class <code>.hidden</code> cùng <code>.fixed-colum</code> để không hiển thị</li>
+                <li>Ta có thể dùng các hàm sau để vô hiệu quá liquid layout:<br><br>
+                    <ol>
+                        <li><code>#liquid-layout > .unFixedFluidOverflow</code></li>
+                        <li><code>#liquid-layout > .unFluidFixedOverflow</code></li>
+                        <li><code>#liquid-layout > .unFixedFluidFixedOverflow</code></li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <h1 class="page-header">Liquid Layout Dynamic</h1>
+        <p>Đây là 1 cách khác để xây dựng <b>Liquid Layout</b> nhưng chủ yếu áp dụng cho các trang có sử dụng responsive.</p>
+        <h3>Fixed-Fluid Layout</h3>
+        <div class="bs-example">
+            <div class="liquid-layout fixedFluidDynamic">
+                <div class="fluid-colum">
+                    <div class="inner">
+                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+                <div class="fixed-colum">
+                    <div class="inner">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="well">
+            Có thể khai báo mixin sau để xây dựng <b>Fixed-Fluid</b> Layout <code>#liquid-layout > .fixedFluidDynamic(200px, 20px);</code>
+        </div>
+
+        <h3>Fluid-Fixed Layout</h3>
+        <div class="bs-example">
+            <div class="liquid-layout fluidFixedDynamic">
+                <div class="fluid-colum">
+                    <div class="inner">
+                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+                <div class="fixed-colum">
+                    <div class="inner">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="well">
+            Có thể khai báo mixin sau để xây dựng <b>Fixed-Fluid</b> Layout <code>#liquid-layout > .fluidFixedDynamic(200px, 20px)</code>
+        </div>
+
+        <h3>Fixed - Fluid-Fixed Layout</h3>
+        <div class="bs-example">
+            <div class="liquid-layout fixedFluidFixedDynamic">
+                <div class="fluid-colum">
+                    <div class="inner">
+                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+                <div class="fixed-left-colum">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                </div>
+                <div class="fixed-right-colum">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                </div>
+            </div>
+        </div>
+        <div class="well">
+            Có thể khai báo mixin sau để xây dựng <b>Fixed-Fluid-Fixed</b> Layout <code>#liquid-layout > .fixedFluidFixedDynamic(200px, 20px, 200px, 20px);</code>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/docs.min.js"></script>
+</body>
+
+</html>

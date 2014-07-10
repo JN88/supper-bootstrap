@@ -121,40 +121,208 @@
 //---------------------------------------
 #liquid-layout {
 	// Fixed - Fluid Layout use Overflow
-	.fixedFluidOverflow(@widthFixedColum, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-	.@{fixedColumName} {
+	.fixedFluidOverflow(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
+		&:extend(.clearfix all);
+		.@{fixedColumName} {
 			float: left;
-		}
-		.@{fluidColumName} {
-			overflow: hidden;
+			width: @widthFixedColum;
+			margin-right: @space;
+			+ .@{fluidColumName} {
+				overflow: hidden;
+			}
+			&.hidden, &.hide {
+				+ .@{fluidColumName} {
+					overflow: visible;
+				}
+			}
 		}
 	}
 
 	.unFixedFluidOverflow(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum){
 		.@{fixedColumName} {
 			float: none;
-		}
-		.@{fluidColumName} {
-			overflow: static;
+			width: auto;
+			margin-right: 0;
+			+ .@{fluidColumName} {
+				overflow: visible;
+			}
 		}
 	}
 
 	// Fluid - Fixed Layout use Overflow
-	.fluidFixedOverflow(@widthFixedColum, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
+	.fluidFixedOverflow(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
+		&:extend(.clearfix all);
 		.@{fixedColumName} {
 			float: right;
-		}
-		.@{fluidColumName} {
-			overflow: hidden;
+			width: @widthFixedColum;
+			margin-left: @space;
+			+ .@{fluidColumName} {
+				overflow: hidden;
+			}
+			&.hidden, &.hide {
+				+ .@{fluidColumName} {
+					overflow: visible;
+				}
+			}
 		}
 	}
 
 	.unFluidFixedOverflow(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
 		.@{fixedColumName} {
 			float: none;
+			width: auto;
+			margin-left: 0;
+		}
+		.@{fluidColumName} {
+			overflow: visible;
+		}
+	}
+
+	// Fixed - Fluid - Fixed Layout use Overflow
+	.fixedFluidFixedOverflow(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
+		&:extend(.clearfix all);
+		.@{fixedLeftColumName} {
+			float: left;
+			width: @widthFixedLeftColum;
+			margin-right: @spaceLeft;
+		}
+		.@{fixedRightColumName} {
+			float: right;
+			width: @widthFixedRightColum;
+			margin-left: @spaceRight;
 		}
 		.@{fluidColumName} {
 			overflow: hidden;
+		}
+		.@{fixedLeftColumName}.hide + .@{fixedRightColumName}.hide,
+		.@{fixedLeftColumName}.hidden + .@{fixedRightColumName}.hidden {
+			+ .@{fluidColumName} {
+				overflow: visible;
+			}
+		}
+	}
+
+	.unFixedFluidFixedOverflow(@fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
+		.@{fixedLeftColumName} {
+			float: none;
+			width: auto;
+			margin-right: 0;
+		}
+		.@{fixedRightColumName} {
+			float: right;
+			width: auto;
+			margin-left: 0;
+		}
+		.@{fluidColumName} {
+			overflow: visible;
+		}
+	}
+
+	// Fixed - Fluid Layout Dynamic
+	.fixedFluidDynamic(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
+		&:extend(.clearfix all);
+		.@{fluidColumName} {
+			float: left;
+			width: 100%;
+			> .inner {
+				margin-left: @widthFixedColum + @space;
+			}
+		}
+		.@{fixedColumName} {
+			float: left;
+			width: @widthFixedColum;
+			margin-left: -100%;
+		}
+	}
+
+	.unFixedFluidDynamic(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
+		.@{fluidColumName} {
+			float: none;
+			width: auto;
+			> .inner {
+				margin-left: 0;
+			}
+		}
+		.@{fixedColumName} {
+			float: none;
+			width: auto;
+			margin-left: 0;
+		}
+	}
+
+	// Fluid - Fixed Layout Dynamic
+	.fluidFixedDynamic(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
+		&:extend(.clearfix all);
+		.@{fluidColumName} {
+			float: left;
+			width: 100%;
+			> .inner {
+				margin-right: @widthFixedColum + @space;
+			}
+		}
+		.@{fixedColumName} {
+			float: right;
+			width: @widthFixedColum;
+			margin-left: -@widthFixedColum;
+		}
+	}
+
+	.unFluidFixedDynamic(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
+		&:extend(.clearfix all);
+		.@{fluidColumName} {
+			float: none;
+			width: auto;
+			> .inner {
+				margin-right: 0;
+			}
+		}
+		.@{fixedColumName} {
+			float: right;
+			width: auto;
+			margin-left: 0;
+		}
+	}
+
+	// Fixed - Fluid - Fixed Layout Dynamic
+	.fixedFluidFixedDynamic(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
+		&:extend(.clearfix all);
+		.@{fluidColumName} {
+			float: left;
+			width: 100%;
+			> .inner {
+				margin-left: @widthFixedLeftColum + @spaceLeft;
+				margin-right: @widthFixedRightColum + @spaceRight;
+			}
+		}
+		.@{fixedLeftColumName} {
+			float: left;
+			margin-left: -100%;
+			width: @widthFixedLeftColum;
+		}
+		.@{fixedRightColumName} {
+			float: right;
+			width: @widthFixedRightColum;
+			margin-left: -@widthFixedRightColum;
+		}
+	}
+	.unFixedFluidFixedDynamic(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
+		.@{fluidColumName} {
+			float: none;
+			width: 100%;
+			> .inner {
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+		.@{fixedLeftColumName} {
+			float: none;
+			margin-left: 0;
+			width: auto;
+		}
+		.@{fixedRightColumName} {
+			float: none;
+			width: auto;
+			margin-left: 0;
 		}
 	}
 }
