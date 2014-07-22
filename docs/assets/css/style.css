@@ -5897,18 +5897,8 @@ button.close {
 .panel-body:after,
 .modal-footer:before,
 .modal-footer:after,
-.liquid-layout.fixedFluidOverflow:before,
-.liquid-layout.fixedFluidOverflow:after,
-.liquid-layout.fluidFixedOverflow:before,
-.liquid-layout.fluidFixedOverflow:after,
-.liquid-layout.fixedFluidFixedOverflow:before,
-.liquid-layout.fixedFluidFixedOverflow:after,
-.liquid-layout.fixedFluidDynamic:before,
-.liquid-layout.fixedFluidDynamic:after,
-.liquid-layout.fluidFixedDynamic:before,
-.liquid-layout.fluidFixedDynamic:after,
-.liquid-layout.fixedFluidFixedDynamic:before,
-.liquid-layout.fixedFluidFixedDynamic:after {
+.liquid-layout:before,
+.liquid-layout:after {
   content: " ";
   display: table;
 }
@@ -5927,12 +5917,7 @@ button.close {
 .pager:after,
 .panel-body:after,
 .modal-footer:after,
-.liquid-layout.fixedFluidOverflow:after,
-.liquid-layout.fluidFixedOverflow:after,
-.liquid-layout.fixedFluidFixedOverflow:after,
-.liquid-layout.fixedFluidDynamic:after,
-.liquid-layout.fluidFixedDynamic:after,
-.liquid-layout.fixedFluidFixedDynamic:after {
+.liquid-layout:after {
   clear: both;
 }
 .center-block {
@@ -6265,7 +6250,104 @@ button.close {
   width: 200px;
   margin-left: -200px;
 }
+.liquid-layout.fixedFluidUFM .fixed-colum {
+  float: left;
+  width: 200px;
+  margin-right: 20px;
+}
+.liquid-layout.fixedFluidUFM .fixed-colum + .fluid-colum {
+  margin-left: 220px;
+}
+.liquid-layout.fixedFluidUFM .fixed-colum + .fluid-colum > .inner {
+  display: inline-block;
+  width: 100%;
+}
+.liquid-layout.fluidFixedUFM .fixed-colum {
+  float: right;
+  width: 200px;
+  margin-left: 20px;
+}
+.liquid-layout.fluidFixedUFM .fixed-colum + .fluid-colum {
+  margin-right: 220px;
+}
+.liquid-layout.fluidFixedUFM .fixed-colum + .fluid-colum > .inner {
+  display: inline-block;
+  width: 100%;
+}
+.liquid-layout.fixedFluidFixedUFM .fixed-left-colum {
+  float: left;
+  width: 200px;
+  margin-right: 20px;
+}
+.liquid-layout.fixedFluidFixedUFM .fixed-left-colum + .fluid-colum,
+.liquid-layout.fixedFluidFixedUFM .fixed-left-colum + .fixed-right-colum + .fluid-colum {
+  margin-left: 220px;
+}
+.liquid-layout.fixedFluidFixedUFM .fixed-right-colum {
+  float: right;
+  width: 200px;
+  margin-left: 20px;
+}
+.liquid-layout.fixedFluidFixedUFM .fixed-right-colum + .fluid-colum {
+  margin-right: 220px;
+}
+.liquid-layout.fixedFluidFixedUFM .fluid-colum > .inner {
+  display: inline-block;
+  width: 100%;
+}
+.liquid-layout.fixedFluidFixedUFM .fixed-left-colum.hide + .fixed-right-colum.hide + .fluid-colum,
+.liquid-layout.fixedFluidFixedUFM .fixed-left-colum.hidden + .fixed-right-colum.hidden + .fluid-colum {
+  margin-left: 0;
+  margin-right: 0;
+}
+.liquid-layout.fixedFluidFixedUFM .fixed-left-colum.hide + .fixed-right-colum + .fluid-colum,
+.liquid-layout.fixedFluidFixedUFM .fixed-left-colum.hidden + .fixed-right-colum + .fluid-colum {
+  margin-left: 0;
+}
+.liquid-layout.fixedFluidFixedUFM .fixed-right-colum.hide + .fluid-colum,
+.liquid-layout.fixedFluidFixedUFM .fixed-right-colum.hidden + .fluid-colum {
+  margin-right: 0;
+}
 /*--------------------------------------------------------------------------------*/
+.inline {
+  display: inline;
+}
+.inline-ipt {
+  display: inline !important;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline-block-ipt {
+  display: inline-block !important;
+}
+.block {
+  display: block;
+}
+.block-ipt {
+  display: block !important;
+}
+.clear {
+  clear: both;
+}
+.pos-relative {
+  position: relative;
+}
+.pos-relative-ipt {
+  position: relative !important;
+}
+.pos-static {
+  position: static;
+}
+.pos-static-ipt {
+  position: static !important;
+}
+.pos-absolute {
+  position: absolute;
+}
+.pos-absolute-ipt {
+  position: absolute !important;
+}
 .pd30 {
   padding: 30px;
 }
@@ -7213,43 +7295,4 @@ button.close {
 }
 .w0-ipt {
   width: 0px !important;
-}
-.inline {
-  display: inline;
-}
-.inline-ipt {
-  display: inline !important;
-}
-.inline-block {
-  display: inline-block;
-}
-.inline-block-ipt {
-  display: inline-block !important;
-}
-.block {
-  display: block;
-}
-.block-ipt {
-  display: block !important;
-}
-.clear {
-  clear: both;
-}
-.pos-relative {
-  position: relative;
-}
-.pos-relative-ipt {
-  position: relative !important;
-}
-.pos-static {
-  position: static;
-}
-.pos-static-ipt {
-  position: static !important;
-}
-.pos-absolute {
-  position: absolute;
-}
-.pos-absolute-ipt {
-  position: absolute !important;
 }

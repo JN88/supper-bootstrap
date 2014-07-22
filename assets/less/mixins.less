@@ -122,7 +122,6 @@
 #liquid-layout {
 	// Fixed - Fluid Layout use Overflow
 	.fixedFluidOverflow(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		&:extend(.clearfix all);
 		.@{fixedColumName} {
 			float: left;
 			width: @widthFixedColum;
@@ -151,7 +150,6 @@
 
 	// Fluid - Fixed Layout use Overflow
 	.fluidFixedOverflow(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		&:extend(.clearfix all);
 		.@{fixedColumName} {
 			float: right;
 			width: @widthFixedColum;
@@ -180,7 +178,6 @@
 
 	// Fixed - Fluid - Fixed Layout use Overflow
 	.fixedFluidFixedOverflow(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		&:extend(.clearfix all);
 		.@{fixedLeftColumName} {
 			float: left;
 			width: @widthFixedLeftColum;
@@ -220,7 +217,6 @@
 
 	// Fixed - Fluid Layout Dynamic
 	.fixedFluidDynamic(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		&:extend(.clearfix all);
 		.@{fluidColumName} {
 			float: left;
 			width: 100%;
@@ -252,7 +248,6 @@
 
 	// Fluid - Fixed Layout Dynamic
 	.fluidFixedDynamic(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		&:extend(.clearfix all);
 		.@{fluidColumName} {
 			float: left;
 			width: 100%;
@@ -268,7 +263,6 @@
 	}
 
 	.unFluidFixedDynamic(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		&:extend(.clearfix all);
 		.@{fluidColumName} {
 			float: none;
 			width: auto;
@@ -285,7 +279,6 @@
 
 	// Fixed - Fluid - Fixed Layout Dynamic
 	.fixedFluidFixedDynamic(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		&:extend(.clearfix all);
 		.@{fluidColumName} {
 			float: left;
 			width: 100%;
@@ -305,6 +298,7 @@
 			margin-left: -@widthFixedRightColum;
 		}
 	}
+
 	.unFixedFluidFixedDynamic(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
 		.@{fluidColumName} {
 			float: none;
@@ -323,6 +317,143 @@
 			float: none;
 			width: auto;
 			margin-left: 0;
+		}
+	}
+
+	// Fixed - Fluid - Fixed Layout User Float and Margin
+	.fixedFluidUFM(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
+		.@{fixedColumName} {
+			float: left;
+			width: @widthFixedColum;
+			margin-right: @space;
+			+ .@{fluidColumName} {
+				margin-left: @widthFixedColum + @space;
+				> .inner {
+					display: inline-block;
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.unFixedFluidUFM(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
+		.@{fixedColumName} {
+			float: none;
+			width: auto;
+			margin-right: 0;
+			+ .@{fluidColumName} {
+				margin-left: 0;
+				> .inner {
+					display: block;
+				}
+			}
+		}
+	}
+
+	// Fluid - Fixed Layout User Float and Margin
+	.fluidFixedUFM(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
+		.@{fixedColumName} {
+			float: right;
+			width: @widthFixedColum;
+			margin-left: @space;
+			+ .@{fluidColumName} {
+				margin-right: @widthFixedColum + @space;
+				> .inner {
+					display: inline-block;
+					width: 100%;
+				}
+			}
+		}
+	}
+	.unFluidFixedUFM(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
+		.@{fixedColumName} {
+			float: none;
+			width: @widthFixedColum;
+			margin-left: @space;
+			+ .@{fluidColumName} {
+				margin-right: 0;
+				> .inner {
+					display: block;
+					width: auto;
+				}
+			}
+		}
+	}
+
+	// Fixed - Fluid - Fixed Layout User Float and Margin
+	.fixedFluidFixedUFM(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
+		.@{fixedLeftColumName} {
+			float: left;
+			width: @widthFixedLeftColum;
+			margin-right: @spaceLeft;
+			+ .@{fixedRightColumName} {
+			}
+		}
+		.@{fixedLeftColumName},
+		.@{fixedLeftColumName} + .@{fixedRightColumName}
+		 {
+			+ .@{fluidColumName} {
+				margin-left: @widthFixedLeftColum + @spaceLeft;
+			}
+		}
+		.@{fixedRightColumName} {
+			float: right;
+			width: @widthFixedRightColum;
+			margin-left: @spaceRight;
+				+ .@{fluidColumName} {
+					margin-right: @widthFixedRightColum + @spaceRight;
+				}
+		}
+		.@{fluidColumName} {
+			> .inner {
+				display: inline-block;
+				width: 100%;
+			}
+		}
+		.@{fixedLeftColumName}.hide + .@{fixedRightColumName}.hide,
+		.@{fixedLeftColumName}.hidden + .@{fixedRightColumName}.hidden {
+			+ .@{fluidColumName} {
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+		.@{fixedLeftColumName}.hide + .@{fixedRightColumName} + .@{fluidColumName},
+		.@{fixedLeftColumName}.hidden + .@{fixedRightColumName} + .@{fluidColumName} {
+			margin-left: 0;
+		}
+		.@{fixedRightColumName}.hide + .@{fluidColumName},
+		.@{fixedRightColumName}.hidden + .@{fluidColumName} {
+			margin-right: 0;
+		}
+	}
+	.unFixedFluidFixedUFM(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
+		.@{fixedLeftColumName} {
+			float: none;
+			width: auto;
+			margin-right: 0;
+			+ .@{fixedRightColumName} {
+			}
+		}
+		.@{fixedLeftColumName},
+		.@{fixedLeftColumName} + .@{fixedRightColumName}
+		 {
+			+ .@{fluidColumName} {
+				margin-left: 0;
+			}
+		}
+		.@{fixedRightColumName} {
+			float: right;
+			width: auto;
+			margin-left: @spaceRight;
+				+ .@{fluidColumName} {
+					margin-right: 0;
+				}
+		}
+		.@{fluidColumName} {
+			> .inner {
+				display: block;
+				width: auto;
+			}
 		}
 	}
 }

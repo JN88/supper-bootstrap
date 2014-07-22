@@ -5,6 +5,7 @@
 
 /*--------------------------------------------------------------------------------*/
 .liquid-layout {
+	&:extend(.clearfix all);
 	&.fixedFluidOverflow {
 		#liquid-layout > .fixedFluidOverflow(200px, 20px);
 	}
@@ -14,6 +15,7 @@
 	&.fixedFluidFixedOverflow {
 		#liquid-layout > .fixedFluidFixedOverflow(200px, 20px, 200px, 20px);
 	}
+
 	&.fixedFluidDynamic {
 		#liquid-layout > .fixedFluidDynamic(200px, 20px);
 	}
@@ -22,6 +24,16 @@
 	}
 	&.fixedFluidFixedDynamic {
 		#liquid-layout > .fixedFluidFixedDynamic(200px, 20px, 200px, 20px);
+	}
+
+	&.fixedFluidUFM {
+		#liquid-layout > .fixedFluidUFM (200px, 20px);
+	}
+	&.fluidFixedUFM {
+		#liquid-layout > .fluidFixedUFM (200px, 20px);
+	}
+	&.fixedFluidFixedUFM {
+		#liquid-layout > .fixedFluidFixedUFM(200px, 20px, 200px, 20px);
 	}
 }
 /*--------------------------------------------------------------------------------*/
