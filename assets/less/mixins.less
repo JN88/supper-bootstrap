@@ -1,13 +1,14 @@
+//
 // MIXINS
-
-// Border Radius
+// --------------------------------------------------
+// MIXIN: Border Radius
 .border-radius(@radius) {
   -webkit-border-radius: @radius;
      -moz-border-radius: @radius;
           border-radius: @radius;
 }
 
-// TODO: Define Style Margin-Padding
+// MIXIN: Generate Margin and Padding
 //---------------------------------------
 .marginAndPadding(@index, @countDown: 5, @min-size: 0, @ruler: px)
 {
@@ -45,6 +46,7 @@
 	.mgR@{index} {margin-right: ~"@{index}@{ruler}";}
 	.mgB@{index} {margin-bottom: ~"@{index}@{ruler}";}
 	.mgL@{index} {margin-left: ~"@{index}@{ruler}";}
+
 	// Margin Important
 	.mg@{index}-ipt {margin: ~"@{index}@{ruler}!important";}
 	.mgT@{index}-ipt {margin-top: ~"@{index}@{ruler}!important";}
@@ -61,17 +63,13 @@
 	.mg-@{index}-0 {margin: ~"@{index}@{ruler}" 0;}
 	.mg-@{index}-0-ipt {margin: ~"@{index}@{ruler}" 0!important;}
 
-	// next iteration
-	.style_margin_padding(@index - @countDown);
-
-	}
 	// end the loop when index is 0
 	.style_margin_padding (0) {}
 	// "call" the loopingClass the first time with highest value
 	.style_margin_padding (@index);
 }
 
-// TODO: Utilities Class Font Size
+// MIXIN: Generate Font Size
 //---------------------------------------
 .fontSizeLoop(@maxFontSize, @countDown: 1, @min-size: 0, @ruler: px) {
     .loopSize (@index) when (@index >= @min-size) {
@@ -94,7 +92,7 @@
     .loopSize(@maxFontSize);
 }
 
-// TODO: Loop Width Size
+// MIXIN: Generate Width
 //---------------------------------------
 .widthSizeLoop(@maxFontSize, @countDown: 1, @min-size: 0, @ruler: px) {
     .loopSize (@index) when (@index >= @min-size) {
@@ -117,7 +115,7 @@
     .loopSize(@maxFontSize);
 }
 
-// Liquid Layout
+// MIXIN: Liquid Layout
 //---------------------------------------
 #liquid-layout {
 	// Fixed - Fluid Layout use Overflow
@@ -458,7 +456,7 @@
 	}
 }
 
-// TODO: Link Color
+// MIXIN: Set Link Color
 .linkColor(@color: @link-color, @colorHover: @link-hover-color){
     color: @color;
     &:hover {
@@ -466,4 +464,5 @@
     }
 }
 
-// Mixins For My Project
+// MIXIN: MIXINS for this Project
+// Write new mixin for project here.
