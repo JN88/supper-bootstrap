@@ -478,5 +478,18 @@
     }
 }
 
+// MIXIN: SEO Help
+.seo-helper () {
+	img:not([alt]), img[alt=""], img[alt^=" "], a[href=""], a[href^=" "], a[rel*="nofollow"] {
+	    outline: 2px solid red !important;
+	    outline-offset: 3px !important;
+    }
+	head, title:empty, link, meta {display: block;}
+	title:empty:before {content: "You've left the <title> empty!"}
+	link:before {content: "You don't have a <title>!"}
+	title ~ link {display: none;}
+	meta[name="description"][content=""]:before, meta[name="description"][content=" "]:before {content: "You've left description empty!";}
+}
+
 // MIXIN: MIXINS for this Project
 // Write new mixin for project here...
