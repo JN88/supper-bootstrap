@@ -23,13 +23,173 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="text-center mgB0">Hello World</h1>
-    </div>
+    <div class="content">
+            <div class="sandbox">
+                <div id="animateTest">
+                    <span>Animate Me!</span>
+                </div>
+            </div>
+        </div>
+        <section class="animate-canvas">
+            <div class="container">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <h3>Keyframe Animations</h3>
+                        <p>These pure CSS keyframe animations are compiled using LESS. They are hardware accelerated animations that perform beautifully across all devices. They are much more efficient than jQuery animations and can be easily added to any element with just a single class.</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <h3>Attention seekers</h3>
+                        
+                        <a class="btn btn-primary" data-test='flash'>flash</a>
+                        <a class="btn btn-primary" data-test='bounce'>bounce</a>
+                        <a class="btn btn-primary" data-test='shake'>shake</a>
+                        <a class="btn btn-primary" data-test='tada'>tada</a>
+                        <a class="btn btn-primary" data-test='swing'>swing</a>
+                        <a class="btn btn-primary" data-test='wobble'>wobble</a>
+                        <a class="btn btn-primary" data-test='wiggle'>wiggle</a>
+                        <a class="btn btn-primary" data-test='pulse'>pulse</a>
+                    
+                        <h3>Flippers</h3>
+                        
+                        <a class="btn btn-primary" data-test='flip'>flip</a>
+                        <a class="btn btn-primary" data-test='flipInX'>flipInX</a>
+                        <a class="btn btn-primary" data-test='flipOutX'>flipOutX</a>
+                        <a class="btn btn-primary" data-test='flipInY'>flipInY</a>
+                        <a class="btn btn-primary" data-test='flipOutY'>flipOutY</a>
+                    
+                        <h3>Fading entrances</h3>
+                        
+                        <a class="btn btn-primary" data-test='fadeIn'>fadeIn</a>
+                        <a class="btn btn-primary" data-test='fadeInUp'>fadeInUp</a>
+                        <a class="btn btn-primary" data-test='fadeInDown'>fadeInDown</a>
+                        <a class="btn btn-primary" data-test='fadeInLeft'>fadeInLeft</a>
+                        <a class="btn btn-primary" data-test='fadeInRight'>fadeInRight</a>
+                        <a class="btn btn-primary" data-test='fadeInUpBig'>fadeInUpBig</a>
+                        <a class="btn btn-primary" data-test='fadeInDownBig'>fadeInDownBig</a>
+                        <a class="btn btn-primary" data-test='fadeInLeftBig'>fadeInLeftBig</a>
+                        <a class="btn btn-primary" data-test='fadeInRightBig'>fadeInRightBig</a>
+                        
+                        <h3>Fading exits</h3>
+                        
+                        <a class="btn btn-primary" data-test='fadeOut'>fadeOut</a>
+                        <a class="btn btn-primary" data-test='fadeOutUp'>fadeOutUp</a>
+                        <a class="btn btn-primary" data-test='fadeOutDown'>fadeOutDown</a>
+                        <a class="btn btn-primary" data-test='fadeOutLeft'>fadeOutLeft</a>
+                        <a class="btn btn-primary" data-test='fadeOutRight'>fadeOutRight</a>
+                        <a class="btn btn-primary" data-test='fadeOutUpBig'>fadeOutUpBig</a>
+                        <a class="btn btn-primary" data-test='fadeOutDownBig'>fadeOutDownBig</a>
+                        <a class="btn btn-primary" data-test='fadeOutLeftBig'>fadeOutLeftBig</a>
+                        <a class="btn btn-primary" data-test='fadeOutRightBig'>fadeOutRightBig</a>
+                        
+                        <h3>Bouncing entrances</h3>
+                        
+                        <a class="btn btn-primary" data-test='bounceIn'>bounceIn</a>
+                        <a class="btn btn-primary" data-test='bounceInDown'>bounceInDown</a>
+                        <a class="btn btn-primary" data-test='bounceInUp'>bounceInUp</a>
+                        <a class="btn btn-primary" data-test='bounceInLeft'>bounceInLeft</a>
+                        <a class="btn btn-primary" data-test='bounceInRight'>bounceInRight</a>
+                    
+                        <h3>Bouncing exits</h3>
+                        
+                        <a class="btn btn-primary" data-test='bounceOut'>bounceOut</a>
+                        <a class="btn btn-primary" data-test='bounceOutDown'>bounceOutDown</a>
+                        <a class="btn btn-primary" data-test='bounceOutUp'>bounceOutUp</a>
+                        <a class="btn btn-primary" data-test='bounceOutLeft'>bounceOutLeft</a>
+                        <a class="btn btn-primary" data-test='bounceOutRight'>bounceOutRight</a>
+                        
+                        <h3>EaseIn entrances</h3>
+                        
+                        <a class="btn btn-primary" data-test='easeInLeft'>easeInLeft</a>
+                        <a class="btn btn-primary" data-test='easeInRight'>easeInRight</a>
+                    
+                        <h3>EaseOut exits</h3>
+                        
+                        <a class="btn btn-primary" data-test='easeOutLeft'>easeOutLeft</a>
+                        <a class="btn btn-primary" data-test='easeInRight'>easeInRight</a>
+                    
+                        <h3>Scaling entrances</h3>
+                        
+                        <a class="btn btn-primary" data-test='scaleIn'>scaleIn</a>
+                        <a class="btn btn-primary" data-test='scaleInBig'>scaleInBig</a>
+                        
+                        <h3>Scaling exits</h3>
+                        
+                        <a class="btn btn-primary" data-test='scaleOut'>scaleOut</a>
+                        <a class="btn btn-primary" data-test='scaleOutBig'>scaleOutBig</a>
+                    
+                        <h3>Drop</h3>
+                        
+                        <a class="btn btn-primary" data-test='dropDown'>dropDown</a>
+                        <a class="btn btn-primary" data-test='dropUp'>dropUp</a>
+                    
+                        <h3>Rotating entrances</h3>
+                        
+                        <a class="btn btn-primary" data-test='rotateIn'>rotateIn</a>
+                        <a class="btn btn-primary" data-test='rotateInDownLeft'>rotateInDownLeft</a>
+                        <a class="btn btn-primary" data-test='rotateInDownRight'>rotateInDownRight</a>
+                        <a class="btn btn-primary" data-test='rotateInUpLeft'>rotateInUpLeft</a>
+                        <a class="btn btn-primary" data-test='rotateInUpRight'>rotateInUpRight</a>
+                    
+                        <h3>Rotating exits</h3>
+                        
+                        <a class="btn btn-primary" data-test='rotateOut'>rotateOut</a>
+                        <a class="btn btn-primary" data-test='rotateOutDownLeft'>rotateOutDownLeft</a>
+                        <a class="btn btn-primary" data-test='rotateOutDownRight'>rotateOutDownRight</a>
+                        <a class="btn btn-primary" data-test='rotateOutUpLeft'>rotateOutUpLeft</a>
+                        <a class="btn btn-primary" data-test='rotateOutUpRight'>rotateOutUpRight</a>
+                                        
+                        <h3>Lightspeed</h3>
+                        
+                        <a class="btn btn-primary" data-test='lightSpeedIn'>lightSpeedIn</a>
+                        <a class="btn btn-primary" data-test='lightSpeedOut'>lightSpeedOut</a>
+                    
+                        <h3>Specials</h3>
+                        
+                        <a class="btn btn-primary" data-test='hingeLeft'>hingeLeft</a>
+                        <a class="btn btn-primary" data-test='hingeRight'>hingeRight</a>
+                        <a class="btn btn-primary" data-test='rollIn'>rollIn</a>
+                        <a class="btn btn-primary" data-test='rollOut'>rollOut</a>
+                        
+                    </div>
+                </div>
+            </div><!-- /container -->
+        </section>
 
     <!-- Javascript -->
     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/animate.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+        function testAnim(x) {
+            $('#animateTest').removeClass().addClass(x);
+            var wait = window.setTimeout( function(){
+                $('#animateTest').removeClass()},
+                1300
+            );
+        }
+
+        $(function(){
+            $pos = $('.content').offset().top - 0;
+
+            $(window).on('scroll', function(){
+                if($(window).scrollTop() >= $pos) {
+                    $('.sandbox').addClass('fixed');
+                } else {
+                    $('.sandbox').removeClass('fixed');
+                }
+            });
+        });
+
+        $(document).ready(function(){
+            $('a[data-test]').click(function(){
+                var anim = $(this).attr('data-test');
+                testAnim(anim);
+            });
+        });
+    </script>
 </body>
 
 </html>
