@@ -6348,6 +6348,21 @@ button.close {
 .pos-absolute-ipt {
   position: absolute !important;
 }
+.text-left-ipt {
+  text-align: left!important;
+}
+.text-right-ipt {
+  text-align: right!important;
+}
+.text-center-ipt {
+  text-align: center!important;
+}
+.text-justify-ipt {
+  text-align: justify!important;
+}
+.text-nowrap-ipt {
+  white-space: nowrap!important;
+}
 .pd30 {
   padding: 30px;
 }

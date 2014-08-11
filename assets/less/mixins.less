@@ -16,53 +16,57 @@
 	// LOOP
 	.style_margin_padding (@index) when (@index >= @min-size) {
 
-	// Padding
-	.pd@{index} {padding: ~"@{index}@{ruler}";}
-	.pdT@{index} {padding-top: ~"@{index}@{ruler}";}
-	.pdR@{index} {padding-right: ~"@{index}@{ruler}";}
-	.pdB@{index} {padding-bottom: ~"@{index}@{ruler}";}
-	.pdL@{index} {padding-left: ~"@{index}@{ruler}";}
+		// Padding
+		.pd@{index} {padding: ~"@{index}@{ruler}";}
+		.pdT@{index} {padding-top: ~"@{index}@{ruler}";}
+		.pdR@{index} {padding-right: ~"@{index}@{ruler}";}
+		.pdB@{index} {padding-bottom: ~"@{index}@{ruler}";}
+		.pdL@{index} {padding-left: ~"@{index}@{ruler}";}
 
-	// Padding Important
-	.pd@{index}-ipt {padding: ~"@{index}@{ruler}!important";}
-	.pdT@{index}-ipt {padding-top: ~"@{index}@{ruler}!important";}
-	.pdR@{index}-ipt {padding-right: ~"@{index}@{ruler}!important";}
-	.pdB@{index}-ipt {padding-bottom: ~"@{index}@{ruler}!important";}
-	.pdL@{index}-ipt {padding-left: ~"@{index}@{ruler}!important";}
+		// Padding Important
+		.pd@{index}-ipt {padding: ~"@{index}@{ruler}!important";}
+		.pdT@{index}-ipt {padding-top: ~"@{index}@{ruler}!important";}
+		.pdR@{index}-ipt {padding-right: ~"@{index}@{ruler}!important";}
+		.pdB@{index}-ipt {padding-bottom: ~"@{index}@{ruler}!important";}
+		.pdL@{index}-ipt {padding-left: ~"@{index}@{ruler}!important";}
 
-	// Padding Horizatial
-	.pd-0-@{index} {padding: 0 ~"@{index}@{ruler}";}
-	.pd-0-@{index}-ipt {padding: 0 ~"@{index}@{ruler}!important";}
+		// Padding Horizatial
+		.pd-0-@{index} {padding: 0 ~"@{index}@{ruler}";}
+		.pd-0-@{index}-ipt {padding: 0 ~"@{index}@{ruler}!important";}
 
 
-	// Padding Vertical
-	.pd-@{index}-0 {padding: ~"@{index}@{ruler}" 0;}
-	.pd-@{index}-0-ipt {padding: ~"@{index}@{ruler}" 0!important;}
+		// Padding Vertical
+		.pd-@{index}-0 {padding: ~"@{index}@{ruler}" 0;}
+		.pd-@{index}-0-ipt {padding: ~"@{index}@{ruler}" 0!important;}
 
-	//-----------------------------------------------------------------
-	// Margin
-	.mg@{index} {margin: ~"@{index}@{ruler}";}
-	.mgT@{index} {margin-top: ~"@{index}@{ruler}";}
-	.mgR@{index} {margin-right: ~"@{index}@{ruler}";}
-	.mgB@{index} {margin-bottom: ~"@{index}@{ruler}";}
-	.mgL@{index} {margin-left: ~"@{index}@{ruler}";}
+		//-----------------------------------------------------------------
+		// Margin
+		.mg@{index} {margin: ~"@{index}@{ruler}";}
+		.mgT@{index} {margin-top: ~"@{index}@{ruler}";}
+		.mgR@{index} {margin-right: ~"@{index}@{ruler}";}
+		.mgB@{index} {margin-bottom: ~"@{index}@{ruler}";}
+		.mgL@{index} {margin-left: ~"@{index}@{ruler}";}
 
-	// Margin Important
-	.mg@{index}-ipt {margin: ~"@{index}@{ruler}!important";}
-	.mgT@{index}-ipt {margin-top: ~"@{index}@{ruler}!important";}
-	.mgR@{index}-ipt {margin-right: ~"@{index}@{ruler}!important";}
-	.mgB@{index}-ipt {margin-bottom: ~"@{index}@{ruler}!important";}
-	.mgL@{index}-ipt {margin-left: ~"@{index}@{ruler}!important";}
+		// Margin Important
+		.mg@{index}-ipt {margin: ~"@{index}@{ruler}!important";}
+		.mgT@{index}-ipt {margin-top: ~"@{index}@{ruler}!important";}
+		.mgR@{index}-ipt {margin-right: ~"@{index}@{ruler}!important";}
+		.mgB@{index}-ipt {margin-bottom: ~"@{index}@{ruler}!important";}
+		.mgL@{index}-ipt {margin-left: ~"@{index}@{ruler}!important";}
 
-	// margin Horizatial
-	.mg-0-@{index} {margin: 0 ~"@{index}@{ruler}";}
-	.mg-0-@{index}-ipt {margin: 0 ~"@{index}@{ruler}!important";}
+		// margin Horizatial
+		.mg-0-@{index} {margin: 0 ~"@{index}@{ruler}";}
+		.mg-0-@{index}-ipt {margin: 0 ~"@{index}@{ruler}!important";}
 
-	// margin Vertical
+		// margin Vertical
 
-	.mg-@{index}-0 {margin: ~"@{index}@{ruler}" 0;}
-	.mg-@{index}-0-ipt {margin: ~"@{index}@{ruler}" 0!important;}
+		.mg-@{index}-0 {margin: ~"@{index}@{ruler}" 0;}
+		.mg-@{index}-0-ipt {margin: ~"@{index}@{ruler}" 0!important;}
 
+		// next iteration
+		 .style_margin_padding(@index - @countDown);
+
+		 }
 	// end the loop when index is 0
 	.style_margin_padding (0) {}
 	// "call" the loopingClass the first time with highest value
@@ -134,7 +138,7 @@
 			}
 		}
 	}
-
+	// Remove Fixed - Fluid Layout use Overflow
 	.unFixedFluidOverflow(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum){
 		.@{fixedColumName} {
 			float: none;
@@ -162,7 +166,7 @@
 			}
 		}
 	}
-
+	// Remove Fluid - Fixed Layout use Overflow
 	.unFluidFixedOverflow(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
 		.@{fixedColumName} {
 			float: none;
@@ -196,7 +200,7 @@
 			}
 		}
 	}
-
+	// Remove Fixed - Fluid - Fixed Layout use Overflow
 	.unFixedFluidFixedOverflow(@fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
 		.@{fixedLeftColumName} {
 			float: none;
@@ -228,7 +232,7 @@
 			margin-left: -100%;
 		}
 	}
-
+	// Remove Fixed - Fluid Layout Dynamic
 	.unFixedFluidDynamic(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
 		.@{fluidColumName} {
 			float: none;
@@ -259,7 +263,7 @@
 			margin-left: -@widthFixedColum;
 		}
 	}
-
+	// Remove Fluid - Fixed Layout Dynamic
 	.unFluidFixedDynamic(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
 		.@{fluidColumName} {
 			float: none;
@@ -296,7 +300,7 @@
 			margin-left: -@widthFixedRightColum;
 		}
 	}
-
+	// Remove Fixed - Fluid - Fixed Layout Dynamic
 	.unFixedFluidFixedDynamic(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
 		.@{fluidColumName} {
 			float: none;
@@ -333,7 +337,7 @@
 			}
 		}
 	}
-
+	// Remove Fixed - Fluid - Fixed Layout User Float and Margin
 	.unFixedFluidUFM(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
 		.@{fixedColumName} {
 			float: none;
@@ -363,6 +367,7 @@
 			}
 		}
 	}
+	// Remove Fluid - Fixed Layout User Float and Margin
 	.unFluidFixedUFM(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
 		.@{fixedColumName} {
 			float: none;
@@ -424,6 +429,7 @@
 			margin-right: 0;
 		}
 	}
+	// Remove Fixed - Fluid - Fixed Layout User Float and Margin
 	.unFixedFluidFixedUFM(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
 		.@{fixedLeftColumName} {
 			float: none;
@@ -456,6 +462,14 @@
 	}
 }
 
+// MIXIN : Transform CSS3
+.transform(@transform) {
+	-webkit-transform: @transform;
+     -moz-transform: @transform;
+      -ms-transform: @transform; // IE9 only
+          transform: @transform;
+}
+
 // MIXIN: Set Link Color
 .linkColor(@color: @link-color, @colorHover: @link-hover-color){
     color: @color;
@@ -465,4 +479,4 @@
 }
 
 // MIXIN: MIXINS for this Project
-// Write new mixin for project here.
+// Write new mixin for project here...

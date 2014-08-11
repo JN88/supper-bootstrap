@@ -11,6 +11,7 @@
 
 .clear {clear: both}
 
+// Position
 .pos-relative {position: relative}
 .pos-relative-ipt {position: relative!important}
 .pos-static {position: static}
@@ -18,7 +19,15 @@
 .pos-absolute {position: absolute}
 .pos-absolute-ipt {position: absolute!important}
 
-.marginAndPadding(30);
-.fontSizeLoop(30);
-.widthSizeLoop(500, 50, 150);
-.widthSizeLoop(100, 5);
+// Alignment
+.text-left-ipt           { text-align: left!important; }
+.text-right-ipt          { text-align: right!important; }
+.text-center-ipt         { text-align: center!important; }
+.text-justify-ipt        { text-align: justify!important; }
+.text-nowrap-ipt         { white-space: nowrap!important; }
+
+// Generate Utilities Class
+.marginAndPadding(30);					// Generate Margin and Padding from 0 to 30
+.fontSizeLoop(30);						// Generate Font-size from 0 to 30px
+.widthSizeLoop(500, 50, 150);			// Generate width 150px to 500px
+.widthSizeLoop(100, 5);					// Generate width 0 to 100px
