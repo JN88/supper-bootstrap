@@ -10,61 +10,61 @@
 
 // MIXIN: Generate Margin and Padding
 //---------------------------------------
-.marginAndPadding(@index, @countDown: 5, @min-size: 0, @ruler: px)
+.marginAndPadding(@index, @counter: 5, @minValue: 0, @unit: px)
 {
 
 	// LOOP
-	.style_margin_padding (@index) when (@index >= @min-size) {
+	.style_margin_padding (@index) when (@index >= @minValue) {
 
 		// Padding
-		.pd@{index} {padding: ~"@{index}@{ruler}";}
-		.pdT@{index} {padding-top: ~"@{index}@{ruler}";}
-		.pdR@{index} {padding-right: ~"@{index}@{ruler}";}
-		.pdB@{index} {padding-bottom: ~"@{index}@{ruler}";}
-		.pdL@{index} {padding-left: ~"@{index}@{ruler}";}
+		.pd@{index} {padding: ~"@{index}@{unit}";}
+		.pdT@{index} {padding-top: ~"@{index}@{unit}";}
+		.pdR@{index} {padding-right: ~"@{index}@{unit}";}
+		.pdB@{index} {padding-bottom: ~"@{index}@{unit}";}
+		.pdL@{index} {padding-left: ~"@{index}@{unit}";}
 
 		// Padding Important
-		.pd@{index}-ipt {padding: ~"@{index}@{ruler}!important";}
-		.pdT@{index}-ipt {padding-top: ~"@{index}@{ruler}!important";}
-		.pdR@{index}-ipt {padding-right: ~"@{index}@{ruler}!important";}
-		.pdB@{index}-ipt {padding-bottom: ~"@{index}@{ruler}!important";}
-		.pdL@{index}-ipt {padding-left: ~"@{index}@{ruler}!important";}
+		.pd@{index}-ipt {padding: ~"@{index}@{unit}!important";}
+		.pdT@{index}-ipt {padding-top: ~"@{index}@{unit}!important";}
+		.pdR@{index}-ipt {padding-right: ~"@{index}@{unit}!important";}
+		.pdB@{index}-ipt {padding-bottom: ~"@{index}@{unit}!important";}
+		.pdL@{index}-ipt {padding-left: ~"@{index}@{unit}!important";}
 
 		// Padding Horizatial
-		.pd-0-@{index} {padding: 0 ~"@{index}@{ruler}";}
-		.pd-0-@{index}-ipt {padding: 0 ~"@{index}@{ruler}!important";}
+		.pd-0-@{index} {padding: 0 ~"@{index}@{unit}";}
+		.pd-0-@{index}-ipt {padding: 0 ~"@{index}@{unit}!important";}
 
 
 		// Padding Vertical
-		.pd-@{index}-0 {padding: ~"@{index}@{ruler}" 0;}
-		.pd-@{index}-0-ipt {padding: ~"@{index}@{ruler}" 0!important;}
+		.pd-@{index}-0 {padding: ~"@{index}@{unit}" 0;}
+		.pd-@{index}-0-ipt {padding: ~"@{index}@{unit}" 0!important;}
 
 		//-----------------------------------------------------------------
 		// Margin
-		.mg@{index} {margin: ~"@{index}@{ruler}";}
-		.mgT@{index} {margin-top: ~"@{index}@{ruler}";}
-		.mgR@{index} {margin-right: ~"@{index}@{ruler}";}
-		.mgB@{index} {margin-bottom: ~"@{index}@{ruler}";}
-		.mgL@{index} {margin-left: ~"@{index}@{ruler}";}
+		.mg@{index} {margin: ~"@{index}@{unit}";}
+		.mgT@{index} {margin-top: ~"@{index}@{unit}";}
+		.mgR@{index} {margin-right: ~"@{index}@{unit}";}
+		.mgB@{index} {margin-bottom: ~"@{index}@{unit}";}
+		.mgL@{index} {margin-left: ~"@{index}@{unit}";}
 
 		// Margin Important
-		.mg@{index}-ipt {margin: ~"@{index}@{ruler}!important";}
-		.mgT@{index}-ipt {margin-top: ~"@{index}@{ruler}!important";}
-		.mgR@{index}-ipt {margin-right: ~"@{index}@{ruler}!important";}
-		.mgB@{index}-ipt {margin-bottom: ~"@{index}@{ruler}!important";}
-		.mgL@{index}-ipt {margin-left: ~"@{index}@{ruler}!important";}
+		.mg@{index}-ipt {margin: ~"@{index}@{unit}!important";}
+		.mgT@{index}-ipt {margin-top: ~"@{index}@{unit}!important";}
+		.mgR@{index}-ipt {margin-right: ~"@{index}@{unit}!important";}
+		.mgB@{index}-ipt {margin-bottom: ~"@{index}@{unit}!important";}
+		.mgL@{index}-ipt {margin-left: ~"@{index}@{unit}!important";}
 
 		// margin Horizatial
-		.mg-0-@{index} {margin: 0 ~"@{index}@{ruler}";}
-		.mg-0-@{index}-ipt {margin: 0 ~"@{index}@{ruler}!important";}
+		.mg-0-@{index} {margin: 0 ~"@{index}@{unit}";}
+		.mg-0-@{index}-ipt {margin: 0 ~"@{index}@{unit}!important";}
 
 		// margin Vertical
 
-		.mg-@{index}-0 {margin: ~"@{index}@{ruler}" 0;}
-		.mg-@{index}-0-ipt {margin: ~"@{index}@{ruler}" 0!important;}
+		.mg-@{index}-0 {margin: ~"@{index}@{unit}" 0;}
+		.mg-@{index}-0-ipt {margin: ~"@{index}@{unit}" 0!important;}
 
 		// next iteration
-		 .style_margin_padding(@index - @countDown);
+		 .style_margin_padding(@index - @counter);
 
 		 }
 	// end the loop when index is 0
@@ -75,49 +75,97 @@
 
 // MIXIN: Generate Font Size
 //---------------------------------------
-.fontSizeLoop(@maxFontSize, @countDown: 1, @min-size: 0, @ruler: px) {
-    .loopSize (@index) when (@index >= @min-size) {
-        .f-@{index} {
+// @maxValue		Giá trị lớn nhất
+// @minValue		Giá trị nhỏ nhất
+// @counter			Giá trị đếm ngược lỗi lần lặp (giá trị mặc định là: 1)
+// @unit			Đơn vị sử dụng như px, pt, em .. (giá trị mặc định là: px)
+
+.fontSizeLoop(@maxValue, @minValue: 0, @counter: 1, @unit: px) {
+    // Nếu đơn vị sử dụng là px thì
+    .loopSize (@index) when (@index >= @minValue) and (@unit = px){
+      	.f@{index} {
             // your resulting css
-            font-size: ~"@{index}@{ruler}";
+            width: ~"@{index}@{unit}";
         }
 
-        .f-@{index}-ipt {
+        .f@{index}-ipt {
             // your resulting css
-            font-size: ~"@{index}@{ruler}"!important;
+            width: ~"@{index}@{unit}"!important;
         }
 
         // next iteration
-        .loopSize(@index - @countDown);
+        .loopSize(@index - @counter);
     }
+
+  	// Nếu đơn vị ko phải là "px" thì tên class sẽ thêm vào tên class
+  	//vd: .f5em hoặc f5pt
+  	.loopSize (@index) when (@index >= @minValue) and not (@unit = px){
+  		.f@{index}@{unit} {
+            // your resulting css
+            width: ~"@{index}@{unit}";
+        }
+
+        .f@{index}@{unit}-ipt {
+            // your resulting css
+            width: ~"@{index}@{unit}"!important;
+        }
+
+        // next iteration
+        .loopSize(@index - @counter);
+  	}
 
     // end the loop when index is 0
     .loopSize (0) {}
-    .loopSize(@maxFontSize);
+    .loopSize(@maxValue);
 }
 
 // MIXIN: Generate Width
 //---------------------------------------
-.widthSizeLoop(@maxFontSize, @countDown: 1, @min-size: 0, @ruler: px) {
-    .loopSize (@index) when (@index >= @min-size) {
-        .w@{index} {
+// @maxValue		Giá trị lớn nhất
+// @minValue		Giá trị nhỏ nhất
+// @counter			Giá trị đếm ngược lỗi lần lặp (giá trị mặc định là: 5)
+// @unit			Đơn vị sử dụng như px, pt, em .. (giá trị mặc định là: px)
+
+.widthSizeLoop(@maxValue, @minValue: 0, @counter: 5, @unit: px) {
+  	// Nếu đơn vị sử dụng là px thì
+    .loopSize (@index) when (@index >= @minValue) and (@unit = px){
+      	.w@{index} {
             // your resulting css
-            width: ~"@{index}@{ruler}";
+            width: ~"@{index}@{unit}";
         }
 
         .w@{index}-ipt {
             // your resulting css
-            width: ~"@{index}@{ruler}"!important;
+            width: ~"@{index}@{unit}"!important;
         }
 
         // next iteration
-        .loopSize(@index - @countDown);
+        .loopSize(@index - @counter);
     }
+
+  	// Nếu đơn vị ko phải là "px" thì tên class sẽ thêm vào tên class
+  	//vd: .w5em hoặc w5pt
+  	.loopSize (@index) when (@index >= @minValue) and not (@unit = px){
+  		.w@{index}@{unit} {
+            // your resulting css
+            width: ~"@{index}@{unit}";
+        }
+
+        .w@{index}@{unit}-ipt {
+            // your resulting css
+            width: ~"@{index}@{unit}"!important;
+        }
+
+        // next iteration
+        .loopSize(@index - @counter);
+  	}
+
 
     // end the loop when index is 0
     .loopSize (0) {}
-    .loopSize(@maxFontSize);
+    .loopSize(@maxValue);
 }
+
 
 // MIXIN: Liquid Layout
 //---------------------------------------
