@@ -10,11 +10,16 @@
 
 // MIXIN: Generate Margin and Padding
 //---------------------------------------
-.marginAndPadding(@index, @counter: 5, @minValue: 0, @unit: px)
+// @maxValue		Giá trị lớn nhất
+// @minValue		Giá trị nhỏ nhất
+// @counter			Giá trị đếm ngược lỗi lần lặp (giá trị mặc định là: 5)
+// @unit			Đơn vị sử dụng như px, pt, em .. (giá trị mặc định là: px)
+
+.marginAndPadding(@maxValue, @counter: 5, @minValue: 0, @unit: px)
 {
 
-	// LOOP
-	.style_margin_padding (@index) when (@index >= @minValue) {
+	// The Loop
+	.loop_margin_padding (@index) when (@index >= @minValue) {
 
 		// Padding
 		.pd@{index} {padding: ~"@{index}@{unit}";}
@@ -59,18 +64,17 @@
 		.mg-0-@{index}-ipt {margin: 0 ~"@{index}@{unit}!important";}
 
 		// margin Vertical
-
 		.mg-@{index}-0 {margin: ~"@{index}@{unit}" 0;}
 		.mg-@{index}-0-ipt {margin: ~"@{index}@{unit}" 0!important;}
 
 		// next iteration
-		 .style_margin_padding(@index - @counter);
-
-		 }
+		 .loop_margin_padding(@index - @counter);
+	}
 	// end the loop when index is 0
-	.style_margin_padding (0) {}
+	.loop_margin_padding (0) {}
+
 	// "call" the loopingClass the first time with highest value
-	.style_margin_padding (@index);
+	.loop_margin_padding (@maxValue);
 }
 
 // MIXIN: Generate Font Size
@@ -172,7 +176,7 @@
 #liquid-layout {
 	// Fixed - Fluid Layout use Overflow
 	.fixedFluidOverflow(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		.@{fixedColumName} {
+		> .@{fixedColumName} {
 			float: left;
 			width: @widthFixedColum;
 			margin-right: @space;
@@ -188,7 +192,7 @@
 	}
 	// Remove Fixed - Fluid Layout use Overflow
 	.unFixedFluidOverflow(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum){
-		.@{fixedColumName} {
+		> .@{fixedColumName} {
 			float: none;
 			width: auto;
 			margin-right: 0;
@@ -200,7 +204,7 @@
 
 	// Fluid - Fixed Layout use Overflow
 	.fluidFixedOverflow(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		.@{fixedColumName} {
+		> .@{fixedColumName} {
 			float: right;
 			width: @widthFixedColum;
 			margin-left: @space;
@@ -216,33 +220,33 @@
 	}
 	// Remove Fluid - Fixed Layout use Overflow
 	.unFluidFixedOverflow(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		.@{fixedColumName} {
+		> .@{fixedColumName} {
 			float: none;
 			width: auto;
 			margin-left: 0;
 		}
-		.@{fluidColumName} {
+		> .@{fluidColumName} {
 			overflow: visible;
 		}
 	}
 
 	// Fixed - Fluid - Fixed Layout use Overflow
 	.fixedFluidFixedOverflow(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		.@{fixedLeftColumName} {
+		> .@{fixedLeftColumName} {
 			float: left;
 			width: @widthFixedLeftColum;
 			margin-right: @spaceLeft;
 		}
-		.@{fixedRightColumName} {
+		> .@{fixedRightColumName} {
 			float: right;
 			width: @widthFixedRightColum;
 			margin-left: @spaceRight;
 		}
-		.@{fluidColumName} {
+		> .@{fluidColumName} {
 			overflow: hidden;
 		}
-		.@{fixedLeftColumName}.hide + .@{fixedRightColumName}.hide,
-		.@{fixedLeftColumName}.hidden + .@{fixedRightColumName}.hidden {
+		> .@{fixedLeftColumName}.hide + .@{fixedRightColumName}.hide,
+		> .@{fixedLeftColumName}.hidden + .@{fixedRightColumName}.hidden {
 			+ .@{fluidColumName} {
 				overflow: visible;
 			}
@@ -250,31 +254,31 @@
 	}
 	// Remove Fixed - Fluid - Fixed Layout use Overflow
 	.unFixedFluidFixedOverflow(@fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		.@{fixedLeftColumName} {
+		> .@{fixedLeftColumName} {
 			float: none;
 			width: auto;
 			margin-right: 0;
 		}
-		.@{fixedRightColumName} {
+		> .@{fixedRightColumName} {
 			float: right;
 			width: auto;
 			margin-left: 0;
 		}
-		.@{fluidColumName} {
+		> .@{fluidColumName} {
 			overflow: visible;
 		}
 	}
 
 	// Fixed - Fluid Layout Dynamic
 	.fixedFluidDynamic(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		.@{fluidColumName} {
+		> .@{fluidColumName} {
 			float: left;
 			width: 100%;
 			> .inner {
 				margin-left: @widthFixedColum + @space;
 			}
 		}
-		.@{fixedColumName} {
+		> .@{fixedColumName} {
 			float: left;
 			width: @widthFixedColum;
 			margin-left: -100%;
@@ -282,14 +286,14 @@
 	}
 	// Remove Fixed - Fluid Layout Dynamic
 	.unFixedFluidDynamic(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		.@{fluidColumName} {
+		> .@{fluidColumName} {
 			float: none;
 			width: auto;
 			> .inner {
 				margin-left: 0;
 			}
 		}
-		.@{fixedColumName} {
+		> .@{fixedColumName} {
 			float: none;
 			width: auto;
 			margin-left: 0;
@@ -298,14 +302,14 @@
 
 	// Fluid - Fixed Layout Dynamic
 	.fluidFixedDynamic(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		.@{fluidColumName} {
+		> .@{fluidColumName} {
 			float: left;
 			width: 100%;
 			> .inner {
 				margin-right: @widthFixedColum + @space;
 			}
 		}
-		.@{fixedColumName} {
+		> .@{fixedColumName} {
 			float: right;
 			width: @widthFixedColum;
 			margin-left: -@widthFixedColum;
@@ -313,14 +317,14 @@
 	}
 	// Remove Fluid - Fixed Layout Dynamic
 	.unFluidFixedDynamic(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		.@{fluidColumName} {
+		> .@{fluidColumName} {
 			float: none;
 			width: auto;
 			> .inner {
 				margin-right: 0;
 			}
 		}
-		.@{fixedColumName} {
+		> .@{fixedColumName} {
 			float: right;
 			width: auto;
 			margin-left: 0;
@@ -329,7 +333,7 @@
 
 	// Fixed - Fluid - Fixed Layout Dynamic
 	.fixedFluidFixedDynamic(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		.@{fluidColumName} {
+		> .@{fluidColumName} {
 			float: left;
 			width: 100%;
 			> .inner {
@@ -337,12 +341,12 @@
 				margin-right: @widthFixedRightColum + @spaceRight;
 			}
 		}
-		.@{fixedLeftColumName} {
+		> .@{fixedLeftColumName} {
 			float: left;
 			margin-left: -100%;
 			width: @widthFixedLeftColum;
 		}
-		.@{fixedRightColumName} {
+		> .@{fixedRightColumName} {
 			float: right;
 			width: @widthFixedRightColum;
 			margin-left: -@widthFixedRightColum;
@@ -350,7 +354,7 @@
 	}
 	// Remove Fixed - Fluid - Fixed Layout Dynamic
 	.unFixedFluidFixedDynamic(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		.@{fluidColumName} {
+		> .@{fluidColumName} {
 			float: none;
 			width: 100%;
 			> .inner {
@@ -358,12 +362,12 @@
 				margin-right: 0;
 			}
 		}
-		.@{fixedLeftColumName} {
+		> .@{fixedLeftColumName} {
 			float: none;
 			margin-left: 0;
 			width: auto;
 		}
-		.@{fixedRightColumName} {
+		> .@{fixedRightColumName} {
 			float: none;
 			width: auto;
 			margin-left: 0;
@@ -372,7 +376,7 @@
 
 	// Fixed - Fluid - Fixed Layout User Float and Margin
 	.fixedFluidUFM(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		.@{fixedColumName} {
+		> .@{fixedColumName} {
 			float: left;
 			width: @widthFixedColum;
 			margin-right: @space;
@@ -387,7 +391,7 @@
 	}
 	// Remove Fixed - Fluid - Fixed Layout User Float and Margin
 	.unFixedFluidUFM(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		.@{fixedColumName} {
+		> .@{fixedColumName} {
 			float: none;
 			width: auto;
 			margin-right: 0;
@@ -402,7 +406,7 @@
 
 	// Fluid - Fixed Layout User Float and Margin
 	.fluidFixedUFM(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		.@{fixedColumName} {
+		> .@{fixedColumName} {
 			float: right;
 			width: @widthFixedColum;
 			margin-left: @space;
@@ -417,7 +421,7 @@
 	}
 	// Remove Fluid - Fixed Layout User Float and Margin
 	.unFluidFixedUFM(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		.@{fixedColumName} {
+		> .@{fixedColumName} {
 			float: none;
 			width: @widthFixedColum;
 			margin-left: @space;
@@ -433,15 +437,15 @@
 
 	// Fixed - Fluid - Fixed Layout User Float and Margin
 	.fixedFluidFixedUFM(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		.@{fixedLeftColumName} {
+		> .@{fixedLeftColumName} {
 			float: left;
 			width: @widthFixedLeftColum;
 			margin-right: @spaceLeft;
 			+ .@{fixedRightColumName} {
 			}
 		}
-		.@{fixedLeftColumName},
-		.@{fixedLeftColumName} + .@{fixedRightColumName}
+		> .@{fixedLeftColumName},
+		> .@{fixedLeftColumName} + .@{fixedRightColumName}
 		 {
 			+ .@{fluidColumName} {
 				margin-left: @widthFixedLeftColum + @spaceLeft;
@@ -455,45 +459,45 @@
 					margin-right: @widthFixedRightColum + @spaceRight;
 				}
 		}
-		.@{fluidColumName} {
+		> .@{fluidColumName} {
 			> .inner {
 				display: inline-block;
 				width: 100%;
 			}
 		}
-		.@{fixedLeftColumName}.hide + .@{fixedRightColumName}.hide,
-		.@{fixedLeftColumName}.hidden + .@{fixedRightColumName}.hidden {
+		> .@{fixedLeftColumName}.hide + .@{fixedRightColumName}.hide,
+		> .@{fixedLeftColumName}.hidden + .@{fixedRightColumName}.hidden {
 			+ .@{fluidColumName} {
 				margin-left: 0;
 				margin-right: 0;
 			}
 		}
-		.@{fixedLeftColumName}.hide + .@{fixedRightColumName} + .@{fluidColumName},
-		.@{fixedLeftColumName}.hidden + .@{fixedRightColumName} + .@{fluidColumName} {
+		> .@{fixedLeftColumName}.hide + .@{fixedRightColumName} + .@{fluidColumName},
+		> .@{fixedLeftColumName}.hidden + .@{fixedRightColumName} + .@{fluidColumName} {
 			margin-left: 0;
 		}
-		.@{fixedRightColumName}.hide + .@{fluidColumName},
-		.@{fixedRightColumName}.hidden + .@{fluidColumName} {
+		> .@{fixedRightColumName}.hide + .@{fluidColumName},
+		> .@{fixedRightColumName}.hidden + .@{fluidColumName} {
 			margin-right: 0;
 		}
 	}
 	// Remove Fixed - Fluid - Fixed Layout User Float and Margin
 	.unFixedFluidFixedUFM(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		.@{fixedLeftColumName} {
+		> .@{fixedLeftColumName} {
 			float: none;
 			width: auto;
 			margin-right: 0;
 			+ .@{fixedRightColumName} {
 			}
 		}
-		.@{fixedLeftColumName},
-		.@{fixedLeftColumName} + .@{fixedRightColumName}
+		> .@{fixedLeftColumName},
+		> .@{fixedLeftColumName} + .@{fixedRightColumName}
 		 {
 			+ .@{fluidColumName} {
 				margin-left: 0;
 			}
 		}
-		.@{fixedRightColumName} {
+		> .@{fixedRightColumName} {
 			float: right;
 			width: auto;
 			margin-left: @spaceRight;
@@ -501,7 +505,7 @@
 					margin-right: 0;
 				}
 		}
-		.@{fluidColumName} {
+		> .@{fluidColumName} {
 			> .inner {
 				display: block;
 				width: auto;
