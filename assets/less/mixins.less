@@ -89,12 +89,12 @@
     .loopSize (@index) when (@index >= @minValue) and (@unit = px){
       	.f@{index} {
             // your resulting css
-            width: ~"@{index}@{unit}";
+            font-size: ~"@{index}@{unit}";
         }
 
         .f@{index}-ipt {
             // your resulting css
-            width: ~"@{index}@{unit}"!important;
+            font-size: ~"@{index}@{unit}"!important;
         }
 
         // next iteration
@@ -106,12 +106,12 @@
   	.loopSize (@index) when (@index >= @minValue) and not (@unit = px){
   		.f@{index}@{unit} {
             // your resulting css
-            width: ~"@{index}@{unit}";
+            font-size: ~"@{index}@{unit}";
         }
 
         .f@{index}@{unit}-ipt {
             // your resulting css
-            width: ~"@{index}@{unit}"!important;
+            font-size: ~"@{index}@{unit}"!important;
         }
 
         // next iteration
