@@ -2,7 +2,7 @@
 
   $(function(){
 
-  	// Write script to custom bootstrap js here...
+  	// Write script here...
 
   });
 
