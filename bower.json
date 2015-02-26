@@ -1,0 +1,18 @@
+{
+  "name": "bootstrap-icodervn",
+  "version": "1.0.0",
+  "description": [
+    "Project Comming Soon"
+  ],
+  "homepage": "http://icoder.vn/bootstrap-icodervn",
+  "authors": [
+    "Giang Nguyen <giangnt6988@gmail.com> (http://icoder.vn)"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "assets/vendor"
+  ]
+}

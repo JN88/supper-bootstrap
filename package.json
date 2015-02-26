@@ -1,0 +1,38 @@
+{
+  "name": "supper-bootsrtap",
+  "version": "1.0.0",
+  "author": "Giang Nguyen <giangnt6988@gmail.com>",
+  "homepage": "http://icoder.vn/supper-bootsrtap",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/icodervn/supper-bootsrtap.git"
+  },
+  "bugs": {
+    "url": "git://github.com/icodervn/supper-bootsrtap"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "scripts": {
+    "postinstall": "node node_modules/bower/bin/bower install && grunt dev"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-autoprefixer": "~0.8.1",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-less": "~0.11.3",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-modernizr": "~0.5.2",
+    "grunt-wp-assets": "~0.2.6",
+    "load-grunt-tasks": "~0.6.0",
+    "time-grunt": "~0.3.2"
+  }
+}
