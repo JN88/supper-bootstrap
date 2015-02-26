@@ -70,6 +70,7 @@
 		// next iteration
 		 .loop_margin_padding(@index - @counter);
 	}
+
 	// end the loop when index is 0
 	.loop_margin_padding (0) {}
 
@@ -85,54 +86,74 @@
 // @unit			Đơn vị sử dụng như px, pt, em .. (giá trị mặc định là: px)
 
 .fontSizeLoop(@maxValue, @minValue: 0, @counter: 1, @unit: px) {
-    // Nếu đơn vị sử dụng là px thì
-    .loopSize (@index) when (@index >= @minValue) and (@unit = px){
-      	.f@{index} {
+	// Nếu đơn vị sử dụng là px thì
+    .loopSize (@index) when (@index >= @minValue){
+      	.f@{index}-xs {
             // your resulting css
             font-size: ~"@{index}@{unit}";
         }
 
-        .f@{index}-ipt {
+    	.f@{index}-xs-ipt {
             // your resulting css
             font-size: ~"@{index}@{unit}"!important;
         }
+
+		@media (min-width: @screen-sm-min) {
+  			.f@{index}-sm {
+                // your resulting css
+                font-size: ~"@{index}@{unit}";
+            }
+
+            .f@{index}-sm-ipt {
+                // your resulting css
+                font-size: ~"@{index}@{unit}"!important;
+            }
+		}
+
+		@media (min-width: @screen-md-min) {
+  			.f@{index}-md {
+                // your resulting css
+                font-size: ~"@{index}@{unit}";
+            }
+
+            .f@{index}-md-ipt {
+                // your resulting css
+                font-size: ~"@{index}@{unit}"!important;
+            }
+		}
+
+		@media (min-width: @screen-lg-min) {
+  			.f@{index}-lg {
+                // your resulting css
+                font-size: ~"@{index}@{unit}";
+            }
+
+            .f@{index}-lg-ipt {
+                // your resulting css
+                font-size: ~"@{index}@{unit}"!important;
+            }
+		}
 
         // next iteration
         .loopSize(@index - @counter);
     }
-
-  	// Nếu đơn vị ko phải là "px" thì tên class sẽ thêm vào tên class
-  	//vd: .f5em hoặc f5pt
-  	.loopSize (@index) when (@index >= @minValue) and not (@unit = px){
-  		.f@{index}@{unit} {
-            // your resulting css
-            font-size: ~"@{index}@{unit}";
-        }
-
-        .f@{index}@{unit}-ipt {
-            // your resulting css
-            font-size: ~"@{index}@{unit}"!important;
-        }
-
-        // next iteration
-        .loopSize(@index - @counter);
-  	}
 
     // end the loop when index is 0
     .loopSize (0) {}
     .loopSize(@maxValue);
 }
 
+
 // MIXIN: Generate Width
 //---------------------------------------
 // @maxValue		Giá trị lớn nhất
 // @minValue		Giá trị nhỏ nhất
 // @counter			Giá trị đếm ngược lỗi lần lặp (giá trị mặc định là: 5)
-// @unit			Đơn vị sử dụng như px, pt, em .. (giá trị mặc định là: px)
+// @unit			Đơn vị sử dụng như px, pt, em ... (giá trị mặc định là: px)
 
 .widthSizeLoop(@maxValue, @minValue: 0, @counter: 5, @unit: px) {
   	// Nếu đơn vị sử dụng là px thì
-    .loopSize (@index) when (@index >= @minValue) and (@unit = px){
+    .loopSize (@index) when (@index >= @minValue){
       	.w@{index} {
             // your resulting css
             width: ~"@{index}@{unit}";
@@ -146,23 +167,6 @@
         // next iteration
         .loopSize(@index - @counter);
     }
-
-  	// Nếu đơn vị ko phải là "px" thì tên class sẽ thêm vào tên class
-  	//vd: .w5em hoặc w5pt
-  	.loopSize (@index) when (@index >= @minValue) and not (@unit = px){
-  		.w@{index}@{unit} {
-            // your resulting css
-            width: ~"@{index}@{unit}";
-        }
-
-        .w@{index}@{unit}-ipt {
-            // your resulting css
-            width: ~"@{index}@{unit}"!important;
-        }
-
-        // next iteration
-        .loopSize(@index - @counter);
-  	}
 
 
     // end the loop when index is 0
@@ -523,8 +527,15 @@
 }
 
 // MIXIN: Set Link Color
-.linkColor(@color: @link-color, @colorHover: @link-hover-color){
+.link-color(@color: @link-color, @colorHover: @link-hover-color){
     color: @color;
+    &:hover {
+        color: @colorHover;
+    }
+}
+
+.link-text-color(@color: @text-color, @colorHover: @link-color){
+	color: @color;
     &:hover {
         color: @colorHover;
     }
@@ -543,5 +554,7 @@
 	meta[name="description"][content=""]:before, meta[name="description"][content=" "]:before {content: "You've left description empty!";}
 }
 
+//
 // MIXIN: MIXINS for this Project
+// --------------------------------------------------//
 // Write new mixin for project here...
