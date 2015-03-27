@@ -10,7 +10,38 @@
 
 // MODULE: MODULE STYLE
 // -------------------------------------
+.liquid-layout {
+	&:extend(.clearfix all);
+	&.fixedFluidOverflow {
+		#liquid-layout > .fixedFluidOverflow(200px, 20px);
+	}
+	&.fluidFixedOverflow {
+		#liquid-layout > .fluidFixedOverflow(200px, 20px);
+	}
+	&.fixedFluidFixedOverflow {
+		#liquid-layout > .fixedFluidFixedSwap(200px, 20px, 200px, 20px);
+	}
 
+	&.fixedFluidDynamic {
+		#liquid-layout > .fixedFluidSwap(200px, 20px);
+	}
+	&.fluidFixedDynamic {
+		#liquid-layout > .fluidFixedSwap(200px, 20px);
+	}
+	&.fixedFluidFixedDynamic {
+		#liquid-layout > .fixedFluidFixedSwap(200px, 20px, 200px, 20px);
+	}
+
+	&.fixedFluidUFM {
+		#liquid-layout > .fixedFluidPush (200px, 20px);
+	}
+	&.fluidFixedUFM {
+		#liquid-layout > .fluidFixedPush (200px, 20px);
+	}
+	&.fixedFluidFixedUFM {
+		#liquid-layout > .fixedFluidFixedPush(200px, 20px, 200px, 20px);
+	}
+}
 
 // --------------------------------------------------
 // RESPONSIVE

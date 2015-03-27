@@ -1,74 +1,70 @@
 //
 // MIXINS
 // --------------------------------------------------
-// MIXIN: Border Radius
-.border-radius(@radius) {
-  -webkit-border-radius: @radius;
-     -moz-border-radius: @radius;
-          border-radius: @radius;
-}
 
 // MIXIN: Generate Margin and Padding
-//---------------------------------------
-// @maxValue		Giá trị lớn nhất
-// @minValue		Giá trị nhỏ nhất
-// @counter			Giá trị đếm ngược lỗi lần lặp (giá trị mặc định là: 5)
-// @unit			Đơn vị sử dụng như px, pt, em .. (giá trị mặc định là: px)
+//--------------------------------------------------------------------------------
+// Parameter 		Type 		Default 		Description
+//--------------------------------------------------------------------------------
+// @maxValue 		int							maximum value
+// @minValue 		int							Minium value
+// @countDown 		int			5				Count down value
 
-.marginAndPadding(@maxValue, @counter: 5, @minValue: 0, @unit: px)
+.marginAndPadding(@maxValue, @minValue: 0, @countDown: 5)
 {
 
 	// The Loop
 	.loop_margin_padding (@index) when (@index >= @minValue) {
 
 		// Padding
-		.pd@{index} {padding: ~"@{index}@{unit}";}
-		.pdT@{index} {padding-top: ~"@{index}@{unit}";}
-		.pdR@{index} {padding-right: ~"@{index}@{unit}";}
-		.pdB@{index} {padding-bottom: ~"@{index}@{unit}";}
-		.pdL@{index} {padding-left: ~"@{index}@{unit}";}
+		//------------------------------------------------------------
+		.pad-@{index} {padding: ~"@{index}";}
+		.padTop-@{index} {padding-top: ~"@{index}";}
+		.padRight-@{index} {padding-right: ~"@{index}";}
+		.padBottom-@{index} {padding-bottom: ~"@{index}";}
+		.padLeft-@{index} {padding-left: ~"@{index}";}
 
 		// Padding Important
-		.pd@{index}-ipt {padding: ~"@{index}@{unit}!important";}
-		.pdT@{index}-ipt {padding-top: ~"@{index}@{unit}!important";}
-		.pdR@{index}-ipt {padding-right: ~"@{index}@{unit}!important";}
-		.pdB@{index}-ipt {padding-bottom: ~"@{index}@{unit}!important";}
-		.pdL@{index}-ipt {padding-left: ~"@{index}@{unit}!important";}
+		.pad-@{index}-ipt {padding: ~"@{index}!important";}
+		.padTop-@{index}-ipt {padding-top: ~"@{index}!important";}
+		.padRight-@{index}-ipt {padding-right: ~"@{index}!important";}
+		.padBottom-@{index}-ipt {padding-bottom: ~"@{index}!important";}
+		.padLeft-@{index}-ipt {padding-left: ~"@{index}!important";}
 
 		// Padding Horizatial
-		.pd-0-@{index} {padding: 0 ~"@{index}@{unit}";}
-		.pd-0-@{index}-ipt {padding: 0 ~"@{index}@{unit}!important";}
+		.pad-0-@{index} {padding: 0 ~"@{index}";}
+		.pad-0-@{index}-ipt {padding: 0 ~"@{index}!important";}
 
 
 		// Padding Vertical
-		.pd-@{index}-0 {padding: ~"@{index}@{unit}" 0;}
-		.pd-@{index}-0-ipt {padding: ~"@{index}@{unit}" 0!important;}
+		.pad-@{index}-0 {padding: ~"@{index}" 0;}
+		.pad-@{index}-0-ipt {padding: ~"@{index}" 0!important;}
 
-		//-----------------------------------------------------------------
 		// Margin
-		.mg@{index} {margin: ~"@{index}@{unit}";}
-		.mgT@{index} {margin-top: ~"@{index}@{unit}";}
-		.mgR@{index} {margin-right: ~"@{index}@{unit}";}
-		.mgB@{index} {margin-bottom: ~"@{index}@{unit}";}
-		.mgL@{index} {margin-left: ~"@{index}@{unit}";}
+		//------------------------------------------------------------
+		.mar-@{index} {margin: ~"@{index}";}
+		.marTop-@{index} {margin-top: ~"@{index}";}
+		.marRight-@{index} {margin-right: ~"@{index}";}
+		.marBottom-@{index} {margin-bottom: ~"@{index}";}
+		.marLeft-@{index} {margin-left: ~"@{index}";}
 
 		// Margin Important
-		.mg@{index}-ipt {margin: ~"@{index}@{unit}!important";}
-		.mgT@{index}-ipt {margin-top: ~"@{index}@{unit}!important";}
-		.mgR@{index}-ipt {margin-right: ~"@{index}@{unit}!important";}
-		.mgB@{index}-ipt {margin-bottom: ~"@{index}@{unit}!important";}
-		.mgL@{index}-ipt {margin-left: ~"@{index}@{unit}!important";}
+		.mar-@{index}-ipt {margin: ~"@{index}!important";}
+		.marTop-@{index}-ipt {margin-top: ~"@{index}!important";}
+		.marRight-@{index}-ipt {margin-right: ~"@{index}!important";}
+		.marBottom-@{index}-ipt {margin-bottom: ~"@{index}!important";}
+		.marLeft-@{index}-ipt {margin-left: ~"@{index}!important";}
 
 		// margin Horizatial
-		.mg-0-@{index} {margin: 0 ~"@{index}@{unit}";}
-		.mg-0-@{index}-ipt {margin: 0 ~"@{index}@{unit}!important";}
+		.mar-0-@{index} {margin: 0 ~"@{index}";}
+		.mar-0-@{index}-ipt {margin: 0 ~"@{index}!important";}
 
 		// margin Vertical
-		.mg-@{index}-0 {margin: ~"@{index}@{unit}" 0;}
-		.mg-@{index}-0-ipt {margin: ~"@{index}@{unit}" 0!important;}
+		.mar-@{index}-0 {margin: ~"@{index}" 0;}
+		.mar-@{index}-0-ipt {margin: ~"@{index}" 0!important;}
 
 		// next iteration
-		 .loop_margin_padding(@index - @counter);
+		 .loop_margin_padding(@index - @countDown);
 	}
 
 	// end the loop when index is 0
@@ -79,63 +75,29 @@
 }
 
 // MIXIN: Generate Font Size
-//---------------------------------------
-// @maxValue		Giá trị lớn nhất
-// @minValue		Giá trị nhỏ nhất
-// @counter			Giá trị đếm ngược lỗi lần lặp (giá trị mặc định là: 1)
-// @unit			Đơn vị sử dụng như px, pt, em .. (giá trị mặc định là: px)
+//--------------------------------------------------------------------------------
+// Parameter 		Type 		Default 		Description
+//--------------------------------------------------------------------------------
+// @maxValue 		int							maximum value
+// @minValue 		int							Minium value
+// @countDown 		int			1				Count down value
 
-.fontSizeLoop(@maxValue, @minValue: 0, @counter: 1, @unit: px) {
+.fontSizeLoop(@maxValue, @minValue: 0, @countDown: 1) {
 	// Nếu đơn vị sử dụng là px thì
     .loopSize (@index) when (@index >= @minValue){
-      	.f@{index}-xs {
+
+      	.fs-@{index} {
             // your resulting css
-            font-size: ~"@{index}@{unit}";
+            font-size: ~"@{index}";
         }
 
-    	.f@{index}-xs-ipt {
+    	.fs-@{index}-ipt {
             // your resulting css
-            font-size: ~"@{index}@{unit}"!important;
+            font-size: ~"@{index}"!important;
         }
-
-		@media (min-width: @screen-sm-min) {
-  			.f@{index}-sm {
-                // your resulting css
-                font-size: ~"@{index}@{unit}";
-            }
-
-            .f@{index}-sm-ipt {
-                // your resulting css
-                font-size: ~"@{index}@{unit}"!important;
-            }
-		}
-
-		@media (min-width: @screen-md-min) {
-  			.f@{index}-md {
-                // your resulting css
-                font-size: ~"@{index}@{unit}";
-            }
-
-            .f@{index}-md-ipt {
-                // your resulting css
-                font-size: ~"@{index}@{unit}"!important;
-            }
-		}
-
-		@media (min-width: @screen-lg-min) {
-  			.f@{index}-lg {
-                // your resulting css
-                font-size: ~"@{index}@{unit}";
-            }
-
-            .f@{index}-lg-ipt {
-                // your resulting css
-                font-size: ~"@{index}@{unit}"!important;
-            }
-		}
 
         // next iteration
-        .loopSize(@index - @counter);
+        .loopSize(@index - @countDown);
     }
 
     // end the loop when index is 0
@@ -145,29 +107,29 @@
 
 
 // MIXIN: Generate Width
-//---------------------------------------
-// @maxValue		Giá trị lớn nhất
-// @minValue		Giá trị nhỏ nhất
-// @counter			Giá trị đếm ngược lỗi lần lặp (giá trị mặc định là: 5)
-// @unit			Đơn vị sử dụng như px, pt, em ... (giá trị mặc định là: px)
+//--------------------------------------------------------------------------------
+// Parameter 		Type 		Default 		Description
+//--------------------------------------------------------------------------------
+// @maxValue 		int							maximum value
+// @minValue 		int							Minium value
+// @countDown 		int			5				Count down value
 
-.widthSizeLoop(@maxValue, @minValue: 0, @counter: 5, @unit: px) {
-  	// Nếu đơn vị sử dụng là px thì
+.widthSizeLoop(@maxValue, @minValue: 0, @countDown: 5) {
+
     .loopSize (@index) when (@index >= @minValue){
-      	.w@{index} {
+      	.width-@{index} {
             // your resulting css
-            width: ~"@{index}@{unit}";
+            width: ~"@{index}";
         }
 
-        .w@{index}-ipt {
+        .width-@{index}-ipt {
             // your resulting css
-            width: ~"@{index}@{unit}"!important;
+            width: ~"@{index}"!important;
         }
 
         // next iteration
-        .loopSize(@index - @counter);
+        .loopSize(@index - @countDown);
     }
-
 
     // end the loop when index is 0
     .loopSize (0) {}
@@ -176,262 +138,402 @@
 
 
 // MIXIN: Liquid Layout
-//---------------------------------------
+//--------------------------------------------------------------------------------
 #liquid-layout {
-	// Fixed - Fluid Layout use Overflow
-	.fixedFluidOverflow(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		> .@{fixedColumName} {
+
+	// MIXIN: Fixed-Fluid Layout Use Overflow Hidden
+	//--------------------------------------------------------------------------------
+	// Parameter 			Type 		Default 		Description
+	//--------------------------------------------------------------------------------
+	// @widthFixedColumn 	int			300px			With of fixed column
+	// @gutterSize			int			20px			Space (margin) between columns
+	// @fixedColumnName 	string		fixed-column	Default name of fixed column
+	// @fluidColumnName		string 		fluid-column 	Default name of fluid column
+
+	.fixedFluidOverflow(@widthFixedColumn: 300px, @gutterSize: 20px, @fixedColumnName: fixed-column, @fluidColumnName: fluid-column) {
+		> .@{fixedColumnName} {
 			float: left;
-			width: @widthFixedColum;
-			margin-right: @space;
-			+ .@{fluidColumName} {
+			width: @widthFixedColumn;
+			margin-right: @gutterSize;
+			+ .@{fluidColumnName} {
 				overflow: hidden;
 			}
 			&.hidden, &.hide {
-				+ .@{fluidColumName} {
+				+ .@{fluidColumnName} {
 					overflow: visible;
 				}
 			}
 		}
 	}
-	// Remove Fixed - Fluid Layout use Overflow
-	.unFixedFluidOverflow(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum){
-		> .@{fixedColumName} {
+
+	// MIXIN: Remove Fixed-Fluid Layout Use Overflow Hidden
+	//--------------------------------------------------------------------------------
+	// Parameter 			Type 		Default 		Description
+	//--------------------------------------------------------------------------------
+	// @fixedColumnName 	string		fixed-column	Default name of fixed column
+	// @fluidColumnName		string 		fluid-column 	Default name of fluid column
+
+	.unFixedFluidOverflow(@fixedColumnName: fixed-column, @fluidColumnName: fluid-column){
+		> .@{fixedColumnName} {
 			float: none;
 			width: auto;
 			margin-right: 0;
-			+ .@{fluidColumName} {
+			+ .@{fluidColumnName} {
 				overflow: visible;
 			}
 		}
 	}
 
-	// Fluid - Fixed Layout use Overflow
-	.fluidFixedOverflow(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		> .@{fixedColumName} {
+	// MIXIN: Fluid-Fixed Layout Use Overflow
+	//--------------------------------------------------------------------------------
+	// Parameter 			Type 		Default 		Description
+	//--------------------------------------------------------------------------------
+	// @widthFixedColumn 	int			300px			With of fixed column
+	// @gutterSize			int			20px			Space (margin) between columns
+	// @fixedColumnName 	string		fixed-column	Default name of fixed column
+	// @fluidColumnName		string 		fluid-column 	Default name of fluid column
+
+	.fluidFixedOverflow(@widthFixedColumn: 300px, @gutterSize: 20px, @fixedColumnName: fixed-column, @fluidColumnName: fluid-column) {
+		> .@{fixedColumnName} {
 			float: right;
-			width: @widthFixedColum;
-			margin-left: @space;
-			+ .@{fluidColumName} {
+			width: @widthFixedColumn;
+			margin-left: @gutterSize;
+			+ .@{fluidColumnName} {
 				overflow: hidden;
 			}
 			&.hidden, &.hide {
-				+ .@{fluidColumName} {
+				+ .@{fluidColumnName} {
 					overflow: visible;
 				}
 			}
 		}
 	}
-	// Remove Fluid - Fixed Layout use Overflow
-	.unFluidFixedOverflow(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		> .@{fixedColumName} {
+
+	// MIXIN: Remove Fixed-Fluid Layout use Overflow Hidden
+	//--------------------------------------------------------------------------------
+	// Parameter 			Type 		Default 		Description
+	//--------------------------------------------------------------------------------
+	// @fixedColumnName 	string		fixed-column	Default name of fixed column
+	// @fluidColumnName		string 		fluid-column 	Default name of fluid column
+
+	.unFluidFixedOverflow(@fixedColumnName: fixed-column, @fluidColumnName: fluid-column) {
+		> .@{fixedColumnName} {
 			float: none;
 			width: auto;
 			margin-left: 0;
 		}
-		> .@{fluidColumName} {
+		> .@{fluidColumnName} {
 			overflow: visible;
 		}
 	}
 
-	// Fixed - Fluid - Fixed Layout use Overflow
-	.fixedFluidFixedOverflow(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		> .@{fixedLeftColumName} {
+	// MIXIN: Fixed-Fluid-Fixed Layout Use Overflow Hidden
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 			Description
+	//--------------------------------------------------------------------------------
+	// @widthFixedLeftColumn 	int			300px				With of fixed left column
+	// @widthFixedRightColumn 	int			300px				With of fixed right column
+	// @gutterLeftSize			int			20px				Space (margin) of fixed left columns
+	// @gutterRightSize			int			20px				Space (margin) of fixed right columns
+	// @fixedLeftColumnName 	string		fixed-left-column 	Default name of fixed left column
+	// @fixedRightColumnName 	string		fixed-right-column	Default name of fixed right column
+	// @fluidColumnName			string 		fluid-column 		Default name of fluid column
+
+	.fixedFluidFixedOverflow(@widthFixedLeftColumn: 300px, @gutterLeftSize: 20px, @widthFixedRightColumn: 300px, @gutterRightSize: 20px, @fixedLeftColumnName: fixed-left-column, @fixedRightColumnName: fixed-right-column, @fluidColumnName: fluid-column) {
+		> .@{fixedLeftColumnName} {
 			float: left;
-			width: @widthFixedLeftColum;
-			margin-right: @spaceLeft;
+			width: @widthFixedLeftColumn;
+			margin-right: @gutterLeftSize;
 		}
-		> .@{fixedRightColumName} {
+		> .@{fixedRightColumnName} {
 			float: right;
-			width: @widthFixedRightColum;
-			margin-left: @spaceRight;
+			width: @widthFixedRightColumn;
+			margin-left: @gutterRightSize;
 		}
-		> .@{fluidColumName} {
+		> .@{fluidColumnName} {
 			overflow: hidden;
 		}
-		> .@{fixedLeftColumName}.hide + .@{fixedRightColumName}.hide,
-		> .@{fixedLeftColumName}.hidden + .@{fixedRightColumName}.hidden {
-			+ .@{fluidColumName} {
+		> .@{fixedLeftColumnName}.hide + .@{fixedRightColumnName}.hide,
+		> .@{fixedLeftColumnName}.hidden + .@{fixedRightColumnName}.hidden {
+			+ .@{fluidColumnName} {
 				overflow: visible;
 			}
 		}
 	}
-	// Remove Fixed - Fluid - Fixed Layout use Overflow
-	.unFixedFluidFixedOverflow(@fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		> .@{fixedLeftColumName} {
+
+	// MIXIN: Remove Fixed-Fluid-Fixed Layout Use Overflow Hidden
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 			Description
+	//--------------------------------------------------------------------------------
+	// @fixedLeftColumnName 	string		fixed-left-column 	Default name of fixed left column
+	// @fixedRightColumnName 	string		fixed-right-column	Default name of fixed right column
+	// @fluidColumnName			string 		fluid-column 		Default name of fluid column
+
+	.unFixedFluidFixedOverflow(@fixedLeftColumnName: fixed-left-column, @fixedRightColumnName: fixed-right-column, @fluidColumnName: fluid-column) {
+		> .@{fixedLeftColumnName} {
 			float: none;
 			width: auto;
 			margin-right: 0;
 		}
-		> .@{fixedRightColumName} {
+		> .@{fixedRightColumnName} {
 			float: right;
 			width: auto;
 			margin-left: 0;
 		}
-		> .@{fluidColumName} {
+		> .@{fluidColumnName} {
 			overflow: visible;
 		}
 	}
 
-	// Fixed - Fluid Layout Dynamic
-	.fixedFluidDynamic(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		> .@{fluidColumName} {
+	// MIXIN: Fixed-Fluid Layout Swap
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 		Description
+	//--------------------------------------------------------------------------------
+	// @widthFixedColumn 		int			300px			With of fixed column
+	// @gutterSize				int			20px			Space (margin) between columns
+	// @fixedColumnName 		string		fixed-column	Default name of fixed column
+	// @fluidColumnName			string 		fluid-column 	Default name of fluid column
+	// @fluidInnerColumnName 	string 		inner 			Default name of fluid column inner
+
+	.fixedFluidSwap(@widthFixedColumn: 300px, @gutterSize: 20px, @fixedColumnName: fixed-column, @fluidColumnName: fluid-column, @fluidInnerColumnName: inner) {
+		> .@{fluidColumnName} {
 			float: left;
 			width: 100%;
-			> .inner {
-				margin-left: @widthFixedColum + @space;
+			> .@{fluidInnerColumnName} {
+				margin-left: @widthFixedColumn + @gutterSize;
 			}
 		}
-		> .@{fixedColumName} {
+		> .@{fixedColumnName} {
 			float: left;
-			width: @widthFixedColum;
+			width: @widthFixedColumn;
 			margin-left: -100%;
 		}
 	}
-	// Remove Fixed - Fluid Layout Dynamic
-	.unFixedFluidDynamic(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		> .@{fluidColumName} {
+
+	// MIXIN: Remove Fixed-Fluid Layout Swap
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 		Description
+	//--------------------------------------------------------------------------------
+	// @fixedColumnName 		string		fixed-column	Default name of fixed column
+	// @fluidColumnName			string 		fluid-column 	Default name of fluid column
+	// @fluidInnerColumnName 	string 		inner 			Default name of fluid column inner
+
+	.unFixedFluidSwap(@fixedColumnName: fixed-column, @fluidColumnName: fluid-column, @fluidInnerColumnName: inner) {
+		> .@{fluidColumnName} {
 			float: none;
 			width: auto;
-			> .inner {
+			> .@{fluidInnerColumnName} {
 				margin-left: 0;
 			}
 		}
-		> .@{fixedColumName} {
+		> .@{fixedColumnName} {
 			float: none;
 			width: auto;
 			margin-left: 0;
 		}
 	}
 
-	// Fluid - Fixed Layout Dynamic
-	.fluidFixedDynamic(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		> .@{fluidColumName} {
+	// MIXIN: Fluid-Fixed Layout Swap
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 		Description
+	//--------------------------------------------------------------------------------
+	// @widthFixedColumn 		int			300px			With of fixed column
+	// @gutterSize				int			20px			Space (margin) between columns
+	// @fixedColumnName 		string		fixed-column	Default name of fixed column
+	// @fluidColumnName			string 		fluid-column 	Default name of fluid column
+	// @fluidInnerColumnName 	string 		inner 			Default name of fluid column inner
+
+	.fluidFixedSwap(@widthFixedColumn: 300px, @gutterSize: 20px, @fixedColumnName: fixed-column, @fluidColumnName: fluid-column, @fluidInnerColumnName: inner) {
+		> .@{fluidColumnName} {
 			float: left;
 			width: 100%;
-			> .inner {
-				margin-right: @widthFixedColum + @space;
+			> .@{fluidInnerColumnName} {
+				margin-right: @widthFixedColumn + @gutterSize;
 			}
 		}
-		> .@{fixedColumName} {
+		> .@{fixedColumnName} {
 			float: right;
-			width: @widthFixedColum;
-			margin-left: -@widthFixedColum;
+			width: @widthFixedColumn;
+			margin-left: -@widthFixedColumn;
 		}
 	}
-	// Remove Fluid - Fixed Layout Dynamic
-	.unFluidFixedDynamic(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		> .@{fluidColumName} {
+
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 		Description
+	//--------------------------------------------------------------------------------
+	// @fixedColumnName 		string		fixed-column	Default name of fixed column
+	// @fluidColumnName			string 		fluid-column 	Default name of fluid column
+	// @fluidInnerColumnName 	string 		inner 			Default name of fluid column inner
+
+	// MIXIN: Remove Fluid-Fixed Layout Swap
+	.unFluidFixedSwap(@fixedColumnName: fixed-column, @fluidColumnName: fluid-column, @fluidInnerColumnName: inner) {
+		> .@{fluidColumnName} {
 			float: none;
 			width: auto;
-			> .inner {
+			> .@{fluidInnerColumnName} {
 				margin-right: 0;
 			}
 		}
-		> .@{fixedColumName} {
+		> .@{fixedColumnName} {
 			float: right;
 			width: auto;
 			margin-left: 0;
 		}
 	}
 
-	// Fixed - Fluid - Fixed Layout Dynamic
-	.fixedFluidFixedDynamic(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		> .@{fluidColumName} {
+	// MIXIN: Fixed-Fluid-Fixed Layout Swap
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 			Description
+	//--------------------------------------------------------------------------------
+	// @widthFixedLeftColumn 	int			300px				With of fixed left column
+	// @widthFixedRightColumn 	int			300px				With of fixed right column
+	// @gutterLeftSize			int			20px				Space (margin) of fixed left columns
+	// @gutterRightSize			int			20px				Space (margin) of fixed right columns
+	// @fixedLeftColumnName 	string		fixed-left-column 	Default name of fixed left column
+	// @fixedRightColumnName 	string		fixed-right-column	Default name of fixed right column
+	// @fluidColumnName			string 		fluid-column 		Default name of fluid column
+	// @fluidInnerColumnName 	string 		inner 				Default name of fluid column inner
+
+	.fixedFluidFixedSwap(@widthFixedLeftColumn: 300px, @gutterLeftSize: 20px, @widthFixedRightColumn: 300px, @gutterRightSize: 20px, @fixedLeftColumnName: fixed-left-column, @fixedRightColumnName: fixed-right-column, @fluidColumnName: fluid-column, @fluidInnerColumnName: inner) {
+		> .@{fluidColumnName} {
 			float: left;
 			width: 100%;
-			> .inner {
-				margin-left: @widthFixedLeftColum + @spaceLeft;
-				margin-right: @widthFixedRightColum + @spaceRight;
+			> .@{fluidInnerColumnName} {
+				margin-left: @widthFixedLeftColumn + @gutterLeftSize;
+				margin-right: @widthFixedRightColumn + @gutterRightSize;
 			}
 		}
-		> .@{fixedLeftColumName} {
+		> .@{fixedLeftColumnName} {
 			float: left;
 			margin-left: -100%;
-			width: @widthFixedLeftColum;
+			width: @widthFixedLeftColumn;
 		}
-		> .@{fixedRightColumName} {
+		> .@{fixedRightColumnName} {
 			float: right;
-			width: @widthFixedRightColum;
-			margin-left: -@widthFixedRightColum;
+			width: @widthFixedRightColumn;
+			margin-left: -@widthFixedRightColumn;
 		}
 	}
-	// Remove Fixed - Fluid - Fixed Layout Dynamic
-	.unFixedFluidFixedDynamic(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		> .@{fluidColumName} {
+
+
+	// MIXIN: Remove Fixed-Fluid-Fixed Layout Swap
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 			Description
+	//--------------------------------------------------------------------------------
+	// @fixedLeftColumnName 	string		fixed-left-column 	Default name of fixed left column
+	// @fixedRightColumnName 	string		fixed-right-column	Default name of fixed right column
+	// @fluidColumnName			string 		fluid-column 		Default name of fluid column
+	// @fluidInnerColumnName 	string 		inner 				Default name of fluid column inner
+
+	.unFixedFluidFixedSwap(@fixedLeftColumnName: fixed-left-column, @fixedRightColumnName: fixed-right-column, @fluidColumnName: fluid-column, @fluidInnerColumnName: inner) {
+		> .@{fluidColumnName} {
 			float: none;
 			width: 100%;
-			> .inner {
+			> .@{fluidInnerColumnName} {
 				margin-left: 0;
 				margin-right: 0;
 			}
 		}
-		> .@{fixedLeftColumName} {
+		> .@{fixedLeftColumnName} {
 			float: none;
 			margin-left: 0;
 			width: auto;
 		}
-		> .@{fixedRightColumName} {
+		> .@{fixedRightColumnName} {
 			float: none;
 			width: auto;
 			margin-left: 0;
 		}
 	}
 
-	// Fixed - Fluid - Fixed Layout User Float and Margin
-	.fixedFluidUFM(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		> .@{fixedColumName} {
+	// Fixed-Fluid-Fixed Layout User Float and Margin
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 		Description
+	//--------------------------------------------------------------------------------
+	// @widthFixedColumn 		int			300px			With of fixed column
+	// @gutterSize				int			20px			Space (margin) between columns
+	// @fixedColumnName 		string		fixed-column	Default name of fixed column
+	// @fluidColumnName			string 		fluid-column 	Default name of fluid column
+	// @fluidInnerColumnName 	string 		inner 			Default name of fluid column inner
+
+	.fixedFluidPush(@widthFixedColumn: 300px, @gutterSize: 20px, @fixedColumnName: fixed-column, @fluidColumnName: fluid-column, @fluidInnerColumnName: inner) {
+		> .@{fixedColumnName} {
 			float: left;
-			width: @widthFixedColum;
-			margin-right: @space;
-			+ .@{fluidColumName} {
-				margin-left: @widthFixedColum + @space;
-				> .inner {
+			width: @widthFixedColumn;
+			margin-right: @gutterSize;
+			+ .@{fluidColumnName} {
+				margin-left: @widthFixedColumn + @gutterSize;
+				> .@{fluidInnerColumnName} {
 					display: inline-block;
 					width: 100%;
 				}
 			}
 		}
 	}
-	// Remove Fixed - Fluid - Fixed Layout User Float and Margin
-	.unFixedFluidUFM(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		> .@{fixedColumName} {
+
+	// Remove Fixed-Fluid-Fixed Layout User Float and Margin
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 		Description
+	//--------------------------------------------------------------------------------
+	// @fixedColumnName 		string		fixed-column	Default name of fixed left column
+	// @fluidColumnName			string 		fluid-column 	Default name of fluid column
+	// @fluidInnerColumnName 	string 		inner 			Default name of fluid column inner
+
+	.unFixedFluidPush(@fixedColumnName: fixed-column, @fluidColumnName: fluid-column, @fluidInnerColumnName: inner) {
+		> .@{fixedColumnName} {
 			float: none;
 			width: auto;
 			margin-right: 0;
-			+ .@{fluidColumName} {
+			+ .@{fluidColumnName} {
 				margin-left: 0;
-				> .inner {
+				> .@{fluidInnerColumnName} {
 					display: block;
 				}
 			}
 		}
 	}
 
-	// Fluid - Fixed Layout User Float and Margin
-	.fluidFixedUFM(@widthFixedColum, @space: 0, @fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		> .@{fixedColumName} {
+	// Fluid-Fixed Layout User Float and Margin
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 		Description
+	//--------------------------------------------------------------------------------
+	// @widthFixedColumn 		int			300px			With of fixed column
+	// @gutterSize				int			20px			Space (margin) between columns
+	// @fixedColumnName 		string		fixed-column	Default name of fixed column
+	// @fluidColumnName			string 		fluid-column 	Default name of fluid column
+	// @fluidInnerColumnName 	string 		inner 			Default name of fluid column inner
+
+	.fluidFixedPush(@widthFixedColumn: 300px, @gutterSize: 20px, @fixedColumnName: fixed-column, @fluidColumnName: fluid-column, @fluidInnerColumnName: inner) {
+		> .@{fixedColumnName} {
 			float: right;
-			width: @widthFixedColum;
-			margin-left: @space;
-			+ .@{fluidColumName} {
-				margin-right: @widthFixedColum + @space;
-				> .inner {
+			width: @widthFixedColumn;
+			margin-left: @gutterSize;
+			+ .@{fluidColumnName} {
+				margin-right: @widthFixedColumn + @gutterSize;
+				> .@{fluidInnerColumnName} {
 					display: inline-block;
 					width: 100%;
 				}
 			}
 		}
 	}
-	// Remove Fluid - Fixed Layout User Float and Margin
-	.unFluidFixedUFM(@fixedColumName: fixed-colum, @fluidColumName: fluid-colum) {
-		> .@{fixedColumName} {
+
+	// Remove Fluid-Fixed Layout User Float and Margin
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 		Description
+	//--------------------------------------------------------------------------------
+	// @fixedColumnName 		string		fixed-column	Default name of fixed left column
+	// @fluidColumnName			string 		fluid-column 	Default name of fluid column
+	// @fluidInnerColumnName 	string 		inner 			Default name of fluid column inner
+
+	.unFluidFixedPush(@fixedColumnName: fixed-column, @fluidColumnName: fluid-column, @fluidInnerColumnName: inner) {
+		> .@{fixedColumnName} {
 			float: none;
-			width: @widthFixedColum;
-			margin-left: @space;
-			+ .@{fluidColumName} {
+			width: @widthFixedColumn;
+			margin-left: @gutterSize;
+			+ .@{fluidColumnName} {
 				margin-right: 0;
-				> .inner {
+				> .@{fluidInnerColumnName} {
 					display: block;
 					width: auto;
 				}
@@ -439,78 +541,99 @@
 		}
 	}
 
-	// Fixed - Fluid - Fixed Layout User Float and Margin
-	.fixedFluidFixedUFM(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		> .@{fixedLeftColumName} {
+	// Fixed-Fluid-Fixed Layout User Float and Margin
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 			Description
+	//--------------------------------------------------------------------------------
+	// @widthFixedLeftColumn 	int			300px				With of fixed left column
+	// @widthFixedRightColumn 	int			300px				With of fixed right column
+	// @gutterLeftSize			int			20px				Space (margin) of fixed left columns
+	// @gutterRightSize			int			20px				Space (margin) of fixed right columns
+	// @fixedLeftColumnName 	string		fixed-left-column 	Default name of fixed left column
+	// @fixedRightColumnName 	string		fixed-right-column	Default name of fixed right column
+	// @fluidColumnName			string 		fluid-column 		Default name of fluid column
+	// @fluidInnerColumnName 	string 		inner 				Default name of fluid column inner
+
+	.fixedFluidFixedPush(@widthFixedLeftColumn: 300px, @gutterLeftSize: 20px, @widthFixedRightColumn: 300px, @gutterRightSize: 20px, @fixedLeftColumnName: fixed-left-column, @fixedRightColumnName: fixed-right-column, @fluidColumnName: fluid-column, @fluidInnerColumnName: inner) {
+		> .@{fixedLeftColumnName} {
 			float: left;
-			width: @widthFixedLeftColum;
-			margin-right: @spaceLeft;
-			+ .@{fixedRightColumName} {
+			width: @widthFixedLeftColumn;
+			margin-right: @gutterLeftSize;
+			+ .@{fixedRightColumnName} {
 			}
 		}
-		> .@{fixedLeftColumName},
-		> .@{fixedLeftColumName} + .@{fixedRightColumName}
+		> .@{fixedLeftColumnName},
+		> .@{fixedLeftColumnName} + .@{fixedRightColumnName}
 		 {
-			+ .@{fluidColumName} {
-				margin-left: @widthFixedLeftColum + @spaceLeft;
+			+ .@{fluidColumnName} {
+				margin-left: @widthFixedLeftColumn + @gutterLeftSize;
 			}
 		}
-		.@{fixedRightColumName} {
+		.@{fixedRightColumnName} {
 			float: right;
-			width: @widthFixedRightColum;
-			margin-left: @spaceRight;
-				+ .@{fluidColumName} {
-					margin-right: @widthFixedRightColum + @spaceRight;
+			width: @widthFixedRightColumn;
+			margin-left: @gutterRightSize;
+				+ .@{fluidColumnName} {
+					margin-right: @widthFixedRightColumn + @gutterRightSize;
 				}
 		}
-		> .@{fluidColumName} {
-			> .inner {
+		> .@{fluidColumnName} {
+			> .@{fluidInnerColumnName} {
 				display: inline-block;
 				width: 100%;
 			}
 		}
-		> .@{fixedLeftColumName}.hide + .@{fixedRightColumName}.hide,
-		> .@{fixedLeftColumName}.hidden + .@{fixedRightColumName}.hidden {
-			+ .@{fluidColumName} {
+		> .@{fixedLeftColumnName}.hide + .@{fixedRightColumnName}.hide,
+		> .@{fixedLeftColumnName}.hidden + .@{fixedRightColumnName}.hidden {
+			+ .@{fluidColumnName} {
 				margin-left: 0;
 				margin-right: 0;
 			}
 		}
-		> .@{fixedLeftColumName}.hide + .@{fixedRightColumName} + .@{fluidColumName},
-		> .@{fixedLeftColumName}.hidden + .@{fixedRightColumName} + .@{fluidColumName} {
+		> .@{fixedLeftColumnName}.hide + .@{fixedRightColumnName} + .@{fluidColumnName},
+		> .@{fixedLeftColumnName}.hidden + .@{fixedRightColumnName} + .@{fluidColumnName} {
 			margin-left: 0;
 		}
-		> .@{fixedRightColumName}.hide + .@{fluidColumName},
-		> .@{fixedRightColumName}.hidden + .@{fluidColumName} {
+		> .@{fixedRightColumnName}.hide + .@{fluidColumnName},
+		> .@{fixedRightColumnName}.hidden + .@{fluidColumnName} {
 			margin-right: 0;
 		}
 	}
-	// Remove Fixed - Fluid - Fixed Layout User Float and Margin
-	.unFixedFluidFixedUFM(@widthFixedLeftColum, @spaceLeft: 0, @widthFixedRightColum, @spaceRight: 0, @fixedLeftColumName: fixed-left-colum, @fixedRightColumName: fixed-right-colum, @fluidColumName: fluid-colum) {
-		> .@{fixedLeftColumName} {
+
+	// Remove Fixed-Fluid-Fixed Layout User Float and Margin
+	//--------------------------------------------------------------------------------
+	// Parameter 				Type 		Default 			Description
+	//--------------------------------------------------------------------------------
+	// @fixedLeftColumnName 	string		fixed-left-column 	Default name of fixed left column
+	// @fixedRightColumnName 	string		fixed-right-column	Default name of fixed right column
+	// @fluidColumnName			string 		fluid-column 		Default name of fluid column
+	// @fluidInnerColumnName 	string 		inner 				Default name of fluid column inner
+
+	.unFixedFluidFixedPush(@fixedLeftColumnName: fixed-left-column, @fixedRightColumnName: fixed-right-column, @fluidColumnName: fluid-column, @fluidInnerColumnName: inner) {
+		> .@{fixedLeftColumnName} {
 			float: none;
 			width: auto;
 			margin-right: 0;
-			+ .@{fixedRightColumName} {
+			+ .@{fixedRightColumnName} {
 			}
 		}
-		> .@{fixedLeftColumName},
-		> .@{fixedLeftColumName} + .@{fixedRightColumName}
+		> .@{fixedLeftColumnName},
+		> .@{fixedLeftColumnName} + .@{fixedRightColumnName}
 		 {
-			+ .@{fluidColumName} {
+			+ .@{fluidColumnName} {
 				margin-left: 0;
 			}
 		}
-		> .@{fixedRightColumName} {
+		> .@{fixedRightColumnName} {
 			float: right;
 			width: auto;
-			margin-left: @spaceRight;
-				+ .@{fluidColumName} {
+			margin-left: @gutterRightSize;
+				+ .@{fluidColumnName} {
 					margin-right: 0;
 				}
 		}
-		> .@{fluidColumName} {
-			> .inner {
+		> .@{fluidColumnName} {
+			> .@{fluidInnerColumnName} {
 				display: block;
 				width: auto;
 			}
@@ -519,6 +642,7 @@
 }
 
 // MIXIN : Transform CSS3
+// --------------------------------------------------
 .transform(@transform) {
 	-webkit-transform: @transform;
      -moz-transform: @transform;
@@ -527,6 +651,7 @@
 }
 
 // MIXIN: Set Link Color
+// --------------------------------------------------
 .link-color(@color: @link-color, @colorHover: @link-hover-color){
     color: @color;
     &:hover {
@@ -534,6 +659,7 @@
     }
 }
 
+// MIXIN: Set Link Color for text
 .link-text-color(@color: @text-color, @colorHover: @link-color){
 	color: @color;
     &:hover {
@@ -542,6 +668,7 @@
 }
 
 // MIXIN: SEO Help
+// --------------------------------------------------
 .seo-helper () {
 	img:not([alt]), img[alt=""], img[alt^=" "], a[href=""], a[href^=" "], a[rel*="nofollow"] {
 	    outline: 2px solid red !important;

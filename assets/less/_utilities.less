@@ -1,7 +1,8 @@
-//
+// --------------------------------------------------
 // UTILITIES CLASS
 // --------------------------------------------------
-// Display
+//
+// UTILITY: Display
 .inline {display: inline}
 .inline-ipt {display: inline!important}
 .inline-block {display: inline-block}
@@ -11,7 +12,7 @@
 
 .clear {clear: both}
 
-// Position
+// UTILITY: Position
 .pos-relative {position: relative}
 .pos-relative-ipt {position: relative!important}
 .pos-static {position: static}
@@ -19,15 +20,15 @@
 .pos-absolute {position: absolute}
 .pos-absolute-ipt {position: absolute!important}
 
-// Alignment
+// UTILITY: Alignment
 .text-left-ipt           { text-align: left!important; }
 .text-right-ipt          { text-align: right!important; }
 .text-center-ipt         { text-align: center!important; }
 .text-justify-ipt        { text-align: justify!important; }
 .text-nowrap-ipt         { white-space: nowrap!important; }
 
-// Generate Utilities Class
-.marginAndPadding(30);					// Generate Margin and Padding from 0 to 30
-.fontSizeLoop(30);						// Generate Font-size from 0 to 30px
-.widthSizeLoop(500, 150, 50);			// Generate width 500px -> 150px
-.widthSizeLoop(100, 0, 5);				// Generate width 150px -> 0
+// UTILITY: Generate Utilities Class
+.marginAndPadding(@maxValue: 30px);											// Generate Margin and Padding from 30 to 0
+.fontSizeLoop(@maxValue: 30px, @minValue: 8px,  @countDown: 2);				// Generate Font-size from 30px to 8px
+.widthSizeLoop(@maxValue: 500px, @minValue: 150px, @countDown: 50);			// Generate width 500px -> 150px
+.widthSizeLoop(@maxValue: 100px, @minValue: 0px, @countDown: 5);			// Generate width 100px -> 0

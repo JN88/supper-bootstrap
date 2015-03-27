@@ -1,7 +1,7 @@
 // DOCS STYLE
 @import "../../../assets/less/bootstrap/bootstrap.less";				// My Variable
-@import "../../../assets/less/variables.less";							// My Variable
-@import "../../../assets/less/mixins.less";								// My Mixins
+@import "../../../assets/less/_variables.less";							// My Variable
+@import "../../../assets/less/_mixins.less";								// My Mixins
 
 /*--------------------------------------------------------------------------------*/
 .liquid-layout {
@@ -13,28 +13,28 @@
 		#liquid-layout > .fluidFixedOverflow(200px, 20px);
 	}
 	&.fixedFluidFixedOverflow {
-		#liquid-layout > .fixedFluidFixedOverflow(200px, 20px, 200px, 20px);
+		#liquid-layout > .fixedFluidFixedSwap(200px, 20px, 200px, 20px);
 	}
 
 	&.fixedFluidDynamic {
-		#liquid-layout > .fixedFluidDynamic(200px, 20px);
+		#liquid-layout > .fixedFluidSwap(200px, 20px);
 	}
 	&.fluidFixedDynamic {
-		#liquid-layout > .fluidFixedDynamic(200px, 20px);
+		#liquid-layout > .fluidFixedSwap(200px, 20px);
 	}
 	&.fixedFluidFixedDynamic {
-		#liquid-layout > .fixedFluidFixedDynamic(200px, 20px, 200px, 20px);
+		#liquid-layout > .fixedFluidFixedSwap(200px, 20px, 200px, 20px);
 	}
 
 	&.fixedFluidUFM {
-		#liquid-layout > .fixedFluidUFM (200px, 20px);
+		#liquid-layout > .fixedFluidPush (200px, 20px);
 	}
 	&.fluidFixedUFM {
-		#liquid-layout > .fluidFixedUFM (200px, 20px);
+		#liquid-layout > .fluidFixedPush (200px, 20px);
 	}
 	&.fixedFluidFixedUFM {
-		#liquid-layout > .fixedFluidFixedUFM(200px, 20px, 200px, 20px);
+		#liquid-layout > .fixedFluidFixedPush(200px, 20px, 200px, 20px);
 	}
 }
 /*--------------------------------------------------------------------------------*/
-@import "../../../assets/less/utilities.less";							// Main style
+@import "../../../assets/less/_utilities.less";							// Main style
