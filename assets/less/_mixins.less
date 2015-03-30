@@ -9,69 +9,91 @@
 // @maxValue 		int							maximum value
 // @minValue 		int							Minium value
 // @countDown 		int			5				Count down value
+// @unit 			string		px				Unit use can is px, em, pt...
 
-.marginAndPadding(@maxValue, @minValue: 0, @countDown: 5)
+.marginAndPadding(@maxValue, @minValue: 0, @countDown: 5, @unit: px)
 {
+	@numberMaxValue: unit(@maxValue);
+	@unitMaxValue: get-unit(@maxValue);
+	@numberMinValue: unit(@minValue);
+	@unitMinValue: get-unit(@maxValue);
 
-	// The Loop
-	.loop_margin_padding (@index) when (@index >= @minValue) {
+
+	// Default unit is px
+	.loop_margin_padding (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@unitMaxValue = px){
 
 		// Padding
 		//------------------------------------------------------------
-		.pad-@{index} {padding: ~"@{index}";}
-		.padTop-@{index} {padding-top: ~"@{index}";}
-		.padRight-@{index} {padding-right: ~"@{index}";}
-		.padBottom-@{index} {padding-bottom: ~"@{index}";}
-		.padLeft-@{index} {padding-left: ~"@{index}";}
-
-		// Padding Important
-		.pad-@{index}-ipt {padding: ~"@{index}!important";}
-		.padTop-@{index}-ipt {padding-top: ~"@{index}!important";}
-		.padRight-@{index}-ipt {padding-right: ~"@{index}!important";}
-		.padBottom-@{index}-ipt {padding-bottom: ~"@{index}!important";}
-		.padLeft-@{index}-ipt {padding-left: ~"@{index}!important";}
+		.pd-@{numberMaxValue} {padding: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.pdT-@{numberMaxValue} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.pdR-@{numberMaxValue} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.pdB-@{numberMaxValue} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.pdL-@{numberMaxValue} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}";}
 
 		// Padding Horizatial
-		.pad-0-@{index} {padding: 0 ~"@{index}";}
-		.pad-0-@{index}-ipt {padding: 0 ~"@{index}!important";}
-
+		.pd-0-@{numberMaxValue} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}";}
 
 		// Padding Vertical
-		.pad-@{index}-0 {padding: ~"@{index}" 0;}
-		.pad-@{index}-0-ipt {padding: ~"@{index}" 0!important;}
+		.pd-@{numberMaxValue}-0 {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0;}
 
 		// Margin
 		//------------------------------------------------------------
-		.mar-@{index} {margin: ~"@{index}";}
-		.marTop-@{index} {margin-top: ~"@{index}";}
-		.marRight-@{index} {margin-right: ~"@{index}";}
-		.marBottom-@{index} {margin-bottom: ~"@{index}";}
-		.marLeft-@{index} {margin-left: ~"@{index}";}
-
-		// Margin Important
-		.mar-@{index}-ipt {margin: ~"@{index}!important";}
-		.marTop-@{index}-ipt {margin-top: ~"@{index}!important";}
-		.marRight-@{index}-ipt {margin-right: ~"@{index}!important";}
-		.marBottom-@{index}-ipt {margin-bottom: ~"@{index}!important";}
-		.marLeft-@{index}-ipt {margin-left: ~"@{index}!important";}
+		.mg-@{numberMaxValue} {margin: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.mgT-@{numberMaxValue} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.mgR-@{numberMaxValue} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.mgB-@{numberMaxValue} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.mgL-@{numberMaxValue} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}";}
 
 		// margin Horizatial
-		.mar-0-@{index} {margin: 0 ~"@{index}";}
-		.mar-0-@{index}-ipt {margin: 0 ~"@{index}!important";}
+		.mg-0-@{numberMaxValue} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}";}
 
 		// margin Vertical
-		.mar-@{index}-0 {margin: ~"@{index}" 0;}
-		.mar-@{index}-0-ipt {margin: ~"@{index}" 0!important;}
+		.mg-@{numberMaxValue}-0 {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0;}
 
 		// next iteration
-		 .loop_margin_padding(@index - @countDown);
+		.loop_margin_padding(@numberMaxValue - @countDown);
+	}
+
+	// When unit is not px
+	.loop_margin_padding(@numberMaxValue) when (@numberMaxValue >= @minValue) and not (@unitMaxValue = px){
+
+		// Padding
+		//------------------------------------------------------------
+		.pd-@{numberMaxValue}@{unitMaxValue} {padding: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.pdT-@{numberMaxValue}@{unitMaxValue} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.pdR-@{numberMaxValue}@{unitMaxValue} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.pdB-@{numberMaxValue}@{unitMaxValue} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.pdL-@{numberMaxValue}@{unitMaxValue} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}";}
+
+		// Padding Horizatial
+		.pd-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}";}
+
+		// Padding Vertical
+		.pd-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0;}
+
+		// Margin
+		//------------------------------------------------------------
+		.mg-@{numberMaxValue}@{unitMaxValue} {margin: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.mgT-@{numberMaxValue}@{unitMaxValue} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.mgR-@{numberMaxValue}@{unitMaxValue} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.mgB-@{numberMaxValue}@{unitMaxValue} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.mgL-@{numberMaxValue}@{unitMaxValue} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}";}
+
+		// margin Horizatial
+		.mg-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}";}
+
+		// margin Vertical
+		.mg-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0;}
+
+		// next iteration
+		.loop_margin_padding(@numberMaxValue - @countDown);
 	}
 
 	// end the loop when index is 0
 	.loop_margin_padding (0) {}
 
 	// "call" the loopingClass the first time with highest value
-	.loop_margin_padding (@maxValue);
+	.loop_margin_padding (@numberMaxValue);
 }
 
 // MIXIN: Generate Font Size
@@ -83,28 +105,34 @@
 // @countDown 		int			1				Count down value
 
 .fontSizeLoop(@maxValue, @minValue: 0, @countDown: 1) {
-	// Nếu đơn vị sử dụng là px thì
-    .loopSize (@index) when (@index >= @minValue){
+	@numberMaxValue: unit(@maxValue);
+	@unitMaxValue: get-unit(@maxValue);
+	@numberMinValue: unit(@minValue);
+	@unitMinValue: get-unit(@maxValue);
 
-      	.fs-@{index} {
-            // your resulting css
-            font-size: ~"@{index}";
-        }
+	// Default unit is px
+	.loopSize (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@unitMaxValue = px){
+		.fs-@{numberMaxValue} {
+			font-size: ~"@{numberMaxValue}@{unitMaxValue}";
+		}
 
-    	.fs-@{index}-ipt {
-            // your resulting css
-            font-size: ~"@{index}"!important;
-        }
+		// next iteration
+		.loopSize(@numberMaxValue - @countDown);
+	}
+	// When unit is not px
+	.loopSize (@index) when (@index >= @minValue) and not (@unitMaxValue = px){
+		.fs-@{index}@{unitMaxValue} {
+			font-size: ~"@{index}@{unitMaxValue}";
+		}
 
-        // next iteration
-        .loopSize(@index - @countDown);
-    }
+		// next iteration
+		.loopSize(@index - @countDown);
+	}
 
-    // end the loop when index is 0
-    .loopSize (0) {}
-    .loopSize(@maxValue);
+	// end the loop when index is 0
+	.loopSize (0) {}
+	.loopSize(@numberMaxValue);
 }
-
 
 // MIXIN: Generate Width
 //--------------------------------------------------------------------------------
@@ -115,25 +143,33 @@
 // @countDown 		int			5				Count down value
 
 .widthSizeLoop(@maxValue, @minValue: 0, @countDown: 5) {
+	@numberMaxValue: unit(@maxValue);
+	@unitMaxValue: get-unit(@maxValue);
+	@numberMinValue: unit(@minValue);
+	@unitMinValue: get-unit(@maxValue);
 
-    .loopSize (@index) when (@index >= @minValue){
-      	.width-@{index} {
-            // your resulting css
-            width: ~"@{index}";
-        }
+	// Default unit is px
+	.loopSize (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@unitMaxValue = px){
+		.w-@{numberMaxValue} {
+			font-size: ~"@{numberMaxValue}@{unitMaxValue}";
+		}
 
-        .width-@{index}-ipt {
-            // your resulting css
-            width: ~"@{index}"!important;
-        }
+		// next iteration
+		.loopSize(@numberMaxValue - @countDown);
+	}
+	// When unit is not px
+	.loopSize (@index) when (@index >= @minValue) and not (@unitMaxValue = px){
+		.w-@{index}@{unitMaxValue} {
+			font-size: ~"@{index}@{unitMaxValue}";
+		}
 
-        // next iteration
-        .loopSize(@index - @countDown);
-    }
+		// next iteration
+		.loopSize(@index - @countDown);
+	}
 
-    // end the loop when index is 0
-    .loopSize (0) {}
-    .loopSize(@maxValue);
+	// end the loop when index is 0
+	.loopSize (0) {}
+	.loopSize(@numberMaxValue);
 }
 
 
@@ -564,7 +600,7 @@
 		}
 		> .@{fixedLeftColumnName},
 		> .@{fixedLeftColumnName} + .@{fixedRightColumnName}
-		 {
+		{
 			+ .@{fluidColumnName} {
 				margin-left: @widthFixedLeftColumn + @gutterLeftSize;
 			}
@@ -573,9 +609,9 @@
 			float: right;
 			width: @widthFixedRightColumn;
 			margin-left: @gutterRightSize;
-				+ .@{fluidColumnName} {
-					margin-right: @widthFixedRightColumn + @gutterRightSize;
-				}
+			+ .@{fluidColumnName} {
+				margin-right: @widthFixedRightColumn + @gutterRightSize;
+			}
 		}
 		> .@{fluidColumnName} {
 			> .@{fluidInnerColumnName} {
@@ -619,7 +655,7 @@
 		}
 		> .@{fixedLeftColumnName},
 		> .@{fixedLeftColumnName} + .@{fixedRightColumnName}
-		 {
+		{
 			+ .@{fluidColumnName} {
 				margin-left: 0;
 			}
@@ -628,9 +664,9 @@
 			float: right;
 			width: auto;
 			margin-left: @gutterRightSize;
-				+ .@{fluidColumnName} {
-					margin-right: 0;
-				}
+			+ .@{fluidColumnName} {
+				margin-right: 0;
+			}
 		}
 		> .@{fluidColumnName} {
 			> .@{fluidInnerColumnName} {
@@ -645,35 +681,35 @@
 // --------------------------------------------------
 .transform(@transform) {
 	-webkit-transform: @transform;
-     -moz-transform: @transform;
-      -ms-transform: @transform; // IE9 only
-          transform: @transform;
-}
+	-moz-transform: @transform;
+	  -ms-transform: @transform; // IE9 only
+	  transform: @transform;
+	}
 
 // MIXIN: Set Link Color
 // --------------------------------------------------
 .link-color(@color: @link-color, @colorHover: @link-hover-color){
-    color: @color;
-    &:hover {
-        color: @colorHover;
-    }
+	color: @color;
+	&:hover {
+		color: @colorHover;
+	}
 }
 
 // MIXIN: Set Link Color for text
 .link-text-color(@color: @text-color, @colorHover: @link-color){
 	color: @color;
-    &:hover {
-        color: @colorHover;
-    }
+	&:hover {
+		color: @colorHover;
+	}
 }
 
 // MIXIN: SEO Help
 // --------------------------------------------------
 .seo-helper () {
 	img:not([alt]), img[alt=""], img[alt^=" "], a[href=""], a[href^=" "], a[rel*="nofollow"] {
-	    outline: 2px solid red !important;
-	    outline-offset: 3px !important;
-    }
+		outline: 2px solid red !important;
+		outline-offset: 3px !important;
+	}
 	head, title:empty, link, meta {display: block;}
 	title:empty:before {content: "You've left the <title> empty!"}
 	link:before {content: "You don't have a <title>!"}
