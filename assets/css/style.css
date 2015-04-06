@@ -3512,13 +3512,17 @@ tbody.collapse.in {
   }
 }
 .btn-group,
-.btn-group-vertical {
+.btn-group-vertical,
+.btnGroup,
+.btnGroupVertical {
   position: relative;
   display: inline-block;
   vertical-align: middle;
 }
 .btn-group > .btn,
-.btn-group-vertical > .btn {
+.btn-group-vertical > .btn,
+.btnGroup > .btn,
+.btnGroupVertical > .btn {
   position: relative;
   float: left;
 }
@@ -3529,74 +3533,126 @@ tbody.collapse.in {
 .btn-group > .btn:active,
 .btn-group-vertical > .btn:active,
 .btn-group > .btn.active,
-.btn-group-vertical > .btn.active {
+.btn-group-vertical > .btn.active,
+.btnGroup > .btn:hover,
+.btnGroup > .btn:focus,
+.btnGroup > .btn:active,
+.btnGroup > .btn.active,
+.btnGroupVertical > .btn:hover,
+.btnGroupVertical > .btn:focus,
+.btnGroupVertical > .btn:active,
+.btnGroupVertical > .btn.active {
   z-index: 2;
 }
 .btn-group .btn + .btn,
 .btn-group .btn + .btn-group,
 .btn-group .btn-group + .btn,
-.btn-group .btn-group + .btn-group {
+.btn-group .btn-group + .btn-group,
+.btnGroup .btn + .btn,
+.btnGroup .btn + .btnGroup,
+.btnGroup .btnGroup + .btn,
+.btnGroup .btnGroup + .btnGroup,
+.btnGroupVertical .btn + .btn,
+.btnGroupVertical .btn + .btnGroupVertical,
+.btnGroupVertical .btnGroupVertical + .btn,
+.btnGroupVertical .btnGroupVertical + .btnGroupVertical {
   margin-left: -1px;
 }
 .btn-toolbar {
   margin-left: -5px;
 }
 .btn-toolbar .btn-group,
-.btn-toolbar .input-group {
+.btn-toolbar .input-group,
+.btn-toolbar .btnGroup,
+.btn-toolbar .btnGroupVertical {
   float: left;
 }
 .btn-toolbar > .btn,
 .btn-toolbar > .btn-group,
-.btn-toolbar > .input-group {
+.btn-toolbar > .input-group,
+.btn-toolbar > .btnGroup,
+.btn-toolbar > .btnGroupVertical {
   margin-left: 5px;
 }
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.btnGroup > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.btnGroupVertical > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0;
 }
-.btn-group > .btn:first-child {
+.btn-group > .btn:first-child,
+.btnGroup > .btn:first-child,
+.btnGroupVertical > .btn:first-child {
   margin-left: 0;
 }
-.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle),
+.btnGroup > .btn:first-child:not(:last-child):not(.dropdown-toggle),
+.btnGroupVertical > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
 .btn-group > .btn:last-child:not(:first-child),
-.btn-group > .dropdown-toggle:not(:first-child) {
+.btn-group > .dropdown-toggle:not(:first-child),
+.btnGroup > .btn:last-child:not(:first-child),
+.btnGroup > .dropdown-toggle:not(:first-child),
+.btnGroupVertical > .btn:last-child:not(:first-child),
+.btnGroupVertical > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
-.btn-group > .btn-group {
+.btn-group > .btn-group,
+.btnGroup > .btnGroup,
+.btnGroupVertical > .btnGroupVertical {
   float: left;
 }
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn,
+.btnGroup > .btnGroup:not(:first-child):not(:last-child) > .btn,
+.btnGroupVertical > .btnGroupVertical:not(:first-child):not(:last-child) > .btn {
   border-radius: 0;
 }
 .btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child,
-.btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+.btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle,
+.btnGroup > .btnGroup:first-child:not(:last-child) > .btn:last-child,
+.btnGroup > .btnGroup:first-child:not(:last-child) > .dropdown-toggle,
+.btnGroupVertical > .btnGroupVertical:first-child:not(:last-child) > .btn:last-child,
+.btnGroupVertical > .btnGroupVertical:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
-.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child,
+.btnGroup > .btnGroup:last-child:not(:first-child) > .btn:first-child,
+.btnGroupVertical > .btnGroupVertical:last-child:not(:first-child) > .btn:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
 .btn-group .dropdown-toggle:active,
-.btn-group.open .dropdown-toggle {
+.btn-group.open .dropdown-toggle,
+.btnGroup .dropdown-toggle:active,
+.btnGroup.open .dropdown-toggle,
+.btnGroupVertical .dropdown-toggle:active,
+.btnGroupVertical.open .dropdown-toggle {
   outline: 0;
 }
-.btn-group > .btn + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle,
+.btnGroup > .btn + .dropdown-toggle,
+.btnGroupVertical > .btn + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px;
 }
-.btn-group > .btn-lg + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle,
+.btnGroup > .btn-lg + .dropdown-toggle,
+.btnGroupVertical > .btn-lg + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px;
 }
-.btn-group.open .dropdown-toggle {
+.btn-group.open .dropdown-toggle,
+.btnGroup.open .dropdown-toggle,
+.btnGroupVertical.open .dropdown-toggle {
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-.btn-group.open .dropdown-toggle.btn-link {
+.btn-group.open .dropdown-toggle.btn-link,
+.btnGroup.open .dropdown-toggle.btn-link,
+.btnGroupVertical.open .dropdown-toggle.btn-link {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -3612,19 +3668,31 @@ tbody.collapse.in {
 }
 .btn-group-vertical > .btn,
 .btn-group-vertical > .btn-group,
-.btn-group-vertical > .btn-group > .btn {
+.btn-group-vertical > .btn-group > .btn,
+.btn-group-vertical > .btnGroup,
+.btn-group-vertical > .btnGroup > .btn,
+.btn-group-vertical > .btnGroupVertical,
+.btn-group-vertical > .btnGroupVertical > .btn {
   display: block;
   float: none;
   width: 100%;
   max-width: 100%;
 }
-.btn-group-vertical > .btn-group > .btn {
+.btn-group-vertical > .btn-group > .btn,
+.btn-group-vertical > .btnGroup > .btn,
+.btn-group-vertical > .btnGroupVertical > .btn {
   float: none;
 }
 .btn-group-vertical > .btn + .btn,
 .btn-group-vertical > .btn + .btn-group,
 .btn-group-vertical > .btn-group + .btn,
-.btn-group-vertical > .btn-group + .btn-group {
+.btn-group-vertical > .btn-group + .btn-group,
+.btn-group-vertical > .btn + .btnGroup,
+.btn-group-vertical > .btnGroup + .btn,
+.btn-group-vertical > .btnGroup + .btnGroup,
+.btn-group-vertical > .btn + .btnGroupVertical,
+.btn-group-vertical > .btnGroupVertical + .btn,
+.btn-group-vertical > .btnGroupVertical + .btnGroupVertical {
   margin-top: -1px;
   margin-left: 0;
 }
@@ -3641,15 +3709,23 @@ tbody.collapse.in {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn,
+.btn-group-vertical > .btnGroup:not(:first-child):not(:last-child) > .btn,
+.btn-group-vertical > .btnGroupVertical:not(:first-child):not(:last-child) > .btn {
   border-radius: 0;
 }
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child,
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle,
+.btn-group-vertical > .btnGroup:first-child:not(:last-child) > .btn:last-child,
+.btn-group-vertical > .btnGroup:first-child:not(:last-child) > .dropdown-toggle,
+.btn-group-vertical > .btnGroupVertical:first-child:not(:last-child) > .btn:last-child,
+.btn-group-vertical > .btnGroupVertical:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child,
+.btn-group-vertical > .btnGroup:last-child:not(:first-child) > .btn:first-child,
+.btn-group-vertical > .btnGroupVertical:last-child:not(:first-child) > .btn:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
@@ -3660,21 +3736,31 @@ tbody.collapse.in {
   border-collapse: separate;
 }
 .btn-group-justified > .btn,
-.btn-group-justified > .btn-group {
+.btn-group-justified > .btn-group,
+.btn-group-justified > .btnGroup,
+.btn-group-justified > .btnGroupVertical {
   float: none;
   display: table-cell;
   width: 1%;
 }
-.btn-group-justified > .btn-group .btn {
+.btn-group-justified > .btn-group .btn,
+.btn-group-justified > .btnGroup .btn,
+.btn-group-justified > .btnGroupVertical .btn {
   width: 100%;
 }
-.btn-group-justified > .btn-group .dropdown-menu {
+.btn-group-justified > .btn-group .dropdown-menu,
+.btn-group-justified > .btnGroup .dropdown-menu,
+.btn-group-justified > .btnGroupVertical .dropdown-menu {
   left: auto;
 }
 [data-toggle="buttons"] > .btn input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
 [data-toggle="buttons"] > .btn input[type="checkbox"],
-[data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"] {
+[data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"],
+[data-toggle="buttons"] > .btnGroup > .btn input[type="radio"],
+[data-toggle="buttons"] > .btnGroup > .btn input[type="checkbox"],
+[data-toggle="buttons"] > .btnGroupVertical > .btn input[type="radio"],
+[data-toggle="buttons"] > .btnGroupVertical > .btn input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
@@ -3789,7 +3875,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .input-group-btn:first-child > .btn-group > .btn,
 .input-group-btn:first-child > .dropdown-toggle,
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
-.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn,
+.input-group-btn:first-child > .btnGroup > .btn,
+.input-group-btn:last-child > .btnGroup:not(:last-child) > .btn,
+.input-group-btn:first-child > .btnGroupVertical > .btn,
+.input-group-btn:last-child > .btnGroupVertical:not(:last-child) > .btn {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
@@ -3802,7 +3892,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .input-group-btn:last-child > .btn-group > .btn,
 .input-group-btn:last-child > .dropdown-toggle,
 .input-group-btn:first-child > .btn:not(:first-child),
-.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn,
+.input-group-btn:last-child > .btnGroup > .btn,
+.input-group-btn:first-child > .btnGroup:not(:first-child) > .btn,
+.input-group-btn:last-child > .btnGroupVertical > .btn,
+.input-group-btn:first-child > .btnGroupVertical:not(:first-child) > .btn {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
@@ -3826,11 +3920,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   z-index: 2;
 }
 .input-group-btn:first-child > .btn,
-.input-group-btn:first-child > .btn-group {
+.input-group-btn:first-child > .btn-group,
+.input-group-btn:first-child > .btnGroup,
+.input-group-btn:first-child > .btnGroupVertical {
   margin-right: -1px;
 }
 .input-group-btn:last-child > .btn,
-.input-group-btn:last-child > .btn-group {
+.input-group-btn:last-child > .btn-group,
+.input-group-btn:last-child > .btnGroup,
+.input-group-btn:last-child > .btnGroupVertical {
   margin-left: -1px;
 }
 .nav {
@@ -5758,7 +5856,9 @@ button.close {
   margin-left: 5px;
   margin-bottom: 0;
 }
-.modal-footer .btn-group .btn + .btn {
+.modal-footer .btn-group .btn + .btn,
+.modal-footer .btnGroup .btn + .btn,
+.modal-footer .btnGroupVertical .btn + .btn {
   margin-left: -1px;
 }
 .modal-footer .btn-block + .btn-block {
@@ -6268,7 +6368,11 @@ button.close {
 .modal-footer:before,
 .modal-footer:after,
 .liquid-layout:before,
-.liquid-layout:after {
+.liquid-layout:after,
+.btn-group-vertical > .btnGroup:before,
+.btn-group-vertical > .btnGroup:after,
+.btn-group-vertical > .btnGroupVertical:before,
+.btn-group-vertical > .btnGroupVertical:after {
   content: " ";
   display: table;
 }
@@ -6287,7 +6391,9 @@ button.close {
 .pager:after,
 .panel-body:after,
 .modal-footer:after,
-.liquid-layout:after {
+.liquid-layout:after,
+.btn-group-vertical > .btnGroup:after,
+.btn-group-vertical > .btnGroupVertical:after {
   clear: both;
 }
 .center-block {
