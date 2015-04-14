@@ -9,8 +9,8 @@ module.exports = function(grunt) {
     less: {
       dev: {
         files: {
-          'assets/css/style.css': [
-            'assets/less/style.less'
+          '../assets/css/style.css': [
+            '../assets/less/style.less'
           ]
         },
         options: {
@@ -18,14 +18,14 @@ module.exports = function(grunt) {
           // LESS source map
           // To enable, set sourceMap to true and update sourceMapRootpath based on your install
           sourceMap: true,
-          sourceMapFilename: 'assets/css/style.css.map',
+          sourceMapFilename: '../assets/css/style.css.map',
           sourceMapRootpath: '/app/themes/roots/'
         }
       },
       build: {
         files: {
-          'assets/css/style.min.css': [
-            'assets/less/style.less'
+          '../assets/css/style.min.css': [
+            '../assets/less/style.less'
           ]
         },
         options: {
@@ -40,23 +40,23 @@ module.exports = function(grunt) {
       dev: {
         options: {
           map: {
-            prev: 'assets/css/'
+            prev: '../assets/css/'
           }
         },
-        src: 'assets/css/style.css'
+        src: '../assets/css/style.css'
       },
       build: {
-        src: 'assets/css/style.min.css'
+        src: '../assets/css/style.min.css'
       }
     },
     modernizr: {
       build: {
-        devFile: 'assets/vendor/modernizr/modernizr.js',
-        outputFile: 'assets/js/vendor/modernizr.min.js',
+        devFile: '../assets/vendor/modernizr/modernizr.js',
+        outputFile: '../assets/js/vendor/modernizr.min.js',
         files: {
           'src': [
-            ['assets/js/scripts.min.js'],
-            ['assets/css/style.min.css']
+            ['../assets/js/scripts.min.js'],
+            ['../assets/css/style.min.css']
           ]
         },
         uglify: true,
@@ -66,8 +66,8 @@ module.exports = function(grunt) {
     watch: {
       less: {
         files: [
-          'assets/less/*.less',
-          'assets/less/**/*.less'
+          '../assets/less/*.less',
+          '../assets/less/**/*.less'
         ],
         tasks: ['less:dev', 'autoprefixer:dev']
       },
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
           livereload: false
         },
         files: [
-          'assets/css/style.css'
+          '../assets/css/style.css'
         ]
       }
     }
