@@ -2,6 +2,48 @@
 // MIXINS
 // --------------------------------------------------
 
+// MIXIN: Check Value jave Important
+//--------------------------------------------------------------------------------
+// Parameter 		Type 		Default 		Description
+//--------------------------------------------------------------------------------
+// @important 		boolean		false			Define Values Lazy Loading
+
+.check(@important) when (@important = false){
+	@important: ~"";
+	@importantClass: ~"";
+}
+.check(@important) when (@important = true){
+	@important: '!important';
+	@importantClass: ~"-ipt";
+}
+
+// MIXIN: Check Value jave Important
+//--------------------------------------------------------------------------------
+// Parameter 		Type 		Default 		Description
+//--------------------------------------------------------------------------------
+// @important 		boolean		false			Condition to check values is Important
+
+.marginAndPaddingZero(@important: false){
+  .check(@important);
+  .mgT-0 {margin-left: 0~"@{important}";}
+	.mgR-0 {margin-left: 0~"@{important}";}
+	.mgB-0 {margin-left: 0~"@{important}";}
+	.mgL-0 {margin-left: 0~"@{important}";}
+	.mgT-0 {margin-left: 0~"@{important}";}
+	.mgR-0 {margin-left: 0~"@{important}";}
+	.mgB-0 {margin-left: 0~"@{important}";}
+	.mgL-0 {margin-left: 0~"@{important}";}
+
+  .pdT-0 {margin-left: 0~"@{important}";}
+	.pdR-0 {margin-left: 0~"@{important}";}
+	.pdB-0 {margin-left: 0~"@{important}";}
+	.pdL-0 {margin-left: 0~"@{important}";}
+	.pdT-0 {margin-left: 0~"@{important}";}
+	.pdR-0 {margin-left: 0~"@{important}";}
+	.pdB-0 {margin-left: 0~"@{important}";}
+	.pdL-0 {margin-left: 0~"@{important}";}
+}
+
 // MIXIN: Generate Margin and Padding
 //--------------------------------------------------------------------------------
 // Parameter 		Type 		Default 		Description
@@ -9,81 +51,81 @@
 // @maxValue 		int							maximum value
 // @minValue 		int							Minium value
 // @countDown 		int			5				Count down value
-// @unit 			string		px				Unit use can is px, em, pt...
+// @important 		boolean		false			If value is true values will be add !important
 
-.marginAndPadding(@maxValue, @minValue: 0, @countDown: 5, @unit: px)
-{
+.marginAndPadding(@maxValue, @minValue: 0, @countDown: 5, @unit: px, @important: false){
 	@numberMaxValue: unit(@maxValue);
 	@unitMaxValue: get-unit(@maxValue);
 	@numberMinValue: unit(@minValue);
 	@unitMinValue: get-unit(@maxValue);
 
+	.check(@important);
 
 	// Default unit is px
-	.loop_margin_padding (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@unitMaxValue = px){
+	.loop_margin_padding (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@numberMaxValue > 0) and (@unitMaxValue = px){
 
 		// Padding
 		//------------------------------------------------------------
-		.pd-@{numberMaxValue} {padding: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.pdT-@{numberMaxValue} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.pdR-@{numberMaxValue} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.pdB-@{numberMaxValue} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.pdL-@{numberMaxValue} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.pd-@{numberMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.pdT-@{numberMaxValue}@{importantClass} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.pdR-@{numberMaxValue}@{importantClass} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.pdB-@{numberMaxValue}@{importantClass} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.pdL-@{numberMaxValue}@{importantClass} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// Padding Horizatial
-		.pd-0-@{numberMaxValue} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}";}
+		.pd-0-@{numberMaxValue}@{importantClass} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// Padding Vertical
-		.pd-@{numberMaxValue}-0 {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0;}
+		.pd-@{numberMaxValue}-0@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
 
 		// Margin
 		//------------------------------------------------------------
-		.mg-@{numberMaxValue} {margin: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.mgT-@{numberMaxValue} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.mgR-@{numberMaxValue} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.mgB-@{numberMaxValue} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.mgL-@{numberMaxValue} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.mg-@{numberMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.mgT-@{numberMaxValue}@{importantClass} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.mgR-@{numberMaxValue}@{importantClass} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.mgB-@{numberMaxValue}@{importantClass} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.mgL-@{numberMaxValue}@{importantClass} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// margin Horizatial
-		.mg-0-@{numberMaxValue} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}";}
+		.mg-0-@{numberMaxValue}@{importantClass} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// margin Vertical
-		.mg-@{numberMaxValue}-0 {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0;}
+		.mg-@{numberMaxValue}-0@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
 
 		// next iteration
 		.loop_margin_padding(@numberMaxValue - @countDown);
 	}
 
 	// When unit is not px
-	.loop_margin_padding(@numberMaxValue) when (@numberMaxValue >= @minValue) and not (@unitMaxValue = px){
+	.loop_margin_padding(@numberMaxValue) when (@numberMaxValue >= @minValue) and (@numberMaxValue > 0) and not (@unitMaxValue = px){
 
 		// Padding
 		//------------------------------------------------------------
-		.pd-@{numberMaxValue}@{unitMaxValue} {padding: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.pdT-@{numberMaxValue}@{unitMaxValue} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.pdR-@{numberMaxValue}@{unitMaxValue} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.pdB-@{numberMaxValue}@{unitMaxValue} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.pdL-@{numberMaxValue}@{unitMaxValue} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.pd-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.pdT-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.pdR-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.pdB-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.pdL-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// Padding Horizatial
-		.pd-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}";}
+		.pd-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// Padding Vertical
-		.pd-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0;}
+		.pd-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0 ~"@{important}";}
 
 		// Margin
 		//------------------------------------------------------------
-		.mg-@{numberMaxValue}@{unitMaxValue} {margin: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.mgT-@{numberMaxValue}@{unitMaxValue} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.mgR-@{numberMaxValue}@{unitMaxValue} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.mgB-@{numberMaxValue}@{unitMaxValue} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}";}
-		.mgL-@{numberMaxValue}@{unitMaxValue} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.mg-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.mgT-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.mgR-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.mgB-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.mgL-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// margin Horizatial
-		.mg-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}";}
+		.mg-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// margin Vertical
-		.mg-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0;}
+		.mg-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
 
 		// next iteration
 		.loop_margin_padding(@numberMaxValue - @countDown);
@@ -103,17 +145,20 @@
 // @maxValue 		int							maximum value
 // @minValue 		int							Minium value
 // @countDown 		int			1				Count down value
+// @important 		boolean		false			If value is true values will be add !important
 
-.fontSizeLoop(@maxValue, @minValue: 0, @countDown: 1) {
+.fontSizeLoop(@maxValue, @minValue: 0, @countDown: 1, @important: false) {
 	@numberMaxValue: unit(@maxValue);
 	@unitMaxValue: get-unit(@maxValue);
 	@numberMinValue: unit(@minValue);
 	@unitMinValue: get-unit(@maxValue);
 
+	.check(@important);
+
 	// Default unit is px
 	.loopSize (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@unitMaxValue = px){
-		.fs-@{numberMaxValue} {
-			font-size: ~"@{numberMaxValue}@{unitMaxValue}";
+		.fs-@{numberMaxValue}@{importantClass} {
+			font-size: ~"@{numberMaxValue}@{unitMaxValue}@{important}";
 		}
 
 		// next iteration
@@ -121,8 +166,8 @@
 	}
 	// When unit is not px
 	.loopSize (@index) when (@index >= @minValue) and not (@unitMaxValue = px){
-		.fs-@{index}@{unitMaxValue} {
-			font-size: ~"@{index}@{unitMaxValue}";
+		.fs-@{index}@{unitMaxValue}@{importantClass} {
+			font-size: ~"@{index}@{unitMaxValue}@{important}";
 		}
 
 		// next iteration
@@ -141,17 +186,20 @@
 // @maxValue 		int							maximum value
 // @minValue 		int							Minium value
 // @countDown 		int			5				Count down value
+// @important 		boolean		false			If value is true values will be add !important
 
-.widthSizeLoop(@maxValue, @minValue: 0, @countDown: 5) {
+.widthSizeLoop(@maxValue, @minValue: 0, @countDown: 5, @important: false) {
 	@numberMaxValue: unit(@maxValue);
 	@unitMaxValue: get-unit(@maxValue);
 	@numberMinValue: unit(@minValue);
 	@unitMinValue: get-unit(@maxValue);
 
+	.check(@important);
+
 	// Default unit is px
 	.loopSize (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@unitMaxValue = px){
-		.w-@{numberMaxValue} {
-			font-size: ~"@{numberMaxValue}@{unitMaxValue}";
+		.w-@{numberMaxValue}@{importantClass} {
+			font-size: ~"@{numberMaxValue}@{unitMaxValue}@{important}";
 		}
 
 		// next iteration
@@ -159,8 +207,8 @@
 	}
 	// When unit is not px
 	.loopSize (@index) when (@index >= @minValue) and not (@unitMaxValue = px){
-		.w-@{index}@{unitMaxValue} {
-			font-size: ~"@{index}@{unitMaxValue}";
+		.w-@{index}@{unitMaxValue}@{importantClass} {
+			font-size: ~"@{index}@{unitMaxValue}@{important}";
 		}
 
 		// next iteration
