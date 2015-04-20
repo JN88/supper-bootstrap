@@ -24,24 +24,16 @@
 // @important 		boolean		false			Condition to check values is Important
 
 .marginAndPaddingZero(@important: false){
-  .check(@important);
-  .mgT-0 {margin-left: 0~"@{important}";}
-	.mgR-0 {margin-left: 0~"@{important}";}
-	.mgB-0 {margin-left: 0~"@{important}";}
-	.mgL-0 {margin-left: 0~"@{important}";}
-	.mgT-0 {margin-left: 0~"@{important}";}
-	.mgR-0 {margin-left: 0~"@{important}";}
-	.mgB-0 {margin-left: 0~"@{important}";}
-	.mgL-0 {margin-left: 0~"@{important}";}
+	.check(@important);
+	.mgT-0@{importantClass} {margin-top: 0~"@{important}";}
+	.mgR-0@{importantClass} {margin-right: 0~"@{important}";}
+	.mgB-0@{importantClass} {margin-bottom: 0~"@{important}";}
+	.mgL-0@{importantClass} {margin-left: 0~"@{important}";}
 
-  .pdT-0 {margin-left: 0~"@{important}";}
-	.pdR-0 {margin-left: 0~"@{important}";}
-	.pdB-0 {margin-left: 0~"@{important}";}
-	.pdL-0 {margin-left: 0~"@{important}";}
-	.pdT-0 {margin-left: 0~"@{important}";}
-	.pdR-0 {margin-left: 0~"@{important}";}
-	.pdB-0 {margin-left: 0~"@{important}";}
-	.pdL-0 {margin-left: 0~"@{important}";}
+	.pdT-0@{importantClass} {padding-top: 0~"@{important}";}
+	.pdR-0@{importantClass} {padding-right: 0~"@{important}";}
+	.pdB-0@{importantClass} {padding-bottom: 0~"@{important}";}
+	.pdL-0@{importantClass} {padding-left: 0~"@{important}";}
 }
 
 // MIXIN: Generate Margin and Padding
