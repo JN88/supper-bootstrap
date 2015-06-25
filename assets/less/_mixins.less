@@ -25,15 +25,17 @@
 
 .marginAndPaddingZero(@important: false){
 	.checkImportant(@important);
-	.mgT-0@{importantClass} {margin-top: 0~"@{important}";}
-	.mgR-0@{importantClass} {margin-right: 0~"@{important}";}
-	.mgB-0@{importantClass} {margin-bottom: 0~"@{important}";}
-	.mgL-0@{importantClass} {margin-left: 0~"@{important}";}
+	.@{margin-prefix}-0@{importantClass} {margin: 0~"@{important}";}
+	.@{margin-prefix}-@{top-alias}-0@{importantClass} {margin-top: 0~"@{important}";}
+	.@{margin-prefix}-@{right-alias}-0@{importantClass} {margin-right: 0~"@{important}";}
+	.@{margin-prefix}-@{bottom-alias}-0@{importantClass} {margin-bottom: 0~"@{important}";}
+	.@{margin-prefix}-@{left-alias}-0@{importantClass} {margin-left: 0~"@{important}";}
 
-	.pdT-0@{importantClass} {padding-top: 0~"@{important}";}
-	.pdR-0@{importantClass} {padding-right: 0~"@{important}";}
-	.pdB-0@{importantClass} {padding-bottom: 0~"@{important}";}
-	.pdL-0@{importantClass} {padding-left: 0~"@{important}";}
+	.@{padding-prefix}-0@{importantClass} {padding: 0~"@{important}";}
+	.@{padding-prefix}-@{top-alias}-0@{importantClass} {padding-top: 0~"@{important}";}
+	.@{padding-prefix}-@{right-alias}-0@{importantClass} {padding-right: 0~"@{important}";}
+	.@{padding-prefix}-@{bottom-alias}-0@{importantClass} {padding-bottom: 0~"@{important}";}
+	.@{padding-prefix}-@{left-alias}-0@{importantClass} {padding-left: 0~"@{important}";}
 }
 
 // MIXIN: Generate Margin and Padding
@@ -58,31 +60,31 @@
 
 		// Padding
 		//------------------------------------------------------------
-		.pd-@{numberMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.pdT-@{numberMaxValue}@{importantClass} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.pdR-@{numberMaxValue}@{importantClass} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.pdB-@{numberMaxValue}@{importantClass} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.pdL-@{numberMaxValue}@{importantClass} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{numberMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{top-alias}-@{numberMaxValue}@{importantClass} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{right-alias}-@{numberMaxValue}@{importantClass} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{bottom-alias}-@{numberMaxValue}@{importantClass} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{left-alias}-@{numberMaxValue}@{importantClass} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// Padding Horizatial
-		.pd-0-@{numberMaxValue}@{importantClass} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-0-@{numberMaxValue}@{importantClass} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// Padding Vertical
-		.pd-@{numberMaxValue}-0@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
+		.@{padding-prefix}-@{numberMaxValue}-0@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
 
 		// Margin
 		//------------------------------------------------------------
-		.mg-@{numberMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.mgT-@{numberMaxValue}@{importantClass} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.mgR-@{numberMaxValue}@{importantClass} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.mgB-@{numberMaxValue}@{importantClass} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.mgL-@{numberMaxValue}@{importantClass} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{numberMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{top-alias}-@{numberMaxValue}@{importantClass} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{right-alias}-@{numberMaxValue}@{importantClass} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{bottom-alias}-@{numberMaxValue}@{importantClass} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{left-alias}-@{numberMaxValue}@{importantClass} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// margin Horizatial
-		.mg-0-@{numberMaxValue}@{importantClass} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-0-@{numberMaxValue}@{importantClass} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// margin Vertical
-		.mg-@{numberMaxValue}-0@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
+		.@{margin-prefix}-@{numberMaxValue}-0@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
 
 		// next iteration
 		.loop_margin_padding(@numberMaxValue - @countDown);
@@ -93,31 +95,31 @@
 
 		// Padding
 		//------------------------------------------------------------
-		.pd-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.pdT-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.pdR-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.pdB-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.pdL-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{top-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{right-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{bottom-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{left-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// Padding Horizatial
-		.pd-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// Padding Vertical
-		.pd-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0 ~"@{important}";}
+		.@{padding-prefix}-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0 ~"@{important}";}
 
 		// Margin
 		//------------------------------------------------------------
-		.mg-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.mgT-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.mgR-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.mgB-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.mgL-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{top-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{right-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{bottom-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{left-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// margin Horizatial
-		.mg-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
 
 		// margin Vertical
-		.mg-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
+		.@{margin-prefix}-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
 
 		// next iteration
 		.loop_margin_padding(@numberMaxValue - @countDown);
@@ -135,11 +137,11 @@
 // Parameter 		Type 		Default 		Description
 //--------------------------------------------------------------------------------
 // @maxValue 		int							maximum value
-// @minValue 		int							Minium value
+// @minValue 		int			1				Minium value
 // @countDown 		int			1				Count down value
 // @important 		boolean		false			If value is true values will be add !important
 
-.fontSizeLoop(@maxValue, @minValue: 0, @countDown: 1, @important: false) {
+.fontSizeLoop(@maxValue, @minValue: 1, @countDown: 1, @important: false) {
 	@numberMaxValue: unit(@maxValue);
 	@unitMaxValue: get-unit(@maxValue);
 	@numberMinValue: unit(@minValue);
@@ -149,7 +151,7 @@
 
 	// Default unit is px
 	.loopSize (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@unitMaxValue = px){
-		.fs-@{numberMaxValue}@{importantClass} {
+		.@{font-size-prefix}-@{numberMaxValue}@{importantClass} {
 			font-size: ~"@{numberMaxValue}@{unitMaxValue}@{important}";
 		}
 
@@ -158,7 +160,7 @@
 	}
 	// When unit is not px
 	.loopSize (@index) when (@index >= @minValue) and not (@unitMaxValue = px){
-		.fs-@{index}@{unitMaxValue}@{importantClass} {
+		.@{font-size-prefix}-@{index}@{unitMaxValue}@{importantClass} {
 			font-size: ~"@{index}@{unitMaxValue}@{important}";
 		}
 
@@ -176,11 +178,11 @@
 // Parameter 		Type 		Default 		Description
 //--------------------------------------------------------------------------------
 // @maxValue 		int							maximum value
-// @minValue 		int							Minium value
+// @minValue 		int			1				Minium value
 // @countDown 		int			5				Count down value
 // @important 		boolean		false			If value is true values will be add !important
 
-.widthSizeLoop(@maxValue, @minValue: 0, @countDown: 5, @important: false) {
+.widthSizeLoop(@maxValue, @minValue: 1, @countDown: 5, @important: false) {
 	@numberMaxValue: unit(@maxValue);
 	@unitMaxValue: get-unit(@maxValue);
 	@numberMinValue: unit(@minValue);
@@ -190,7 +192,7 @@
 
 	// Default unit is px
 	.loopSize (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@unitMaxValue = px){
-		.w-@{numberMaxValue}@{importantClass} {
+		.@{width-prefix}-@{numberMaxValue}@{importantClass} {
 			font-size: ~"@{numberMaxValue}@{unitMaxValue}@{important}";
 		}
 
@@ -199,7 +201,7 @@
 	}
 	// When unit is not px
 	.loopSize (@index) when (@index >= @minValue) and not (@unitMaxValue = px){
-		.w-@{index}@{unitMaxValue}@{importantClass} {
+		.@{width-prefix}-@{index}@{unitMaxValue}@{importantClass} {
 			font-size: ~"@{index}@{unitMaxValue}@{important}";
 		}
 
@@ -741,20 +743,6 @@
 	&:hover {
 		color: @colorHover;
 	}
-}
-
-// MIXIN: SEO Help
-// --------------------------------------------------
-.seo-helper () {
-	img:not([alt]), img[alt=""], img[alt^=" "], a[href=""], a[href^=" "], a[rel*="nofollow"] {
-		outline: 2px solid red !important;
-		outline-offset: 3px !important;
-	}
-	head, title:empty, link, meta {display: block;}
-	title:empty:before {content: "You've left the <title> empty!"}
-	link:before {content: "You don't have a <title>!"}
-	title ~ link {display: none;}
-	meta[name="description"][content=""]:before, meta[name="description"][content=" "]:before {content: "You've left description empty!";}
 }
 
 //
