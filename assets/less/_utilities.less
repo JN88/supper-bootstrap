@@ -4,28 +4,45 @@
 //
 // UTILITY: Display
 .inline {display: inline}
+.inline-xs {display: inline}
 .inline-ipt {display: inline!important}
+.inline-xs-ipt {display: inline!important}
 .inline-block {display: inline-block}
+.inline-xs-block {display: inline-block}
 .inline-block-ipt {display: inline-block!important}
+.inline-xs-block-ipt {display: inline-block!important}
 .block {display: block}
+.block-xs {display: block}
 .block-ipt {display: block!important}
+.block-xs-ipt {display: block!important}
 
 .clear {clear: both}
 
 // UTILITY: Position
-.pos-relative {position: relative}
-.pos-relative-ipt {position: relative!important}
-.pos-static {position: static}
-.pos-static-ipt {position: static!important}
-.pos-absolute {position: absolute}
-.pos-absolute-ipt {position: absolute!important}
+.pos-relative			{ position: relative }
+.pos-relative-xs		{ position: relative }
+.pos-relative-ipt		{ position: relative!important }
+.pos-relative-xs-ipt	{ position: relative!important }
+.pos-static				{ position: static }
+.pos-static-xs			{ position: static }
+.pos-static-ipt			{ position: static!important }
+.pos-static-xs-ipt		{ position: static!important }
+.pos-absolute			{ position: absolute }
+.pos-absolute-xs		{ position: absolute }
+.pos-absolute-ipt		{ position: absolute!important }
+.pos-absolute-xs-ipt	{ position: absolute!important }
 
 // UTILITY: Alignment
 .text-left-ipt           { text-align: left!important; }
+.text-left-xs-ipt        { text-align: left!important; }
 .text-right-ipt          { text-align: right!important; }
+.text-right-xs-ipt       { text-align: right!important; }
 .text-center-ipt         { text-align: center!important; }
+.text-center-xs-ipt      { text-align: center!important; }
 .text-justify-ipt        { text-align: justify!important; }
+.text-justify-xs-ipt     { text-align: justify!important; }
 .text-nowrap-ipt         { white-space: nowrap!important; }
+.text-nowrap-xs-ipt      { white-space: nowrap!important; }
 
 // UTILITY: Generate Utilities Class
 
@@ -50,13 +67,13 @@
 .marginAndPaddingZero();
 .marginAndPaddingZero(@important: true);
 
-
 .@{font-size-prefix}-0 {
 	font-size: 0;
 }
 .@{font-size-prefix}-0-ipt, {
 	font-size: 0!important;
 }
+
 .@{width-prefix}-0,
 .remove-width {
 	width: 0;
@@ -64,4 +81,91 @@
 .@{width-prefix}-0-ipt,
 .remove-width-ipt {
 	width: 0!important;
+}
+
+.reset-list{
+	.reset-list();
+}
+
+// --------------------------------------------------
+// RESPONSIVE
+// --------------------------------------------------
+//
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+	// UTILITY: Display
+	.inline-sm {display: inline}
+	.inline-sm-ipt {display: inline!important}
+	.inline-sm-block {display: inline-block}
+	.inline-sm-block-ipt {display: inline-block!important}
+	.block-sm {display: block}
+	.block-sm-ipt {display: block!important}
+
+	// UTILITY: Position
+	.pos-relative-sm {position: relative}
+	.pos-relative-sm-ipt {position: relative!important}
+	.pos-static-sm {position: static}
+	.pos-static-sm-ipt {position: static!important}
+	.pos-absolute-sm {position: absolute}
+	.pos-absolute-sm-ipt {position: absolute!important}
+
+	// UTILITY: Alignment
+	.text-left-sm-ipt           { text-align: left!important; }
+	.text-right-sm-ipt          { text-align: right!important; }
+	.text-center-sm-ipt         { text-align: center!important; }
+	.text-justify-sm-ipt        { text-align: justify!important; }
+	.text-nowrap-sm-ipt         { white-space: nowrap!important; }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+	// UTILITY: Display
+	.inline-md {display: inline}
+	.inline-md-ipt {display: inline!important}
+	.inline-md-block {display: inline-block}
+	.inline-md-block-ipt {display: inline-block!important}
+	.block-md {display: block}
+	.block-md-ipt {display: block!important}
+
+	// UTILITY: Position
+	.pos-relative-md {position: relative}
+	.pos-relative-md-ipt {position: relative!important}
+	.pos-static-md {position: static}
+	.pos-static-md-ipt {position: static!important}
+	.pos-absolute-md {position: absolute}
+	.pos-absolute-md-ipt {position: absolute!important}
+
+	// UTILITY: Alignment
+	.text-left-md-ipt           { text-align: left!important; }
+	.text-right-md-ipt          { text-align: right!important; }
+	.text-center-md-ipt         { text-align: center!important; }
+	.text-justify-md-ipt        { text-align: justify!important; }
+	.text-nowrap-md-ipt         { white-space: nowrap!important; }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+	// UTILITY: Display
+	.inline-lg {display: inline}
+	.inline-lg-ipt {display: inline!important}
+	.inline-lg-block {display: inline-block}
+	.inline-lg-block-ipt {display: inline-block!important}
+	.block-lg {display: block}
+	.block-lg-ipt {display: block!important}
+
+	// UTILITY: Position
+	.pos-relative-lg {position: relative}
+	.pos-relative-lg-ipt {position: relative!important}
+	.pos-static-lg {position: static}
+	.pos-static-lg-ipt {position: static!important}
+	.pos-absolute-lg {position: absolute}
+	.pos-absolute-lg-ipt {position: absolute!important}
+
+	// UTILITY: Alignment
+	.text-left-lg-ipt           { text-align: left!important; }
+	.text-right-lg-ipt          { text-align: right!important; }
+	.text-center-lg-ipt         { text-align: center!important; }
+	.text-justify-lg-ipt        { text-align: justify!important; }
+	.text-nowrap-lg-ipt         { white-space: nowrap!important; }
 }

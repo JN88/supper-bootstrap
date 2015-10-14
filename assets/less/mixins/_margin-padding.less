@@ -1,0 +1,114 @@
+// MIXIN: Check Value jave Important
+//--------------------------------------------------------------------------------
+// Parameter 		Type 		Default 		Description
+//--------------------------------------------------------------------------------
+// @important 		boolean		false			Condition to check values is Important
+
+.marginAndPaddingZero(@important: false){
+	.checkImportant(@important);
+	.@{margin-prefix}-0@{importantClass} {margin: 0~"@{important}";}
+	.@{margin-prefix}-@{top-alias}-0@{importantClass} {margin-top: 0~"@{important}";}
+	.@{margin-prefix}-@{right-alias}-0@{importantClass} {margin-right: 0~"@{important}";}
+	.@{margin-prefix}-@{bottom-alias}-0@{importantClass} {margin-bottom: 0~"@{important}";}
+	.@{margin-prefix}-@{left-alias}-0@{importantClass} {margin-left: 0~"@{important}";}
+
+	.@{padding-prefix}-0@{importantClass} {padding: 0~"@{important}";}
+	.@{padding-prefix}-@{top-alias}-0@{importantClass} {padding-top: 0~"@{important}";}
+	.@{padding-prefix}-@{right-alias}-0@{importantClass} {padding-right: 0~"@{important}";}
+	.@{padding-prefix}-@{bottom-alias}-0@{importantClass} {padding-bottom: 0~"@{important}";}
+	.@{padding-prefix}-@{left-alias}-0@{importantClass} {padding-left: 0~"@{important}";}
+}
+
+// MIXIN: Generate Margin and Padding
+//--------------------------------------------------------------------------------
+// Parameter 		Type 		Default 		Description
+//--------------------------------------------------------------------------------
+// @maxValue 		int							maximum value
+// @minValue 		int							Minium value
+// @countDown 		int			5				Count down value
+// @important 		boolean		false			If value is true values will be add !important
+
+.marginAndPadding(@maxValue, @minValue: 0, @countDown: 5, @important: false){
+	@numberMaxValue: unit(@maxValue);
+	@unitMaxValue: get-unit(@maxValue);
+	@numberMinValue: unit(@minValue);
+	@unitMinValue: get-unit(@maxValue);
+
+	.checkImportant(@important);
+
+	// Default unit is px
+	.loop_margin_padding (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@numberMaxValue > 0) and (@unitMaxValue = px){
+
+		// Padding
+		//------------------------------------------------------------
+		.@{padding-prefix}-@{numberMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{top-alias}-@{numberMaxValue}@{importantClass} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{right-alias}-@{numberMaxValue}@{importantClass} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{bottom-alias}-@{numberMaxValue}@{importantClass} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{left-alias}-@{numberMaxValue}@{importantClass} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+
+		// Padding Horizatial
+		.@{padding-prefix}-0-@{numberMaxValue}@{importantClass} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+
+		// Padding Vertical
+		.@{padding-prefix}-@{numberMaxValue}-0@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
+
+		// Margin
+		//------------------------------------------------------------
+		.@{margin-prefix}-@{numberMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{top-alias}-@{numberMaxValue}@{importantClass} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{right-alias}-@{numberMaxValue}@{importantClass} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{bottom-alias}-@{numberMaxValue}@{importantClass} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{left-alias}-@{numberMaxValue}@{importantClass} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+
+		// margin Horizatial
+		.@{margin-prefix}-0-@{numberMaxValue}@{importantClass} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+
+		// margin Vertical
+		.@{margin-prefix}-@{numberMaxValue}-0@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
+
+		// next iteration
+		.loop_margin_padding(@numberMaxValue - @countDown);
+	}
+
+	// When unit is not px
+	.loop_margin_padding(@numberMaxValue) when (@numberMaxValue >= @minValue) and (@numberMaxValue > 0) and not (@unitMaxValue = px){
+
+		// Padding
+		//------------------------------------------------------------
+		.@{padding-prefix}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{top-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{right-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{bottom-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{left-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+
+		// Padding Horizatial
+		.@{padding-prefix}-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+
+		// Padding Vertical
+		.@{padding-prefix}-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0 ~"@{important}";}
+
+		// Margin
+		//------------------------------------------------------------
+		.@{margin-prefix}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{top-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{right-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{bottom-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{left-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+
+		// margin Horizatial
+		.@{margin-prefix}-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+
+		// margin Vertical
+		.@{margin-prefix}-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
+
+		// next iteration
+		.loop_margin_padding(@numberMaxValue - @countDown);
+	}
+
+	// end the loop when index is 0
+	.loop_margin_padding (0) {}
+
+	// "call" the loopingClass the first time with highest value
+	.loop_margin_padding (@numberMaxValue);
+}
