@@ -18,7 +18,7 @@
 	// Default unit is px
 	.loopSize (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@unitMaxValue = px){
 		.@{width-prefix}-@{numberMaxValue}@{importantClass} {
-			font-size: ~"@{numberMaxValue}@{unitMaxValue}@{important}";
+			width: ~"@{numberMaxValue}@{unitMaxValue}@{important}";
 		}
 
 		// next iteration
@@ -27,7 +27,7 @@
 	// When unit is not px
 	.loopSize (@index) when (@index >= @minValue) and not (@unitMaxValue = px){
 		.@{width-prefix}-@{index}@{unitMaxValue}@{importantClass} {
-			font-size: ~"@{index}@{unitMaxValue}@{important}";
+			width: ~"@{index}@{unitMaxValue}@{important}";
 		}
 
 		// next iteration
