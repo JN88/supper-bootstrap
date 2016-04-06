@@ -1,10 +1,10 @@
 //
 // MIXINS
 // --------------------------------------------------
-@import "mixins/_font-size.less";
-@import "mixins/_width.less";
-@import "mixins/_margin-padding.less";
-@import "mixins/_layout.less";
+@import "_font-size.less";
+@import "_width.less";
+@import "_margin-padding.less";
+@import "_layout.less";
 
 // MIXIN: Check Value jave Important
 //--------------------------------------------------------------------------------
@@ -71,3 +71,12 @@
 	padding-left: 0;
 	margin: 0;
 }
+
+// Init Hook Mixins
+.hook-common-style(){};
+.hook-sm-min(){};
+.hook-md-min(){};
+.hook-lg-min(){};
+.hook-md-max(){};
+.hook-sm-max(){};
+.hook-xs-max(){};
