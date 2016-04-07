@@ -11,7 +11,11 @@ var browserSync = require('browser-sync').create();
 gulp.task('build-css', function () {
     return gulp.src('./assets/less/*.less')
         .pipe(plumber())
-        .pipe(less())
+        .pipe(less({
+            sourceMap: {
+                sourceMapRootpath: './assets/less'
+            }
+        }))
         .pipe(gulp.dest('./assets/css')).on('error', gutil.log)
         .pipe(browserSync.stream())
 });
