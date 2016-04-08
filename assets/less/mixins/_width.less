@@ -24,8 +24,19 @@
 		// next iteration
 		.loopSize(@numberMaxValue - @countDown);
 	}
-	// When unit is not px
-	.loopSize (@index) when (@index >= @minValue) and not (@unitMaxValue = px){
+	// When unit is %
+	.loopSize (@index) when (@index >= @minValue)  and (@unitMaxValue = ~"%"){
+		@per: per;
+		.@{width-prefix}-@{index}-@{per}@{importantClass} {
+			width: ~"@{index}@{unitMaxValue}@{important}";
+		}
+
+		// next iteration
+		.loopSize(@index - @countDown);
+	}
+
+	// When unit is not px and %
+	.loopSize (@index) when (@index >= @minValue) and not (@unitMaxValue = ~"%") and not (@unitMaxValue = px){
 		.@{width-prefix}-@{index}@{unitMaxValue}@{importantClass} {
 			width: ~"@{index}@{unitMaxValue}@{important}";
 		}
