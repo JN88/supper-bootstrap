@@ -2,4 +2,5 @@
 Updated Bootstrap v.3.3.6
 Updated Font-Awesome v.4.5.0
 
-gulp serve
+npm install -g gulp
+gulp watch
