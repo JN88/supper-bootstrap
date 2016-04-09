@@ -8815,6 +8815,9 @@ button.close {
   content: "\f295";
 }
 /* HOOK COMMONS STYLE */
+body {
+  background-color: red;
+}
 .inline {
   display: inline;
 }
