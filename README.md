@@ -12,6 +12,10 @@ You need Gulp installed globally:
 ```sh
 $ npm i -g gulp
 ```
+Install the dependencies:
+```sh
+npm install
+```
 
 Run command below to work:
 ```sh

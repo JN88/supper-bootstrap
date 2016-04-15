@@ -61,6 +61,15 @@ gulp.task('build-html', function() {
 });
 
 // /////////////////////////////////////////////
+// BUILD JS TASK
+// /////////////////////////////////////////////
+gulp.task('build-js', function() {
+	return gulp.src('./assets/js/**/*.js')
+	.pipe(gulp.dest('./assets/js/'))
+	.pipe(browserSync.stream());
+});
+
+// /////////////////////////////////////////////
 // SPRITE IMAGES TASK
 // /////////////////////////////////////////////
 gulp.task('sprite', function () {
@@ -104,6 +113,7 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', ['build-html', 'sprite','browser-sync'], function () {
 	gulp.watch('./source/**/*.html', ['build-html']);
 	gulp.watch('./assets/less/**/*.less', ['build-css']);
+	gulp.watch('assets/js/**/*.js', ['build-js']);
 	gulp.watch('assets/images/sprite/**/*.png', ['sprite']);
 		//gulp.watch("./*.html").on('change', browserSync.reload);
 });
