@@ -2,74 +2,45 @@
 // UTILITIES CLASS
 // --------------------------------------------------
 //
-// UTILITY: Display
-.inline {display: inline}
-.inline-xs {display: inline}
-.inline-ipt {display: inline!important}
-.inline-xs-ipt {display: inline!important}
-.inline-block {display: inline-block}
-.inline-xs-block {display: inline-block}
-.inline-block-ipt {display: inline-block!important}
-.inline-xs-block-ipt {display: inline-block!important}
-.block {display: block}
-.block-xs {display: block}
-.block-ipt {display: block!important}
-.block-xs-ipt {display: block!important}
-
 .clear {clear: both}
 
-// UTILITY: Position
-.pos-relative			{ position: relative }
-.pos-relative-xs		{ position: relative }
-.pos-relative-ipt		{ position: relative!important }
-.pos-relative-xs-ipt	{ position: relative!important }
-.pos-static				{ position: static }
-.pos-static-xs			{ position: static }
-.pos-static-ipt			{ position: static!important }
-.pos-static-xs-ipt		{ position: static!important }
-.pos-absolute			{ position: absolute }
-.pos-absolute-xs		{ position: absolute }
-.pos-absolute-ipt		{ position: absolute!important }
-.pos-absolute-xs-ipt	{ position: absolute!important }
+// Display
+.inline, .inline-xs 				{display: inline!important}
+.inline-block, .inline-xs-block 	{display: inline-block!important}
+.block, .block-xs 					{display: block!important}
 
-// UTILITY: Alignment
-.text-left-ipt           { text-align: left!important; }
-.text-left-xs-ipt        { text-align: left!important; }
-.text-right-ipt          { text-align: right!important; }
-.text-right-xs-ipt       { text-align: right!important; }
-.text-center-ipt         { text-align: center!important; }
-.text-center-xs-ipt      { text-align: center!important; }
-.text-justify-ipt        { text-align: justify!important; }
-.text-justify-xs-ipt     { text-align: justify!important; }
-.text-nowrap-ipt         { white-space: nowrap!important; }
-.text-nowrap-xs-ipt      { white-space: nowrap!important; }
+// Position
+.pos-relative, .pos-relative-xs		{ position: relative!important; }
+.pos-static, .pos-static-xs 		{ position: static!important }
+.pos-absolute .pos-absolute-xs		{ position: absolute!important }
 
-// UTILITY: Generate Utilities Class
+// Alignment
+.text-left, .text-left-xs    	    { text-align: left!important }
+.text-right, .text-right-xs   	    { text-align: right!important }
+.text-center, .text-center-xs  	    { text-align: center!important }
+.text-justify, .text-justify-xs 	{ text-align: justify!important }
+.text-nowrap, .text-nowrap-xs  	    { white-space: nowrap!important }
+
+// Generate Utilities Class
 
 // Generate Font-size from 30px to 8px
-.fontSizeLoop(@maxValue: 30px, @minValue: 8px,  @countDown: 2);
-//.fontSizeLoop(@maxValue: 30px, @minValue: 8px,  @countDown: 2, @important: true);
+.fontSizeLoop(@maxValue: 30px, @minValue: 8px,  @countDown: 2)!important;
 
 // Generate width 500px -> 150px
-.widthSizeLoop(@maxValue: 500px, @minValue: 150px, @countDown: 50);
-//.widthSizeLoop(@maxValue: 500, @minValue: 150, @countDown: 50, @important: true);
+.widthSizeLoop(@maxValue: 500px, @minValue: 150px, @countDown: 50)!important;
 
 // Generate width 100px -> 0
-.widthSizeLoop(@maxValue: 100px, @minValue: 0, @countDown: 5);
-//.widthSizeLoop(@maxValue: 100, @minValue: 0, @countDown: 5, @important: true);
+.widthSizeLoop(@maxValue: 100px, @minValue: 0, @countDown: 5)!important;
 
 // Generate width 100p% -> 0
-.widthSizeLoop(@maxValue: 100%, @minValue: 0, @countDown: 5);
-//.widthSizeLoop(@maxValue: 100, @minValue: 0, @countDown: 5, @important: true);
+.widthSizeLoop(@maxValue: 100%, @minValue: 0, @countDown: 5)!important;
 
 // Generate Margin and Padding from 30 to 0
-.marginAndPadding(@maxValue: 30px);
-.marginAndPadding(@maxValue: 30px, @important: true);
+.marginAndPadding(@maxValue: 30px)!important;
 
 // --------------------------------------------------
 // Generate Margin and Padding 0
 .marginAndPaddingZero();
-.marginAndPaddingZero(@important: true);
 
 .@{font-size-prefix}-0 {
 	font-size: 0;
@@ -96,80 +67,129 @@
 // --------------------------------------------------
 //
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) {
-	// UTILITY: Display
-	.inline-sm {display: inline}
-	.inline-sm-ipt {display: inline!important}
-	.inline-sm-block {display: inline-block}
-	.inline-sm-block-ipt {display: inline-block!important}
-	.block-sm {display: block}
-	.block-sm-ipt {display: block!important}
+// Small devices (tablets, 768px and up)
+//--------------------------------------------------
+.hook-screen-sm-min() {
+	// Display
+	.inline-min-sm 			{display: inline!important}
+	.inline-min-sm-block 	{display: inline-block!important}
+	.block-min-sm 			{display: block!important}
 
-	// UTILITY: Position
-	.pos-relative-sm {position: relative}
-	.pos-relative-sm-ipt {position: relative!important}
-	.pos-static-sm {position: static}
-	.pos-static-sm-ipt {position: static!important}
-	.pos-absolute-sm {position: absolute}
-	.pos-absolute-sm-ipt {position: absolute!important}
+	// Position
+	.pos-relative-min-sm  	{position: relative!important}
+	.pos-static-min-sm 		{position: static!important}
+	.pos-absolute-min-sm  	{position: absolute!important}
 
-	// UTILITY: Alignment
-	.text-left-sm-ipt           { text-align: left!important; }
-	.text-right-sm-ipt          { text-align: right!important; }
-	.text-center-sm-ipt         { text-align: center!important; }
-	.text-justify-sm-ipt        { text-align: justify!important; }
-	.text-nowrap-sm-ipt         { white-space: nowrap!important; }
+	// Alignment
+	.text-left-min-sm        { text-align: left!important; }
+	.text-right-min-sm       { text-align: right!important; }
+	.text-center-min-sm      { text-align: center!important; }
+	.text-justify-min-sm     { text-align: justify!important; }
+	.text-nowrap-min-sm      { white-space: nowrap!important; }
 }
 
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: @screen-md-min) {
-	// UTILITY: Display
-	.inline-md {display: inline}
-	.inline-md-ipt {display: inline!important}
-	.inline-md-block {display: inline-block}
-	.inline-md-block-ipt {display: inline-block!important}
-	.block-md {display: block}
-	.block-md-ipt {display: block!important}
+// Medium devices (desktops, 992px and up)
+//--------------------------------------------------
+.hook-screen-md-min() {
+	// Display
+	.inline-min-md  		{display: inline!important}
+	.inline-min-md-block  	{display: inline-block!important}
+	.block-min-md  			{display: block!important}
 
-	// UTILITY: Position
-	.pos-relative-md {position: relative}
-	.pos-relative-md-ipt {position: relative!important}
-	.pos-static-md {position: static}
-	.pos-static-md-ipt {position: static!important}
-	.pos-absolute-md {position: absolute}
-	.pos-absolute-md-ipt {position: absolute!important}
+	// Position
+	.pos-relative-min-md 	{position: relative!important}
+	.pos-static-min-md  	{position: static!important}
+	.pos-absolute-min-md  	{position: absolute!important}
 
-	// UTILITY: Alignment
-	.text-left-md-ipt           { text-align: left!important; }
-	.text-right-md-ipt          { text-align: right!important; }
-	.text-center-md-ipt         { text-align: center!important; }
-	.text-justify-md-ipt        { text-align: justify!important; }
-	.text-nowrap-md-ipt         { white-space: nowrap!important; }
+	// Alignment
+	.text-left-min-md           { text-align: left!important; }
+	.text-right-min-md          { text-align: right!important; }
+	.text-center-min-md         { text-align: center!important; }
+	.text-justify-min-md        { text-align: justify!important; }
+	.text-nowrap-min-md         { white-space: nowrap!important; }
 }
 
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) {
-	// UTILITY: Display
-	.inline-lg {display: inline}
-	.inline-lg-ipt {display: inline!important}
-	.inline-lg-block {display: inline-block}
-	.inline-lg-block-ipt {display: inline-block!important}
-	.block-lg {display: block}
-	.block-lg-ipt {display: block!important}
+// Large devices (large desktops, 1200px and up)
+//--------------------------------------------------
+.hook-screen-lg-min() {
+	// Display
+	.inline-min-lg  		{display: inline!important}
+	.inline-min-lg-block 	{display: inline-block!important}
+	.block-min-lg  			{display: block!important}
 
-	// UTILITY: Position
-	.pos-relative-lg {position: relative}
-	.pos-relative-lg-ipt {position: relative!important}
-	.pos-static-lg {position: static}
-	.pos-static-lg-ipt {position: static!important}
-	.pos-absolute-lg {position: absolute}
-	.pos-absolute-lg-ipt {position: absolute!important}
+	// Position
+	.pos-relative-min-lg 	{position: relative!important}
+	.pos-static-min-lg 		{position: static!important}
+	.pos-absolute-min-lg  	{position: absolute!important}
 
-	// UTILITY: Alignment
-	.text-left-lg-ipt           { text-align: left!important; }
-	.text-right-lg-ipt          { text-align: right!important; }
-	.text-center-lg-ipt         { text-align: center!important; }
-	.text-justify-lg-ipt        { text-align: justify!important; }
-	.text-nowrap-lg-ipt         { white-space: nowrap!important; }
+	// Alignment
+	.text-left-min-lg   	{ text-align: left!important; }
+	.text-right-min-lg  	{ text-align: right!important; }
+	.text-center-min-lg 	{ text-align: center!important; }
+	.text-justify-min-lg	{ text-align: justify!important; }
+	.text-nowrap-min-lg 	{ white-space: nowrap!important; }
+}
+
+
+
+// Only for Medium devices and lower (<1199px)
+//--------------------------------------------------
+.hook-screen-md-max() {
+	// Display
+	.inline-max-lg  		{display: inline!important}
+	.inline-max-lg-block  	{display: inline-block!important}
+	.block-max-lg  			{display: block!important}
+
+	// Position
+	.pos-relative-max-lg 	{position: relative!important}
+	.pos-static-max-lg  	{position: static!important}
+	.pos-absolute-max-lg  	{position: absolute!important}
+
+	// Alignment
+	.text-left-max-lg           { text-align: left!important; }
+	.text-right-max-lg          { text-align: right!important; }
+	.text-center-max-lg         { text-align: center!important; }
+	.text-justify-max-lg        { text-align: justify!important; }
+	.text-nowrap-max-lg         { white-space: nowrap!important; }
+}
+
+// Only for Small devices and lower (<991px)
+//--------------------------------------------------
+.hook-screen-sm-max() {
+	// Display
+	.inline-max-md  		{display: inline!important}
+	.inline-max-md-block  	{display: inline-block!important}
+	.block-max-md  			{display: block!important}
+
+	// Position
+	.pos-relative-max-md 	{position: relative!important}
+	.pos-static-max-md  	{position: static!important}
+	.pos-absolute-max-md  	{position: absolute!important}
+
+	// Alignment
+	.text-left-max-md           { text-align: left!important; }
+	.text-right-max-md          { text-align: right!important; }
+	.text-center-max-md         { text-align: center!important; }
+	.text-justify-max-md        { text-align: justify!important; }
+	.text-nowrap-max-md         { white-space: nowrap!important; }
+}
+// Only for Small devices and lower (<767px)
+//--------------------------------------------------
+.hook-screen-xs-max() {
+	// Display
+	.inline-max-sm  		{display: inline!important}
+	.inline-max-sm-block  	{display: inline-block!important}
+	.block-max-sm  			{display: block!important}
+
+	// Position
+	.pos-relative-max-sm 	{position: relative!important}
+	.pos-static-max-sm  	{position: static!important}
+	.pos-absolute-max-sm  	{position: absolute!important}
+
+	// Alignment
+	.text-left-max-sm           { text-align: left!important; }
+	.text-right-max-sm          { text-align: right!important; }
+	.text-center-max-sm         { text-align: center!important; }
+	.text-justify-max-sm        { text-align: justify!important; }
+	.text-nowrap-max-sm         { white-space: nowrap!important; }
 }

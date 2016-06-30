@@ -1,24 +1,3 @@
-// MIXIN: Check Value jave Important
-//--------------------------------------------------------------------------------
-// Parameter 		Type 		Default 		Description
-//--------------------------------------------------------------------------------
-// @important 		boolean		false			Condition to check values is Important
-
-.marginAndPaddingZero(@important: false){
-	.checkImportant(@important);
-	.@{margin-prefix}-0@{importantClass} {margin: 0~"@{important}";}
-	.@{margin-prefix}-@{top-alias}-0@{importantClass} {margin-top: 0~"@{important}";}
-	.@{margin-prefix}-@{right-alias}-0@{importantClass} {margin-right: 0~"@{important}";}
-	.@{margin-prefix}-@{bottom-alias}-0@{importantClass} {margin-bottom: 0~"@{important}";}
-	.@{margin-prefix}-@{left-alias}-0@{importantClass} {margin-left: 0~"@{important}";}
-
-	.@{padding-prefix}-0@{importantClass} {padding: 0~"@{important}";}
-	.@{padding-prefix}-@{top-alias}-0@{importantClass} {padding-top: 0~"@{important}";}
-	.@{padding-prefix}-@{right-alias}-0@{importantClass} {padding-right: 0~"@{important}";}
-	.@{padding-prefix}-@{bottom-alias}-0@{importantClass} {padding-bottom: 0~"@{important}";}
-	.@{padding-prefix}-@{left-alias}-0@{importantClass} {padding-left: 0~"@{important}";}
-}
-
 // MIXIN: Generate Margin and Padding
 //--------------------------------------------------------------------------------
 // Parameter 		Type 		Default 		Description
@@ -28,44 +7,44 @@
 // @countDown 		int			5				Count down value
 // @important 		boolean		false			If value is true values will be add !important
 
-.marginAndPadding(@maxValue, @minValue: 0, @countDown: 5, @important: false){
+
+.marginAndPadding(@maxValue, @minValue: 0, @countDown: 5){
 	@numberMaxValue: unit(@maxValue);
 	@unitMaxValue: get-unit(@maxValue);
 	@numberMinValue: unit(@minValue);
 	@unitMinValue: get-unit(@maxValue);
 
-	.checkImportant(@important);
 
 	// Default unit is px
 	.loop_margin_padding (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@numberMaxValue > 0) and (@unitMaxValue = px){
 
 		// Padding
 		//------------------------------------------------------------
-		.@{padding-prefix}-@{numberMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{padding-prefix}-@{top-alias}-@{numberMaxValue}@{importantClass} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{padding-prefix}-@{right-alias}-@{numberMaxValue}@{importantClass} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{padding-prefix}-@{bottom-alias}-@{numberMaxValue}@{importantClass} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{padding-prefix}-@{left-alias}-@{numberMaxValue}@{importantClass} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{numberMaxValue} {padding: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{padding-prefix}-@{top-alias}-@{numberMaxValue} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{padding-prefix}-@{right-alias}-@{numberMaxValue} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{padding-prefix}-@{bottom-alias}-@{numberMaxValue} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{padding-prefix}-@{left-alias}-@{numberMaxValue} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}";}
 
 		// Padding Horizatial
-		.@{padding-prefix}-0-@{numberMaxValue}@{importantClass} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-0-@{numberMaxValue} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}";}
 
 		// Padding Vertical
-		.@{padding-prefix}-@{numberMaxValue}-0@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
+		.@{padding-prefix}-@{numberMaxValue}-0 {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0;}
 
 		// Margin
 		//------------------------------------------------------------
-		.@{margin-prefix}-@{numberMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{margin-prefix}-@{top-alias}-@{numberMaxValue}@{importantClass} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{margin-prefix}-@{right-alias}-@{numberMaxValue}@{importantClass} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{margin-prefix}-@{bottom-alias}-@{numberMaxValue}@{importantClass} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{margin-prefix}-@{left-alias}-@{numberMaxValue}@{importantClass} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{numberMaxValue} {margin: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{margin-prefix}-@{top-alias}-@{numberMaxValue} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{margin-prefix}-@{right-alias}-@{numberMaxValue} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{margin-prefix}-@{bottom-alias}-@{numberMaxValue} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{margin-prefix}-@{left-alias}-@{numberMaxValue} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}";}
 
 		// margin Horizatial
-		.@{margin-prefix}-0-@{numberMaxValue}@{importantClass} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-0-@{numberMaxValue} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}";}
 
 		// margin Vertical
-		.@{margin-prefix}-@{numberMaxValue}-0@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
+		.@{margin-prefix}-@{numberMaxValue}-0 {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0;}
 
 		// next iteration
 		.loop_margin_padding(@numberMaxValue - @countDown);
@@ -76,31 +55,31 @@
 
 		// Padding
 		//------------------------------------------------------------
-		.@{padding-prefix}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{padding-prefix}-@{top-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{padding-prefix}-@{right-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{padding-prefix}-@{bottom-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{padding-prefix}-@{left-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-@{numberMaxValue}@{unitMaxValue} {padding: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{padding-prefix}-@{top-alias}-@{numberMaxValue}@{unitMaxValue} {padding-top: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{padding-prefix}-@{right-alias}-@{numberMaxValue}@{unitMaxValue} {padding-right: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{padding-prefix}-@{bottom-alias}-@{numberMaxValue}@{unitMaxValue} {padding-bottom: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{padding-prefix}-@{left-alias}-@{numberMaxValue}@{unitMaxValue} {padding-left: ~"@{numberMaxValue}@{unitMaxValue}";}
 
 		// Padding Horizatial
-		.@{padding-prefix}-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{padding-prefix}-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue} {padding: 0 ~"@{numberMaxValue}@{unitMaxValue}";}
 
 		// Padding Vertical
-		.@{padding-prefix}-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue}@{importantClass} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0 ~"@{important}";}
+		.@{padding-prefix}-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue} {padding: ~"@{numberMaxValue}@{unitMaxValue}" 0 ;}
 
 		// Margin
 		//------------------------------------------------------------
-		.@{margin-prefix}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{margin-prefix}-@{top-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{margin-prefix}-@{right-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{margin-prefix}-@{bottom-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
-		.@{margin-prefix}-@{left-alias}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-@{numberMaxValue}@{unitMaxValue} {margin: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{margin-prefix}-@{top-alias}-@{numberMaxValue}@{unitMaxValue} {margin-top: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{margin-prefix}-@{right-alias}-@{numberMaxValue}@{unitMaxValue} {margin-right: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{margin-prefix}-@{bottom-alias}-@{numberMaxValue}@{unitMaxValue} {margin-bottom: ~"@{numberMaxValue}@{unitMaxValue}";}
+		.@{margin-prefix}-@{left-alias}-@{numberMaxValue}@{unitMaxValue} {margin-left: ~"@{numberMaxValue}@{unitMaxValue}";}
 
 		// margin Horizatial
-		.@{margin-prefix}-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue}@{importantClass} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}@{important}";}
+		.@{margin-prefix}-0@{unitMaxValue}-@{numberMaxValue}@{unitMaxValue} {margin: 0 ~"@{numberMaxValue}@{unitMaxValue}";}
 
 		// margin Vertical
-		.@{margin-prefix}-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue}@{importantClass} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0~"@{important}";}
+		.@{margin-prefix}-@{numberMaxValue}@{unitMaxValue}-0@{unitMaxValue} {margin: ~"@{numberMaxValue}@{unitMaxValue}" 0;}
 
 		// next iteration
 		.loop_margin_padding(@numberMaxValue - @countDown);
@@ -111,4 +90,24 @@
 
 	// "call" the loopingClass the first time with highest value
 	.loop_margin_padding (@numberMaxValue);
+}
+
+// MIXIN: Check Value jave Important
+//--------------------------------------------------------------------------------
+// Parameter 		Type 		Default 		Description
+//--------------------------------------------------------------------------------
+// @important 		boolean		false			Condition to check values is Important
+
+.marginAndPaddingZero(){
+	.@{margin-prefix}-0 {margin: 0;}
+	.@{margin-prefix}-@{top-alias}-0 {margin-top: 0;}
+	.@{margin-prefix}-@{right-alias}-0 {margin-right: 0;}
+	.@{margin-prefix}-@{bottom-alias}-0 {margin-bottom: 0;}
+	.@{margin-prefix}-@{left-alias}-0 {margin-left: 0;}
+
+	.@{padding-prefix}-0 {padding: 0;}
+	.@{padding-prefix}-@{top-alias}-0 {padding-top: 0;}
+	.@{padding-prefix}-@{right-alias}-0 {padding-right: 0;}
+	.@{padding-prefix}-@{bottom-alias}-0 {padding-bottom: 0;}
+	.@{padding-prefix}-@{left-alias}-0 {padding-left: 0;}
 }

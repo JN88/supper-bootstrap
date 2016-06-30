@@ -6,36 +6,6 @@
 @import "_margin-padding.less";
 @import "_layout.less";
 
-// MIXIN: Check Value jave Important
-//--------------------------------------------------------------------------------
-// Parameter 		Type 		Default 		Description
-//--------------------------------------------------------------------------------
-// @important 		boolean		false			Define Values Lazy Loading
-
-.checkImportant(@important) when (@important = false){
-	@important: ~"";
-	@importantClass: ~"";
-}
-.checkImportant(@important) when (@important = true){
-	@important: '!important';
-	@importantClass: ~"-ipt";
-}
-
-// MIXIN: Check Value jave Important
-//--------------------------------------------------------------------------------
-// Parameter 		Type 		Default 		Description
-//--------------------------------------------------------------------------------
-// @important 		boolean		false			Define Values Lazy Loading
-
-.checkImportant(@important) when (@important = false){
-	@important: ~"";
-	@importantClass: ~"";
-}
-.checkImportant(@important) when (@important = true){
-	@important: '!important';
-	@importantClass: ~"-ipt";
-}
-
 // MIXIN : Transform CSS3
 // --------------------------------------------------
 .transform(@transform) {
@@ -74,9 +44,9 @@
 
 // Init Hook Mixins
 .hook-common-style(){};
-.hook-sm-min(){};
-.hook-md-min(){};
-.hook-lg-min(){};
-.hook-md-max(){};
-.hook-sm-max(){};
-.hook-xs-max(){};
+.hook-screen-sm-min(){};
+.hook-screen-md-min(){};
+.hook-screen-lg-min(){};
+.hook-screen-md-max(){};
+.hook-screen-sm-max(){};
+.hook-screen-xs-max(){};

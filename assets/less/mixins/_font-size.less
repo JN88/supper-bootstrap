@@ -7,18 +7,17 @@
 // @countDown 		int			1				Count down value
 // @important 		boolean		false			If value is true values will be add !important
 
-.fontSizeLoop(@maxValue, @minValue: 1, @countDown: 1, @important: false) {
+.fontSizeLoop(@maxValue, @minValue: 1, @countDown: 1) {
 	@numberMaxValue: unit(@maxValue);
 	@unitMaxValue: get-unit(@maxValue);
 	@numberMinValue: unit(@minValue);
 	@unitMinValue: get-unit(@maxValue);
 
-	.checkImportant(@important);
 
 	// Default unit is px
 	.loopSize (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@unitMaxValue = px){
-		.@{font-size-prefix}-@{numberMaxValue}@{importantClass} {
-			font-size: ~"@{numberMaxValue}@{unitMaxValue}@{important}";
+		.@{font-size-prefix}-@{numberMaxValue} {
+			font-size: ~"@{numberMaxValue}@{unitMaxValue}";
 		}
 
 		// next iteration
@@ -26,8 +25,8 @@
 	}
 	// When unit is not px
 	.loopSize (@index) when (@index >= @minValue) and not (@unitMaxValue = px){
-		.@{font-size-prefix}-@{index}@{unitMaxValue}@{importantClass} {
-			font-size: ~"@{index}@{unitMaxValue}@{important}";
+		.@{font-size-prefix}-@{index}@{unitMaxValue} {
+			font-size: ~"@{index}@{unitMaxValue}";
 		}
 
 		// next iteration

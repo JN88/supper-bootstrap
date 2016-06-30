@@ -5,20 +5,17 @@
 // @maxValue 		int							maximum value
 // @minValue 		int			1				Minium value
 // @countDown 		int			5				Count down value
-// @important 		boolean		false			If value is true values will be add !important
 
-.widthSizeLoop(@maxValue, @minValue: 1, @countDown: 5, @important: false) {
+.widthSizeLoop(@maxValue, @minValue: 1, @countDown: 5) {
 	@numberMaxValue: unit(@maxValue);
 	@unitMaxValue: get-unit(@maxValue);
 	@numberMinValue: unit(@minValue);
 	@unitMinValue: get-unit(@maxValue);
 
-	.checkImportant(@important);
-
 	// Default unit is px
 	.loopSize (@numberMaxValue) when (@numberMaxValue >= @numberMinValue) and (@unitMaxValue = px){
-		.@{width-prefix}-@{numberMaxValue}@{importantClass} {
-			width: ~"@{numberMaxValue}@{unitMaxValue}@{important}";
+		.@{width-prefix}-@{numberMaxValue} {
+			width: ~"@{numberMaxValue}@{unitMaxValue}";
 		}
 
 		// next iteration
@@ -27,8 +24,8 @@
 	// When unit is %
 	.loopSize (@index) when (@index >= @minValue)  and (@unitMaxValue = ~"%"){
 		@per: per;
-		.@{width-prefix}-@{index}-@{per}@{importantClass} {
-			width: ~"@{index}@{unitMaxValue}@{important}";
+		.@{width-prefix}-@{index}-@{per} {
+			width: ~"@{index}@{unitMaxValue}";
 		}
 
 		// next iteration
@@ -37,8 +34,8 @@
 
 	// When unit is not px and %
 	.loopSize (@index) when (@index >= @minValue) and not (@unitMaxValue = ~"%") and not (@unitMaxValue = px){
-		.@{width-prefix}-@{index}@{unitMaxValue}@{importantClass} {
-			width: ~"@{index}@{unitMaxValue}@{important}";
+		.@{width-prefix}-@{index}@{unitMaxValue} {
+			width: ~"@{index}@{unitMaxValue}";
 		}
 
 		// next iteration
