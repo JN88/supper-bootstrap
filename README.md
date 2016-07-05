@@ -1,6 +1,6 @@
 # Supper-Bootstrap
 
-Supper-Bootstrap be build base on the framework [Twitter Bootstrap] v3.3.6 and integrated [Font Awesome] v.4.5.0
+Supper-Bootstrap be build base on the framework [Twitter Bootstrap] v3.3.6 and integrated [Font Awesome] v.4.6.3
 
 ### Featured Gulp Packages using
 [gulp-plumber], [gulp-less], [gulp-less-sourcemap], [gulp-cssmin], [browser-sync], [gulp-html-tag-include]
