@@ -91,23 +91,3 @@
 	// "call" the loopingClass the first time with highest value
 	.loop_margin_padding (@numberMaxValue);
 }
-
-// MIXIN: Check Value jave Important
-//--------------------------------------------------------------------------------
-// Parameter 		Type 		Default 		Description
-//--------------------------------------------------------------------------------
-// @important 		boolean		false			Condition to check values is Important
-
-.marginAndPaddingZero(){
-	.@{margin-prefix}-0 {margin: 0;}
-	.@{margin-prefix}-@{top-alias}-0 {margin-top: 0;}
-	.@{margin-prefix}-@{right-alias}-0 {margin-right: 0;}
-	.@{margin-prefix}-@{bottom-alias}-0 {margin-bottom: 0;}
-	.@{margin-prefix}-@{left-alias}-0 {margin-left: 0;}
-
-	.@{padding-prefix}-0 {padding: 0;}
-	.@{padding-prefix}-@{top-alias}-0 {padding-top: 0;}
-	.@{padding-prefix}-@{right-alias}-0 {padding-right: 0;}
-	.@{padding-prefix}-@{bottom-alias}-0 {padding-bottom: 0;}
-	.@{padding-prefix}-@{left-alias}-0 {padding-left: 0;}
-}
