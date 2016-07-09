@@ -8981,6 +8981,11 @@ This must be run when you have at least 2 sprites.
 
 .sprites(@spritesheet-sprites);
 */
+.reset-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
 .icon {
   display: inline-block;
   vertical-align: middle;
@@ -9003,7 +9008,6 @@ This must be run when you have at least 2 sprites.
   width: 44px;
   height: 44px;
 }
-/* HOOK COMMONS STYLE */
 .clear {
   clear: both;
 }
@@ -9488,54 +9492,64 @@ This must be run when you have at least 2 sprites.
 .margin-5-0 {
   margin: 5px 0 !important;
 }
+.no-padding {
+  padding: 0!important;
+}
+.no-padding-vertical {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+.no-padding-horizontal {
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
 .margin-0 {
-  margin: 0;
+  margin: 0!important;
 }
 .margin-top-0 {
-  margin-top: 0;
+  margin-top: 0!important;
 }
 .margin-right-0 {
-  margin-right: 0;
+  margin-right: 0!important;
 }
 .margin-bottom-0 {
-  margin-bottom: 0;
+  margin-bottom: 0!important;
 }
 .margin-left-0 {
+  margin-left: 0!important;
+}
+.no-margin {
+  margin: 0!important;
+}
+.no-margin-vertical {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.no-margin-horizontal {
   margin-left: 0;
+  margin-right: 0;
 }
 .padding-0 {
-  padding: 0;
+  padding: 0!important;
 }
 .padding-top-0 {
-  padding-top: 0;
+  padding-top: 0!important;
 }
 .padding-right-0 {
-  padding-right: 0;
+  padding-right: 0!important;
 }
 .padding-bottom-0 {
-  padding-bottom: 0;
+  padding-bottom: 0!important;
 }
 .padding-left-0 {
-  padding-left: 0;
+  padding-left: 0!important;
 }
 .font-size-0 {
-  font-size: 0;
-}
-.font-size-0-ipt {
   font-size: 0!important;
 }
 .width-0,
 .remove-width {
-  width: 0;
-}
-.width-0-ipt,
-.remove-width-ipt {
   width: 0!important;
-}
-.reset-list {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
 }
 @media (min-width: 768px) {
   .inline-min-sm {
