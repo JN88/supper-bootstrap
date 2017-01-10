@@ -1,28 +1,90 @@
-<!DOCTYPE html><!--[if IE 8]><html class="lt-ie9 no-js"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Home Page</title>
-  <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="shortcut icon" href="assets/ico/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
-  <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries-->
-  <link><!--[if lt IE 9]>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script><![endif]-->
-</head>
-<body>
-  <div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti possimus deserunt sapiente expedita et, porro iusto laudantium animi suscipit modi, dolorum, quidem! Quibusdam nostrum minima, molestias nulla dolorem quia eveniet.
-    <p><img src="assets/images/logo.png" alt="logo" data-src="holder.js/168x92?bg=#ebebeb&amp;fg=#8cb988"></p>
-    <div class="row">
-      <div class="col-md-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore facilis laudantium molestiae. Id rerum commodi officia distinctio natus eius veritatis, praesentium, aspernatur libero sunt, voluptatibus, eveniet aliquid voluptas quam omnis.</div>
-      <div class="col-md-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore facilis laudantium molestiae. Id rerum commodi officia distinctio natus eius veritatis, praesentium, aspernatur libero sunt, voluptatibus, eveniet aliquid voluptas quam omnis.</div>
-    </div>
-  </div>
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/holder.js"></script>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home Page</title>
+    <meta name="description" content="Page description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <header id="header" class="site-header">
+      <nav role="navigation" class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">Title</a>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+            <form role="search" class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" placeholder="Search" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Link</a></li>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle">Dropdown<span class="caret"></span></a>
+                <ul role="menu" class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="site-main">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <section class="main-content">
+              <div class="jumbotron">
+                <h1>Hello, world!</h1>
+                <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <p><a href="#" role="button" class="btn btn-primary btn-lg">Learn more</a></p>
+              </div>
+              <div class="row">
+                <div class="col-md-6"><img src="assets/images/logo.png" alt="logo" data-src="holder.js/438x200?bg=#ebebeb&amp;fg=#8cb988" class="img-responsive"></div>
+                <div class="col-md-6">
+                  <h4>Lorem ipsum dolor sit amet</h4>
+                  <p>Consectetur adipisicing elit. Tempore facilis laudantium molestiae. Id rerum commodi officia distinctio natus eius veritatis, praesentium, aspernatur libero sunt, voluptatibus, eveniet aliquid voluptas quam omnis.</p>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="col-md-3">
+            <aside class="sidebar sidebar-right">
+              <aside class="sidebar sidebar-right">
+                <ul class="nav nav-pills nav-stacked">
+                  <li class="active"><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                </ul>
+              </aside>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" class="site-footer">
+      <div class="container">
+        <hr>
+        <p>Built by<a href="https://github.com/JN88/supper-bootstrap">JN88</a></p>
+      </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/holder.js"></script>
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>

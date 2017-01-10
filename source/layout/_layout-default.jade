@@ -1,0 +1,19 @@
+doctype html
+block config
+html
+	include ../includes/_head.jade
+	body
+		header#header.site-header
+			include ../includes/_header.jade
+		main#main.site-main
+			.container
+				.row
+					.col-md-9
+						section.main-content
+							block content
+					.col-md-3
+						aside.sidebar.sidebar-right
+							include ../includes/_sidebar.jade
+		footer#footer.site-footer
+			include ../includes/_footer.jade
+		include ../includes/_bottom.jade

@@ -1,34 +1,18 @@
-doctype
-<!--[if IE 8]><html class="lt-ie9 no-js"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
-head
-	//- TODO: Check if it's the good charset
-	meta(charset="utf-8")
-	meta(http-equiv="X-UA-Compatible", content="IE=edge")
-	title Home Page
-	meta(name="description", content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-	meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+//- index.jade
+extends layout/_layout-default.jade
 
-	link(rel="shortcut icon", href="assets/ico/favicon.ico" type="image/x-icon")
-	link(rel="apple-touch-icon" , href="assets/ico/apple-touch-icon.png")
+block config
+	- var title = 'Home Page'
 
-	link(href="assets/css/style.css", rel="stylesheet", type="text/css")
+block content
+	.jumbotron
+		h1 Hello, world!
+		p This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+		p: a.btn.btn-primary.btn-lg(href='#', role='button') Learn more
 
-	// HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
-	link
-	<!--[if lt IE 9]>
-	script(src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.0/html5shiv.js")
-	script(src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js")
-	<![endif]-->
-body
-	//- Add your site or application content here
-	.container Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti possimus deserunt sapiente expedita et, porro iusto laudantium animi suscipit modi, dolorum, quidem! Quibusdam nostrum minima, molestias nulla dolorem quia eveniet.
-		p
-			img(src="assets/images/logo.png" alt="logo" data-src="holder.js/168x92?bg=#ebebeb&fg=#8cb988")
-		.row
-			.col-md-6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore facilis laudantium molestiae. Id rerum commodi officia distinctio natus eius veritatis, praesentium, aspernatur libero sunt, voluptatibus, eveniet aliquid voluptas quam omnis.
-			.col-md-6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore facilis laudantium molestiae. Id rerum commodi officia distinctio natus eius veritatis, praesentium, aspernatur libero sunt, voluptatibus, eveniet aliquid voluptas quam omnis.
-
-	script(src="assets/js/jquery.min.js")
-	script(src="assets/js/bootstrap.min.js")
-	script(src="assets/js/holder.js")
+	.row
+		.col-md-6
+			img.img-responsive(src="assets/images/logo.png" alt="logo" data-src="holder.js/438x200?bg=#ebebeb&fg=#8cb988")
+		.col-md-6
+			h4 Lorem ipsum dolor sit amet
+			p Consectetur adipisicing elit. Tempore facilis laudantium molestiae. Id rerum commodi officia distinctio natus eius veritatis, praesentium, aspernatur libero sunt, voluptatibus, eveniet aliquid voluptas quam omnis.

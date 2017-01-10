@@ -10,7 +10,6 @@ var less = require('gulp-less-sourcemap');
 var cssmin = require('gulp-cssmin');
 var gutil = require('gulp-util');
 var rename = require('gulp-rename');
-//var includeHTML = require('gulp-html-tag-include');
 var browserSync = require('browser-sync').create();
 var spritesmith = require('gulp.spritesmith');
 var merge = require('merge-stream');
@@ -29,8 +28,8 @@ gulp.task('build-css', function () {
 				sourceMapRootpath: './assets/less'
 			}
 		}))
-		.pipe(browserSync.stream())
 		.pipe(gulp.dest('./assets/css')).on('error', gutil.log)
+		.pipe(browserSync.stream());
 
 	});
 
@@ -55,12 +54,12 @@ gulp.task('minify-css', function() {
 // BUILD HTML TASK
 // /////////////////////////////////////////////
 gulp.task('build-html', function() {
-	return gulp.src('./source//**/*.jade')
+	return gulp.src('./source//*.jade')
 	.pipe(jade({
       pretty: true
     }))
 	.pipe(gulp.dest('./'))
-	.pipe(browserSync.stream());
+	//.pipe(browserSync.stream());
 });
 
 // /////////////////////////////////////////////
@@ -118,7 +117,7 @@ gulp.task('watch', ['build-html', 'sprite','browser-sync'], function () {
 	gulp.watch('./assets/less/**/*.less', ['build-css']);
 	gulp.watch('assets/js/**/*.js', ['build-js']);
 	gulp.watch('assets/images/sprite/**/*.png', ['sprite']);
-		//gulp.watch("./*.html").on('change', browserSync.reload);
+	gulp.watch("./*.html").on('change', browserSync.reload);
 });
 
 // /////////////////////////////////////////////
